@@ -190,3 +190,53 @@
   [id]{scroll-margin-top:96px}
   .sprite{position:absolute; width:0; height:0; overflow:hidden}
   .vh{position:absolute !important; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); clip-path:inset(50%); white-space:nowrap}
+
+  /* The cod: blinks when idle, wags and swims on hover, spins on click, parties every 10th click */
+  .fish-wrap{position:relative}
+  .fishy{display:block; width:100%; padding:0; margin:0; border:0; background:none; color:inherit; cursor:pointer; position:relative; border-radius:4px}
+  div.fishy{cursor:default}
+  .fishy svg{display:block; width:100%; height:auto; overflow:visible}
+  .fishy .k{fill:var(--ink)} .fishy .r{fill:var(--red)} .fishy .w{fill:var(--linen)}
+  .fishy .f-tail{transform-box:view-box; transform-origin:264px 78px}
+  .fishy .f-eye{transform-box:fill-box; transform-origin:center}
+  .fishy .bubble{position:absolute; left:-2%; top:44%; width:10px; height:10px; border:2px solid var(--ink); opacity:0; pointer-events:none}
+  .say{
+    position:absolute; left:6%; bottom:calc(100% + 6px); margin:0; max-width:92%;
+    background:var(--ink); color:var(--linen); padding:8px 12px; border-radius:3px;
+    font-family:"IBM Plex Mono", ui-monospace, Menlo, monospace; font-size:.85rem; line-height:1.35
+  }
+  .say::after{content:""; position:absolute; left:22px; top:100%; border:7px solid transparent; border-top-color:var(--ink)}
+  .say:empty{display:none}
+  .say{z-index:2}
+  @media (max-width:840px){
+    .say{bottom:auto; top:calc(100% + 10px)}
+    .say::after{top:auto; bottom:100%; border-top-color:transparent; border-bottom-color:var(--ink)}
+  }
+  @media (prefers-reduced-motion: no-preference){
+    .fishy .f-eye{animation:fish-blink 5s infinite}
+    .fishy:hover .f-tail, .fishy:focus-visible .f-tail{animation:fish-wag .5s steps(3) infinite alternate}
+    .fishy:hover svg, .fishy:focus-visible svg{animation:fish-swim 1.2s ease-in-out infinite}
+    .fishy:hover .bubble, .fishy:focus-visible .bubble{animation:fish-bubble 1.8s ease-out infinite}
+    .fishy .bubble:nth-of-type(2){animation-delay:.6s !important; width:7px; height:7px}
+    .fishy .bubble:nth-of-type(3){animation-delay:1.2s !important; width:12px; height:12px}
+    .fishy.spin svg{animation:fish-spin .8s cubic-bezier(.3,1.4,.5,1)}
+    .fishy.spin .f-tail{animation:fish-wag .12s steps(2) infinite alternate}
+    .fishy.party svg{animation:fish-party 2.4s linear}
+    .fishy.party .f-tail{animation:fish-wag .08s steps(2) infinite alternate}
+    .say{animation:fish-pop .25s cubic-bezier(.3,1.6,.5,1)}
+  }
+  @keyframes fish-wag{from{transform:rotate(-18deg)} to{transform:rotate(18deg)}}
+  @keyframes fish-swim{0%,100%{transform:translate(0,0) rotate(0)} 25%{transform:translate(-4px,-6px) rotate(-2deg)} 75%{transform:translate(4px,4px) rotate(1.5deg)}}
+  @keyframes fish-blink{0%,93%,100%{transform:scaleY(1)} 95%,97%{transform:scaleY(.1)}}
+  @keyframes fish-bubble{0%{opacity:0; transform:translate(0,0)} 15%{opacity:1} 100%{opacity:0; transform:translate(-18px,-120px)}}
+  @keyframes fish-spin{0%{transform:translateY(0) rotate(0)} 40%{transform:translateY(-40px) rotate(-200deg) scale(1.08)} 100%{transform:translateY(0) rotate(-360deg)}}
+  @keyframes fish-party{
+    0%{transform:rotate(0) scale(1); filter:hue-rotate(0)}
+    20%{transform:translateX(-30px) rotate(-20deg) scale(1.15)}
+    40%{transform:translateX(30px) rotate(20deg) scale(.9) scaleX(-1)}
+    60%{transform:translateY(-50px) rotate(-340deg) scale(1.2)}
+    80%{transform:translateX(-10px) rotate(-360deg) scale(1)}
+    100%{transform:rotate(-360deg) scale(1); filter:hue-rotate(720deg)}
+  }
+  @keyframes fish-pop{from{transform:scale(.6) translateY(8px); opacity:0} to{transform:none; opacity:1}}
+

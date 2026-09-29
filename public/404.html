@@ -234,6 +234,55 @@
   [id]{scroll-margin-top:96px}
   .sprite{position:absolute; width:0; height:0; overflow:hidden}
   .vh{position:absolute !important; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); clip-path:inset(50%); white-space:nowrap}
+
+  /* The cod: blinks when idle, wags and swims on hover, spins on click, parties every 10th click */
+  .fish-wrap{position:relative}
+  .fishy{display:block; width:100%; padding:0; margin:0; border:0; background:none; color:inherit; cursor:pointer; position:relative; border-radius:4px}
+  div.fishy{cursor:default}
+  .fishy svg{display:block; width:100%; height:auto; overflow:visible}
+  .fishy .k{fill:var(--ink)} .fishy .r{fill:var(--red)} .fishy .w{fill:var(--linen)}
+  .fishy .f-tail{transform-box:view-box; transform-origin:264px 78px}
+  .fishy .f-eye{transform-box:fill-box; transform-origin:center}
+  .fishy .bubble{position:absolute; left:-2%; top:44%; width:10px; height:10px; border:2px solid var(--ink); opacity:0; pointer-events:none}
+  .say{
+    position:absolute; left:6%; bottom:calc(100% + 6px); margin:0; max-width:92%;
+    background:var(--ink); color:var(--linen); padding:8px 12px; border-radius:3px;
+    font-family:"IBM Plex Mono", ui-monospace, Menlo, monospace; font-size:.85rem; line-height:1.35
+  }
+  .say::after{content:""; position:absolute; left:22px; top:100%; border:7px solid transparent; border-top-color:var(--ink)}
+  .say:empty{display:none}
+  .say{z-index:2}
+  @media (max-width:840px){
+    .say{bottom:auto; top:calc(100% + 10px)}
+    .say::after{top:auto; bottom:100%; border-top-color:transparent; border-bottom-color:var(--ink)}
+  }
+  @media (prefers-reduced-motion: no-preference){
+    .fishy .f-eye{animation:fish-blink 5s infinite}
+    .fishy:hover .f-tail, .fishy:focus-visible .f-tail{animation:fish-wag .5s steps(3) infinite alternate}
+    .fishy:hover svg, .fishy:focus-visible svg{animation:fish-swim 1.2s ease-in-out infinite}
+    .fishy:hover .bubble, .fishy:focus-visible .bubble{animation:fish-bubble 1.8s ease-out infinite}
+    .fishy .bubble:nth-of-type(2){animation-delay:.6s !important; width:7px; height:7px}
+    .fishy .bubble:nth-of-type(3){animation-delay:1.2s !important; width:12px; height:12px}
+    .fishy.spin svg{animation:fish-spin .8s cubic-bezier(.3,1.4,.5,1)}
+    .fishy.spin .f-tail{animation:fish-wag .12s steps(2) infinite alternate}
+    .fishy.party svg{animation:fish-party 2.4s linear}
+    .fishy.party .f-tail{animation:fish-wag .08s steps(2) infinite alternate}
+    .say{animation:fish-pop .25s cubic-bezier(.3,1.6,.5,1)}
+  }
+  @keyframes fish-wag{from{transform:rotate(-18deg)} to{transform:rotate(18deg)}}
+  @keyframes fish-swim{0%,100%{transform:translate(0,0) rotate(0)} 25%{transform:translate(-4px,-6px) rotate(-2deg)} 75%{transform:translate(4px,4px) rotate(1.5deg)}}
+  @keyframes fish-blink{0%,93%,100%{transform:scaleY(1)} 95%,97%{transform:scaleY(.1)}}
+  @keyframes fish-bubble{0%{opacity:0; transform:translate(0,0)} 15%{opacity:1} 100%{opacity:0; transform:translate(-18px,-120px)}}
+  @keyframes fish-spin{0%{transform:translateY(0) rotate(0)} 40%{transform:translateY(-40px) rotate(-200deg) scale(1.08)} 100%{transform:translateY(0) rotate(-360deg)}}
+  @keyframes fish-party{
+    0%{transform:rotate(0) scale(1); filter:hue-rotate(0)}
+    20%{transform:translateX(-30px) rotate(-20deg) scale(1.15)}
+    40%{transform:translateX(30px) rotate(20deg) scale(.9) scaleX(-1)}
+    60%{transform:translateY(-50px) rotate(-340deg) scale(1.2)}
+    80%{transform:translateX(-10px) rotate(-360deg) scale(1)}
+    100%{transform:rotate(-360deg) scale(1); filter:hue-rotate(720deg)}
+  }
+  @keyframes fish-pop{from{transform:scale(.6) translateY(8px); opacity:0} to{transform:none; opacity:1}}
 </style>
 
 </head>
@@ -254,7 +303,7 @@
     <p class="lead" lang="ro">Pagina asta a mers local. Pe producție, se rezolvă.</p>
     <p class="lead" lang="en">This page worked locally. In production, se rezolvă (it will get sorted).</p>
     <div class="ctas"><a class="btn" href="/#codul">Înapoi la Cod</a><a class="btn ghost" href="/en/#codul" lang="en">Back to the Code</a></div>
-  </div><svg class="fish" viewBox="0 0 312 156" width="312" height="156" role="img" aria-labelledby="fish-t" shape-rendering="crispEdges"><title id="fish-t">Un cod (pește) cusut în cruciulițe roșii și bleumarin, mascota Dor de codul românesc</title><use href="#fish"/></svg></div></div>
+  </div><div class="fish fish-wrap"><div class="fishy" role="img" aria-label="Un cod (pește) cusut în cruciulițe roșii și bleumarin, mascota Dor de codul românesc"><svg viewBox="0 0 312 156" width="312" height="156" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><g class="f-body"><path class="k" d="M120 0h12v12h-12zM132 0h12v12h-12zM144 0h12v12h-12zM108 12h12v12h-12zM156 12h12v12h-12zM60 24h12v12h-12zM72 24h12v12h-12zM84 24h12v12h-12zM96 24h12v12h-12zM108 24h12v12h-12zM168 24h12v12h-12zM180 24h12v12h-12zM192 24h12v12h-12zM204 24h12v12h-12zM36 36h12v12h-12zM48 36h12v12h-12zM120 36h12v12h-12zM144 36h12v12h-12zM168 36h12v12h-12zM228 36h12v12h-12zM24 48h12v12h-12zM120 48h12v12h-12zM144 48h12v12h-12zM168 48h12v12h-12zM240 48h12v12h-12zM12 60h12v12h-12zM48 60h12v12h-12zM60 60h12v12h-12zM120 60h12v12h-12zM144 60h12v12h-12zM168 60h12v12h-12zM252 60h12v12h-12zM0 72h12v12h-12zM36 72h12v12h-12zM60 72h12v12h-12zM120 72h12v12h-12zM132 72h12v12h-12zM156 72h12v12h-12zM168 72h12v12h-12zM252 72h12v12h-12zM12 84h12v12h-12zM48 84h12v12h-12zM60 84h12v12h-12zM120 84h12v12h-12zM144 84h12v12h-12zM168 84h12v12h-12zM252 84h12v12h-12zM24 96h12v12h-12zM120 96h12v12h-12zM144 96h12v12h-12zM168 96h12v12h-12zM240 96h12v12h-12zM36 108h12v12h-12zM48 108h12v12h-12zM120 108h12v12h-12zM144 108h12v12h-12zM168 108h12v12h-12zM228 108h12v12h-12zM60 120h12v12h-12zM72 120h12v12h-12zM84 120h12v12h-12zM96 120h12v12h-12zM108 120h12v12h-12zM168 120h12v12h-12zM180 120h12v12h-12zM192 120h12v12h-12zM204 120h12v12h-12zM120 132h12v12h-12zM156 132h12v12h-12zM132 144h12v12h-12zM144 144h12v12h-12z"/><path class="r" d="M120 12h12v12h-12zM132 12h12v12h-12zM144 12h12v12h-12zM120 24h12v12h-12zM132 24h12v12h-12zM144 24h12v12h-12zM156 24h12v12h-12zM60 36h12v12h-12zM72 36h12v12h-12zM84 36h12v12h-12zM96 36h12v12h-12zM108 36h12v12h-12zM180 36h12v12h-12zM192 36h12v12h-12zM204 36h12v12h-12zM216 36h12v12h-12zM36 48h12v12h-12zM48 48h12v12h-12zM60 48h12v12h-12zM72 48h12v12h-12zM84 48h12v12h-12zM96 48h12v12h-12zM108 48h12v12h-12zM180 48h12v12h-12zM192 48h12v12h-12zM204 48h12v12h-12zM216 48h12v12h-12zM228 48h12v12h-12zM24 60h12v12h-12zM36 60h12v12h-12zM72 60h12v12h-12zM84 60h12v12h-12zM96 60h12v12h-12zM108 60h12v12h-12zM132 60h12v12h-12zM156 60h12v12h-12zM180 60h12v12h-12zM192 60h12v12h-12zM204 60h12v12h-12zM216 60h12v12h-12zM228 60h12v12h-12zM240 60h12v12h-12zM12 72h12v12h-12zM24 72h12v12h-12zM72 72h12v12h-12zM84 72h12v12h-12zM96 72h12v12h-12zM108 72h12v12h-12zM144 72h12v12h-12zM180 72h12v12h-12zM192 72h12v12h-12zM204 72h12v12h-12zM216 72h12v12h-12zM228 72h12v12h-12zM240 72h12v12h-12zM24 84h12v12h-12zM36 84h12v12h-12zM72 84h12v12h-12zM84 84h12v12h-12zM96 84h12v12h-12zM108 84h12v12h-12zM132 84h12v12h-12zM156 84h12v12h-12zM180 84h12v12h-12zM192 84h12v12h-12zM204 84h12v12h-12zM216 84h12v12h-12zM228 84h12v12h-12zM240 84h12v12h-12zM36 96h12v12h-12zM48 96h12v12h-12zM60 96h12v12h-12zM72 96h12v12h-12zM84 96h12v12h-12zM96 96h12v12h-12zM108 96h12v12h-12zM180 96h12v12h-12zM192 96h12v12h-12zM204 96h12v12h-12zM216 96h12v12h-12zM228 96h12v12h-12zM60 108h12v12h-12zM72 108h12v12h-12zM84 108h12v12h-12zM96 108h12v12h-12zM108 108h12v12h-12zM180 108h12v12h-12zM192 108h12v12h-12zM204 108h12v12h-12zM216 108h12v12h-12zM120 120h12v12h-12zM132 120h12v12h-12zM144 120h12v12h-12zM156 120h12v12h-12zM132 132h12v12h-12zM144 132h12v12h-12z"/><path class="w" d="M132 36h12v12h-12zM156 36h12v12h-12zM132 48h12v12h-12zM156 48h12v12h-12zM132 96h12v12h-12zM156 96h12v12h-12zM132 108h12v12h-12zM156 108h12v12h-12z"/></g><g class="f-tail"><path class="k" d="M300 36h12v12h-12zM288 48h12v12h-12zM300 48h12v12h-12zM276 60h12v12h-12zM288 60h12v12h-12zM300 60h12v12h-12zM264 72h12v12h-12zM276 72h12v12h-12zM288 72h12v12h-12zM300 72h12v12h-12zM276 84h12v12h-12zM288 84h12v12h-12zM300 84h12v12h-12zM288 96h12v12h-12zM300 96h12v12h-12zM300 108h12v12h-12z"/></g><g class="f-eye"><path class="w" d="M48 72h12v12h-12z"/></g></svg><span class="bubble" aria-hidden="true"></span><span class="bubble" aria-hidden="true"></span><span class="bubble" aria-hidden="true"></span></div></div></div></div>
 </main>
 </body>
 </html>
