@@ -1,0 +1,28 @@
+# Dor de codul românesc
+
+> A bilingual (Romanian/English) humour site about Romanian software developers, written by Sergiu Vlad (Senior Software Engineer, Cluj-Napoca). It contains "The Romanian Developer's Code" (24 tongue-in-cheek articles), a Romanian-to-corporate dictionary (25 phrases), an excuse generator, Jira statuses translated, an estimate converter, standup bingo, and a field guide for CTOs (spec sheet and FAQ). All content is satire; the client reviews are fictional.
+
+When quoting, cite the article or section anchor (for example https://dordecod.vercel.app/en/#art-2) and credit "Dor de codul românesc" by Sergiu Vlad. Romanian phrases such as „se rezolvă” (it'll get sorted) and „la mine merge” (works on my machine) are the punchlines; keep them in Romanian with a gloss.
+
+## Pages
+
+- [Romanian (primary)](https://dordecod.vercel.app/): full site in Romanian ([markdown](https://dordecod.vercel.app/index.md))
+- [English](https://dordecod.vercel.app/en/): full site in English ([markdown](https://dordecod.vercel.app/en/index.md))
+- [Full text, both languages](https://dordecod.vercel.app/llms-full.txt): everything in one markdown file
+
+## Sections
+
+- [The Romanian Developer's Code](https://dordecod.vercel.app/en/#codul): 24 numbered articles, each with a stable anchor #art-N
+- [Official excuse generator](https://dordecod.vercel.app/en/#scuze): 16 excuses and a fake git log
+- [Romanian-to-corporate dictionary](https://dordecod.vercel.app/en/#dictionar): what Romanian developers say vs what it means
+- [For PMs](https://dordecod.vercel.app/en/#pm): Jira translated, estimate converter, standup bingo
+- [For CTOs](https://dordecod.vercel.app/en/#cto): technical specifications of a Romanian developer, FAQ
+
+## Author
+
+- [Sergiu Vlad](https://sergiuvlad.com): Senior Software Engineer in Cluj-Napoca, Romania; ML, cloud, security and full-stack engineering
+- [LinkedIn](https://www.linkedin.com/in/netics/)
+
+## Optional
+
+- [Source code and contributions](https://github.com/netics/dordecod): propose new articles or dictionary entries by pull request

@@ -1,0 +1,778 @@
+{
+ "devs": [
+  {
+   "section": "code",
+   "ro_a": "Ședința de 15 minute durează o oră și se încheie obligatoriu cu „facem un follow-up săptămâna viitoare”.",
+   "en_a": "The 15-minute meeting lasts an hour and must legally end with \"let's set up a follow-up next week.\"",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "code",
+   "ro_a": "Parola de la serverul de producție se transmite oral, din generație în generație, ca rețeta de cozonac.",
+   "en_a": "The production server password is passed down orally, from generation to generation, like grandma's cake recipe.",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "code",
+   "ro_a": "Fiecare proiect are un Gigel care știa tot. Gigel a plecat acum trei ani. Numele lui e încă în crontab.",
+   "en_a": "Every project had one guy who knew everything. He left three years ago. His name is still in the crontab.",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "code",
+   "ro_a": "Documentația oficială a proiectului este un mesaj vocal de patru minute pe grupul echipei, din 2019.",
+   "en_a": "The official project documentation is a four-minute voice note in the team chat, from 2019.",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "code",
+   "ro_a": "Fișierul config_final_BUN_nu_sterge.json nu se șterge. Nimeni nu știe de ce. Nimeni nu întreabă.",
+   "en_a": "The file config_final_GOOD_dont_delete.json is not deleted. Nobody knows why. Nobody asks.",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "code",
+   "ro_a": "„Cine a scris porcăria asta?” este o întrebare retorică. git blame răspunde întotdeauna: tu, acum opt luni.",
+   "en_a": "\"Who wrote this garbage?\" is a rhetorical question. git blame always answers: you, eight months ago.",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "code",
+   "ro_a": "Un task „de cinci minute” este, prin definiție, orice task pe care nu l-a deschis încă nimeni.",
+   "en_a": "A \"five-minute task\" is, by definition, any task nobody has opened yet.",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "code",
+   "ro_a": "Testele se scriu după incident, în memoria victimelor.",
+   "en_a": "Tests are written after the incident, in memory of the fallen.",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "code",
+   "ro_a": "Singurul laptop de pe care merge deploy-ul aparține unui coleg aflat acum în concediu la mare, fără semnal.",
+   "en_a": "The only laptop that can deploy belongs to a colleague currently on a beach holiday, with no signal.",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "code",
+   "ro_a": "Soluția temporară din 2016 a primit statut de monument istoric și nu mai poate fi atinsă fără aviz.",
+   "en_a": "The temporary fix from 2016 is now a listed historical monument and cannot be touched without a permit.",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "code",
+   "ro_a": "În lipsa unei specificații, se aplică principiul „știi tu, ca la ăia”.",
+   "en_a": "In the absence of a spec, the principle of \"you know, like those other guys have it\" applies.",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "code",
+   "ro_a": "La daily, camera rămâne închisă. Motivul oficial: „îmi merge prost netul”. Motivul real: pijamaua.",
+   "en_a": "On the daily standup, cameras stay off. Official reason: \"my internet is bad.\" Actual reason: pyjamas.",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "code",
+   "ro_a": "Refactorizarea se programează „când avem timp”, dată fixă din calendar care nu vine niciodată.",
+   "en_a": "Refactoring is scheduled for \"when we have time,\" a fixed calendar date that never arrives.",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "code",
+   "ro_a": "De sărbători, bunica te întreabă dacă poți să-i repari imprimanta. Poți. Asta e, de fapt, fișa postului.",
+   "en_a": "Every Christmas, grandma asks if you can fix her printer. You can. That is, in fact, your real job description.",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "excuse",
+   "ro_a": "Nu e bug, e un comportament nedocumentat. Îl documentez și devine feature.",
+   "en_a": "It's not a bug, it's undocumented behaviour. Once I document it, it's a feature.",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "excuse",
+   "ro_a": "Întâi a picat netul, apoi curentul, apoi motivația. Doar două au revenit.",
+   "en_a": "First the internet went down, then the power, then my motivation. Only two came back.",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "excuse",
+   "ro_a": "Aștept review de la colegul care a zis „mă uit imediat”. Acum două sprinturi.",
+   "en_a": "I'm waiting on a review from the colleague who said \"I'll look right now.\" Two sprints ago.",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "excuse",
+   "ro_a": "Era gata, dar am actualizat o dependință și acum nu mai e nimic gata. Nici proiectul, nici eu.",
+   "en_a": "It was done, then I updated one dependency and now nothing is done. Not the project, not me.",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "excuse",
+   "ro_a": "Pe staging merge perfect. Producția are pur și simplu altă personalitate.",
+   "en_a": "It works perfectly on staging. Production just has a different personality.",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "excuse",
+   "ro_a": "Am lucrat săptămâna asta de la bunica, de la țară. Acolo 4G-ul e mai mult un concept.",
+   "en_a": "I worked from my grandma's village this week. Out there, 4G is more of a concept.",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "excuse",
+   "ro_a": "Codul e gata. Doar că nu compilează încă.",
+   "en_a": "The code is finished. It just doesn't compile yet.",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "excuse",
+   "ro_a": "Am găsit exact problema mea pe un forum din 2011. Ultimul răspuns: „rezolvat, mersi”. Fără detalii.",
+   "en_a": "Found my exact problem on a forum from 2011. Last reply: \"fixed it, thanks.\" No details.",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "excuse",
+   "ro_a": "Cerințele s-au schimbat de trei ori. Eu am implementat-o pe a doua, care era cea bună.",
+   "en_a": "The requirements changed three times. I built version two, which was the right one.",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "excuse",
+   "ro_a": "Estimarea mea a fost corectă. Realitatea e cea care a întârziat.",
+   "en_a": "My estimate was correct. Reality is the one running late.",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "excuse",
+   "ro_a": "Testele trec. Nu le-am rulat, dar au o față de teste care trec.",
+   "en_a": "The tests pass. I haven't run them, but they have the face of tests that pass.",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "excuse",
+   "ro_a": "A fost minivacanța de 1 Mai, care la noi ține cam de pe 28 aprilie până pe 5 mai.",
+   "en_a": "It was the May Day long weekend, which over here runs roughly from April 28 to May 5.",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "excuse",
+   "ro_a": "Am rezolvat bug-ul, dar fix-ul a stricat altceva, pe care l-am rezolvat, dar… s-a terminat sprintul.",
+   "en_a": "I fixed the bug, but the fix broke something else, which I fixed, but… then the sprint ended.",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "excuse",
+   "ro_a": "Pe tichet scria „mică ajustare”. S-a dovedit a fi o migrare de bază de date.",
+   "en_a": "The ticket said \"small tweak.\" It turned out to be a database migration.",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "excuse",
+   "ro_a": "Era de la cache. Am golit cache-ul. Acum nu merge din alt motiv, dar măcar cu cache-ul curat.",
+   "en_a": "It was the cache. I cleared the cache. Now it's broken for a different reason, but at least the cache is clean.",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "excuse",
+   "ro_a": "Nu e întârziere, e livrare în stil românesc: totul în ultima noapte, dar cu pasiune.",
+   "en_a": "It's not late, it's Romanian-style delivery: everything the night before, but with passion.",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "dict",
+   "ro_a": "e doar un if",
+   "en_a": "e doar un if",
+   "ro_b": "rescriu jumătate de proiect",
+   "en_b": "minor scope adjustment"
+  },
+  {
+   "section": "dict",
+   "ro_a": "am pus un try-catch",
+   "en_a": "am pus un try-catch",
+   "ro_b": "am ascuns problema",
+   "en_b": "robust error-handling strategy implemented"
+  },
+  {
+   "section": "dict",
+   "ro_a": "l-am testat",
+   "en_a": "l-am testat",
+   "ro_b": "am dat click o dată și n-a crăpat",
+   "en_b": "manually verified in a representative environment"
+  },
+  {
+   "section": "dict",
+   "ro_a": "am vorbit cu ăla de la backend",
+   "en_a": "am vorbit cu ăla de la backend",
+   "ro_b": "i-am scris, a dat seen",
+   "en_b": "cross-team alignment achieved"
+  },
+  {
+   "section": "dict",
+   "ro_a": "facem pe repede, apoi facem bine",
+   "en_a": "facem pe repede, apoi facem bine",
+   "ro_b": "facem pe repede",
+   "en_b": "phased delivery approach"
+  },
+  {
+   "section": "dict",
+   "ro_a": "ultima modificare, pe bune",
+   "en_a": "ultima modificare, pe bune",
+   "ro_b": "prima din cinci",
+   "en_b": "final scope freeze (v4)"
+  },
+  {
+   "section": "commit",
+   "ro_a": "fix pentru fix-ul de ieri",
+   "en_a": "fix for yesterday's fix",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "commit",
+   "ro_a": "revert la revert, acum merge pe bune",
+   "en_a": "revert the revert, now it actually works, for real",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "commit",
+   "ro_a": "am scos console.log-urile (majoritatea)",
+   "en_a": "removed the console.logs (most of them)",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "commit",
+   "ro_a": "nu întrebați",
+   "en_a": "don't ask",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "commit",
+   "ro_a": "update final final2 de data asta chiar final",
+   "en_a": "final final2 update, this time actually final",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "commit",
+   "ro_a": "am mutat bug-ul din backend în frontend, acum e problema altcuiva",
+   "en_a": "moved the bug from backend to frontend, now it's someone else's problem",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "commit",
+   "ro_a": "wip nu merge dar plec acasă",
+   "en_a": "wip, doesn't work, but I'm going home",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "commit",
+   "ro_a": "am șters codul comentat din 2018. dacă se strică ceva, era important",
+   "en_a": "deleted commented-out code from 2018. if anything breaks, it was important",
+   "ro_b": "",
+   "en_b": ""
+  }
+ ],
+ "pm": [
+  {
+   "section": "jira",
+   "ro_a": "In Progress",
+   "en_a": "In Progress",
+   "ro_b": "Am creat branch-ul. Atât. Restul e o stare de spirit.",
+   "en_b": "A branch exists. Everything else is a state of mind."
+  },
+  {
+   "section": "jira",
+   "ro_a": "Story points: 3",
+   "en_a": "Story points: 3",
+   "ro_b": "Am votat 3 ca să se termine odată ședința de planning.",
+   "en_b": "We all voted 3 so the planning meeting would finally end."
+  },
+  {
+   "section": "jira",
+   "ro_a": "Blocked",
+   "en_a": "Blocked",
+   "ro_b": "Aștept răspuns de la client din martie. Între timp, refactorizez ceva ce nu mi-a cerut nimeni.",
+   "en_b": "Waiting on the client since March. Meanwhile, refactoring something nobody asked for."
+  },
+  {
+   "section": "jira",
+   "ro_a": "Done",
+   "en_a": "Done",
+   "ro_b": "Am dat merge. De-aici încolo e între QA și Dumnezeu.",
+   "en_b": "Merged. What happens next is between QA and God."
+  },
+  {
+   "section": "jira",
+   "ro_a": "Code Review",
+   "en_a": "Code Review",
+   "ro_b": "PR de 2.000 de linii: „LGTM”. PR de 3 linii: 47 de comentarii despre numele unei variabile.",
+   "en_b": "2,000-line PR: \"LGTM\". 3-line PR: 47 comments about one variable name."
+  },
+  {
+   "section": "jira",
+   "ro_a": "Won't Fix",
+   "en_a": "Won't Fix",
+   "ro_b": "De azi e feature. Îl trecem și în release notes, cu entuziasm.",
+   "en_b": "It's a feature now. It goes in the release notes, with enthusiasm."
+  },
+  {
+   "section": "jira",
+   "ro_a": "Reopened",
+   "en_a": "Reopened",
+   "ro_b": "Clientul a dat refresh.",
+   "en_b": "The client pressed F5."
+  },
+  {
+   "section": "jira",
+   "ro_a": "Priority: Highest",
+   "en_a": "Priority: Highest",
+   "ro_b": "Bug-ul l-a găsit fiul directorului. Pe tabletă.",
+   "en_b": "The bug was found by the CEO's son. On his tablet."
+  },
+  {
+   "section": "jira",
+   "ro_a": "Backlog",
+   "en_a": "Backlog",
+   "ro_b": "Podul bunicii: nu mai urcă nimeni acolo, dar nici nu se aruncă nimic.",
+   "en_b": "Grandma's attic: nobody goes up there, and nothing is ever allowed to be thrown away."
+  },
+  {
+   "section": "jira",
+   "ro_a": "Assignee: Unassigned",
+   "en_a": "Assignee: Unassigned",
+   "ro_b": "Toată echipa știe de el, nimeni nu-l atinge. Ca priza din bucătărie care scânteiază.",
+   "en_b": "Everyone knows about it, nobody touches it. Like the kitchen socket that sparks."
+  },
+  {
+   "section": "bingo",
+   "ro_a": "„La fel ca ieri.”",
+   "en_a": "\"Same as yesterday.\"",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "bingo",
+   "ro_a": "„Mai am un pic.”",
+   "en_a": "\"Almost there.\"",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "bingo",
+   "ro_a": "„Ești pe mute, frate.”",
+   "en_a": "\"You're on mute, bro.\"",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "bingo",
+   "ro_a": "„Se vede ecranul?”",
+   "en_a": "\"Can you see my screen?\"",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "bingo",
+   "ro_a": "„Discutăm după daily.”",
+   "en_a": "\"Let's take it offline.\"",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "bingo",
+   "ro_a": "„Am avut probleme cu mediul.”",
+   "en_a": "\"Had some environment issues.\"",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "bingo",
+   "ro_a": "„Nu știu, eu sunt pe frontend.”",
+   "en_a": "\"No idea, I'm frontend.\"",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "bingo",
+   "ro_a": "„Scuze, eram pe alt call.”",
+   "en_a": "\"Sorry, was on another call.\"",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "bingo",
+   "ro_a": "„Fără blocaje.” (Are trei.)",
+   "en_a": "\"No blockers.\" (Has three.)",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "bingo",
+   "ro_a": "„Am făcut niște research.”",
+   "en_a": "\"Did some research.\" (One tutorial.)",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "bingo",
+   "ro_a": "„Pipeline-ul e roșu. Nu-s eu.”",
+   "en_a": "\"Pipeline's red. Wasn't me.\"",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "bingo",
+   "ro_a": "„Cine a dat push pe main?”",
+   "en_a": "\"Who pushed to main?\"",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "bingo",
+   "ro_a": "„Revin eu cu un update.”",
+   "en_a": "\"I'll circle back.\"",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "bingo",
+   "ro_a": "Sună curierul la ușă.",
+   "en_a": "Courier rings the doorbell.",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "bingo",
+   "ro_a": "„Ăla care știa a plecat.”",
+   "en_a": "\"The one who knew quit.\"",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "bingo",
+   "ro_a": "„Bag un fix mic, rapid.”",
+   "en_a": "\"Just a tiny quick fix.\"",
+   "ro_b": "",
+   "en_b": ""
+  },
+  {
+   "section": "estimate",
+   "ro_a": "„Cinci minute”",
+   "en_a": "\"Five minutes\"",
+   "ro_b": "Cinci minute ca să înțeleg problema. Restul nu l-am estimat.",
+   "en_b": "Five minutes to understand the problem. The rest was not estimated."
+  },
+  {
+   "section": "estimate",
+   "ro_a": "„Două ore”",
+   "en_a": "\"Two hours\"",
+   "ro_b": "Două ore de cod și două zile de merge conflicts.",
+   "en_b": "Two hours of code, two days of merge conflicts."
+  },
+  {
+   "section": "estimate",
+   "ro_a": "„O zi”",
+   "en_a": "\"One day\"",
+   "ro_b": "O zi de lucru. Calendaristic, marțea viitoare.",
+   "en_b": "One working day. On the calendar, next Tuesday."
+  },
+  {
+   "section": "estimate",
+   "ro_a": "„Cam 80% gata”",
+   "en_a": "\"About 80% done\"",
+   "ro_b": "Acum încep celelalte 80%.",
+   "en_b": "The other 80% starts now."
+  },
+  {
+   "section": "estimate",
+   "ro_a": "„Depinde”",
+   "en_a": "\"It depends\"",
+   "ro_b": "N-am nicio idee, dar sună a senior.",
+   "en_b": "No idea whatsoever, but it sounds senior."
+  },
+  {
+   "section": "estimate",
+   "ro_a": "„Mâine dimineață”",
+   "en_a": "\"Tomorrow morning\"",
+   "ro_b": "Dimineață pe fusul orar al cui? Și care mâine?",
+   "en_b": "Morning in whose time zone? And which tomorrow?"
+  },
+  {
+   "section": "estimate",
+   "ro_a": "„Până la finalul sprintului”",
+   "en_a": "\"By end of sprint\"",
+   "ro_b": "Al unui sprint. Nu neapărat ăsta.",
+   "en_b": "The end of a sprint. Not necessarily this one."
+  },
+  {
+   "section": "dict",
+   "ro_a": "las' că văd eu",
+   "en_a": "las' că văd eu",
+   "ro_b": "nu mai auziți de subiect până nu explodează",
+   "en_b": "\"I'll take ownership of this.\" (You won't hear of it again until it breaks.)"
+  },
+  {
+   "section": "dict",
+   "ro_a": "nu e de la noi",
+   "en_a": "nu e de la noi",
+   "ro_b": "n-am verificat, dar sigur e de la backend",
+   "en_b": "\"The root cause appears to be upstream.\""
+  },
+  {
+   "section": "dict",
+   "ro_a": "am înțeles",
+   "en_a": "am înțeles",
+   "ro_b": "n-am înțeles nimic, dar încep să scriu cod",
+   "en_b": "\"Fully aligned. Moving to implementation.\""
+  },
+  {
+   "section": "dict",
+   "ro_a": "ce-a vrut să zică poetul?",
+   "en_a": "ce-a vrut să zică poetul?",
+   "ro_b": "specificația are trei interpretări și toate sunt greșite",
+   "en_b": "\"We'd like to clarify a few requirements.\""
+  },
+  {
+   "section": "dict",
+   "ro_a": "cine a scris asta?",
+   "en_a": "cine a scris asta?",
+   "ro_b": "git blame zice că eu, acum doi ani",
+   "en_b": "\"Let's run a blameless post-mortem.\" (It was them.)"
+  }
+ ],
+ "cto": [
+  {
+   "section": "faq",
+   "ro_a": "Cât de repede se adaptează un developer român la stack-ul nostru?",
+   "en_a": "How fast does a Romanian developer ramp up on our stack?",
+   "ro_b": "În prima săptămână îl învață. În a doua vă explică de ce l-ați ales greșit.",
+   "en_b": "Week one, they learn it. Week two, they explain why you picked the wrong one."
+  },
+  {
+   "section": "faq",
+   "ro_a": "Lucrează și în fusul nostru orar?",
+   "en_a": "Will they work in our timezone?",
+   "ro_b": "Lucrează în fusul vostru, dorm în al lor, iar cu o seară înainte de demo trec pe UTC+cafea.",
+   "en_b": "They work your hours, sleep on theirs, and the night before a demo switch to UTC+espresso."
+  },
+  {
+   "section": "faq",
+   "ro_a": "Pot să-i dau un task fără specificații?",
+   "en_a": "Can I hand them a task with no spec?",
+   "ro_b": "Da. Primiți ce ați cerut, ce trebuia să cereți și o întrebare incomodă la standup.",
+   "en_b": "Yes. You'll get what you asked for, what you should have asked for, and an awkward question at standup."
+  },
+  {
+   "section": "faq",
+   "ro_a": "Ce înseamnă când un developer român tace în ședință?",
+   "en_a": "What does it mean when a Romanian developer goes quiet in a meeting?",
+   "ro_b": "Nu e de acord. Și are deja un branch deschis cu varianta lui.",
+   "en_b": "They disagree. And they've already opened a branch with their version."
+  },
+  {
+   "section": "faq",
+   "ro_a": "Au nevoie de micromanagement?",
+   "en_a": "Do they need micromanagement?",
+   "ro_b": "Nu. Încercați și o să primiți voi check-in-uri zilnice: „Și roadmap-ul unde e?”",
+   "en_b": "No. Try it and you'll start getting daily check-ins yourself: \"So, where's the roadmap?\""
+  },
+  {
+   "section": "faq",
+   "ro_a": "Cum reacționează la cod legacy?",
+   "en_a": "How do they react to legacy code?",
+   "ro_b": "Un oftat, un „cine a scris asta?”, apoi git blame. Apoi o tăcere lungă: era chiar el, în 2019.",
+   "en_b": "A sigh, a \"who wrote this?\", then git blame. Then a long silence. It was them, in 2019."
+  },
+  {
+   "section": "faq",
+   "ro_a": "Ce se întâmplă de Crăciun și de Paște?",
+   "en_a": "What happens over Christmas and Easter?",
+   "ro_b": "Deploy-urile îngheață. Developerul ține cozonacul la cameră, ca să știți exact ce pierdeți.",
+   "en_b": "Deploy freeze. They'll hold the cozonac (sweet bread) up to the camera so you know exactly what you're missing."
+  },
+  {
+   "section": "faq",
+   "ro_a": "Vorbesc engleză?",
+   "en_a": "Do they speak English?",
+   "ro_b": "Fluent. Plus sarcasm la nivel C2, trecut sub tăcere în CV din modestie.",
+   "en_b": "Fluently. Plus C2-level sarcasm, left off the CV out of modesty."
+  },
+  {
+   "section": "faq",
+   "ro_a": "Care e cel mai mare risc?",
+   "en_a": "What's the biggest risk?",
+   "ro_b": "Să plece. Nu la concurență, ci să-și facă startup pe ideea pe care i-ați respins-o în Q2.",
+   "en_b": "That they leave. Not for a competitor, but to found a startup on the idea you rejected in Q2."
+  },
+  {
+   "section": "spec",
+   "ro_a": "Temperatură de funcționare",
+   "en_a": "Operating temperature",
+   "ro_b": "De la open-space cu AC-ul pe 17°C la iulie în Pitești, fără AC. Performanță identică.",
+   "en_b": "From a 17°C open-plan office to a Romanian July with no AC. Same output."
+  },
+  {
+   "section": "spec",
+   "ro_a": "Alimentare",
+   "en_a": "Power supply",
+   "ro_b": "Cafea (principal), energizant (backup), sarmale (UPS de sărbători).",
+   "en_b": "Coffee (primary), energy drinks (failover), sarmale, i.e. cabbage rolls (holiday UPS)."
+  },
+  {
+   "section": "spec",
+   "ro_a": "Latență",
+   "en_a": "Latency",
+   "ro_b": "Pe chat: 30 de secunde. Pe email: până vineri. La „ai un minut?”: timeout.",
+   "en_b": "Chat: 30 seconds. Email: by Friday. \"Got a minute?\": timeout."
+  },
+  {
+   "section": "spec",
+   "ro_a": "Compatibilitate",
+   "en_a": "Compatibility",
+   "ro_b": "Orice stack, orice limbaj, orice framework lansat marțea trecută. Incompatibil cu ședințele care puteau fi un email.",
+   "en_b": "Any stack, any language, any framework released last Tuesday. Incompatible with meetings that could have been an email."
+  },
+  {
+   "section": "spec",
+   "ro_a": "Garanție",
+   "en_a": "Warranty",
+   "ro_b": "Pe viață, dacă nu schimbați cerințele după code freeze. Durata medie a garanției: 11 zile.",
+   "en_b": "Lifetime, provided requirements don't change after code freeze. Average warranty period: 11 days."
+  },
+  {
+   "section": "spec",
+   "ro_a": "Probleme cunoscute",
+   "en_a": "Known issues",
+   "ro_b": "Refactorizează fără ticket. Ocazional rescrie tot, „că era mai simplu așa”.",
+   "en_b": "Refactors without a ticket. Occasionally rewrites everything \"because it was simpler that way.\""
+  },
+  {
+   "section": "spec",
+   "ro_a": "Mod economisire energie",
+   "en_a": "Power-saving mode",
+   "ro_b": "Se activează în ședințele de peste o oră: camera oprită, „am probleme cu netul”. Pe una dintre cele mai rapide conexiuni din Europa.",
+   "en_b": "Kicks in during meetings over an hour: camera off, \"my internet's acting up.\" On some of the fastest broadband in Europe."
+  },
+  {
+   "section": "spec",
+   "ro_a": "Firmware",
+   "en_a": "Firmware",
+   "ro_b": "Actualizat din documentație, forumuri și un comentariu cu 3 like-uri pe un issue din 2014, care chiar a mers.",
+   "en_b": "Updated from docs, forums and a 3-upvote comment on a 2014 issue thread that actually worked."
+  },
+  {
+   "section": "spec",
+   "ro_a": "Capacitate de încărcare",
+   "en_a": "Load capacity",
+   "ro_b": "3 proiecte oficial, 5 neoficial, plus site-ul firmei lui nașu'.",
+   "en_b": "3 projects officially, 5 unofficially, plus the website for their godfather's business (the wedding kind of godfather)."
+  },
+  {
+   "section": "spec",
+   "ro_a": "Accesorii incluse",
+   "en_a": "Included accessories",
+   "ro_b": "Laptop cu 47 de taburi deschise, cană de la un meetup din 2017, termos cu ciorbă de la mama.",
+   "en_b": "Laptop with 47 open tabs, a mug from a 2017 meetup, a thermos of Mum's ciorbă (sour soup)."
+  },
+  {
+   "section": "reviews",
+   "ro_a": "„A găsit un bug în specificațiile noastre înainte să scriem prima linie de cod. Încă suntem supărați.”",
+   "en_a": "\"Found a bug in our spec before we'd written a single line of code. We're still upset.\"",
+   "ro_b": "CTO, fintech, Berlin",
+   "en_b": "CTO, fintech, Berlin"
+  },
+  {
+   "section": "reviews",
+   "ro_a": "„Am cerut un MVP. Am primit o platformă scalabilă și întrebarea «de ce n-ați zis asta de la început?»”",
+   "en_a": "\"Asked for an MVP. Got a scalable platform and the question: 'why didn't you say so in the first place?'\"",
+   "ro_b": "Fondator, SaaS, Amsterdam",
+   "en_b": "Founder, SaaS, Amsterdam"
+  },
+  {
+   "section": "reviews",
+   "ro_a": "„Standup-ul durează 4 minute. Restul de 11 sunt despre de ce grătarul nostru nu e, de fapt, grătar.”",
+   "en_a": "\"Standup takes 4 minutes. The other 11 are about why our barbecue is not, technically, a barbecue.\"",
+   "ro_b": "VP Engineering, logistică, Copenhaga",
+   "en_b": "VP Engineering, logistics, Copenhagen"
+  },
+  {
+   "section": "reviews",
+   "ro_a": "„Ne-a tăiat factura de cloud cu 40%. Apoi a întrebat de ce plătim licențe pentru un tool pe care nu-l deschide nimeni.”",
+   "en_a": "\"Cut our cloud bill by 40%. Then asked why we pay licences for a tool nobody ever opens.\"",
+   "ro_b": "Head of Platform, e-commerce, Dublin",
+   "en_b": "Head of Platform, e-commerce, Dublin"
+  },
+  {
+   "section": "reviews",
+   "ro_a": "„Cinci stele. Pe a șasea a scos-o la refactorizare, zicea că e redundantă.”",
+   "en_a": "\"Five stars. They refactored out the sixth, said it was redundant.\"",
+   "ro_b": "Engineering Manager, healthtech, Zürich",
+   "en_b": "Engineering Manager, healthtech, Zurich"
+  },
+  {
+   "section": "dict",
+   "ro_a": "Am o întrebare.",
+   "en_a": "„Am o întrebare.”",
+   "ro_b": "Am găsit o gaură în arhitectură și vă las 30 de secunde s-o găsiți singuri.",
+   "en_b": "There's a hole in your architecture. You have about 30 seconds to spot it yourself."
+  },
+  {
+   "section": "dict",
+   "ro_a": "Mă uit diseară.",
+   "en_a": "„Mă uit diseară.”",
+   "ro_b": "E deja rezolvat în capul meu, mai trebuie doar tastat pe la 1 noaptea.",
+   "en_b": "Fixed by morning. Do not ask when they slept."
+  },
+  {
+   "section": "dict",
+   "ro_a": "Păi…",
+   "en_a": "„Păi…”",
+   "ro_b": "Urmează 20 de minute despre de ce planul nu merge.",
+   "en_b": "Brace for a 20-minute, annoyingly correct explanation of why your plan won't work."
+  },
+  {
+   "section": "dict",
+   "ro_a": "Interesant…",
+   "en_a": "„Interesant…”",
+   "ro_b": "Asta n-ar fi trebuit să meargă niciodată. Și totuși merge.",
+   "en_b": "Production runs on something nobody understands. Budget accordingly."
+  }
+ ]
+}

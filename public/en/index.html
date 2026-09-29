@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Romanian Developer's Code and dictionary | Dor de codul românesc</title>
+<meta name="description" content="The Romanian Developer&#x27;s Code, a Romanian-to-corporate dictionary, an official excuse generator, Jira translated and a CTO field guide. Humour for devs, PMs and CTOs.">
+<link rel="canonical" href="https://dordecod.vercel.app/en/">
+<link rel="alternate" hreflang="ro" href="https://dordecod.vercel.app/">
+<link rel="alternate" hreflang="en" href="https://dordecod.vercel.app/en/">
+<link rel="alternate" hreflang="x-default" href="https://dordecod.vercel.app/">
+<link rel="alternate" type="text/markdown" href="https://dordecod.vercel.app/en/index.md" title="Markdown">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="author" content="Sergiu Vlad">
+<link rel="author" href="https://sergiuvlad.com">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12162a" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon-96x96.png" type="image/png" sizes="96x96">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="application-name" content="Dor de codul românesc">
+<meta name="apple-mobile-web-app-title" content="Dor de cod">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Dor de codul românesc">
+<meta property="og:title" content="Romanian Developer&#x27;s Code and dictionary | Dor de codul românesc">
+<meta property="og:description" content="The Romanian Developer&#x27;s Code, a Romanian-to-corporate dictionary, an official excuse generator, Jira translated and a CTO field guide. Humour for devs, PMs and CTOs.">
+<meta property="og:url" content="https://dordecod.vercel.app/en/">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="ro_RO">
+<meta property="og:image" content="https://dordecod.vercel.app/og/og-en-v1.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A cross-stitched cod fish in red and navy next to the title Dor de codul românesc">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image:alt" content="A cross-stitched cod fish in red and navy next to the title Dor de codul românesc">
+<link rel="preload" href="/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high">
+<style>
+@font-face{font-family:"Fraunces";font-style:normal;font-weight:400 700;font-display:swap;src:url(/fonts/fraunces-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Fraunces";font-style:normal;font-weight:400 700;font-display:swap;src:url(/fonts/fraunces-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Fraunces";font-style:italic;font-weight:400 600;font-display:swap;src:url(/fonts/fraunces-italic-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Fraunces";font-style:italic;font-weight:400 600;font-display:swap;src:url(/fonts/fraunces-italic-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/plex-mono-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/plex-mono-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+:root{
+    --linen:#ffffff; --ink:#1b2340; --red:#c41e3a; --muted:#5d637f;
+    --rule:#e2e0d8; --field:#f5f4ef; --code:#eeece4;
+    --panel:#1b2340; --panel-fg:#f4f2ea; --panel-muted:#b9bdd0; --panel-field:#27305a; --panel-rule:#3a4470;
+    --on-red:#ffffff;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --linen:#12162a; --ink:#ecebe3; --red:#f0506a; --muted:#a3a8c2;
+      --rule:#2b3252; --field:#1a2038; --code:#1f2542;
+      --panel:#ecebe3; --panel-fg:#12162a; --panel-muted:#4a5070; --panel-field:#dcdbd0; --panel-rule:#b9b8ad;
+      --on-red:#12162a;
+    }
+  }
+  :root[data-theme="dark"]{
+    --linen:#12162a; --ink:#ecebe3; --red:#f0506a; --muted:#a3a8c2;
+    --rule:#2b3252; --field:#1a2038; --code:#1f2542;
+    --panel:#ecebe3; --panel-fg:#12162a; --panel-muted:#4a5070; --panel-field:#dcdbd0; --panel-rule:#b9b8ad;
+    --on-red:#12162a;
+  }
+
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{transition:none !important} }
+  body{
+    margin:0; background:var(--linen); color:var(--ink);
+    font-family:"Fraunces", Georgia, "Times New Roman", serif;
+    font-optical-sizing:auto; font-size:18px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit; text-decoration:underline; text-decoration-color:var(--red); text-underline-offset:3px; text-decoration-thickness:1.5px}
+  a:hover{color:var(--red)}
+  code{font-family:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace; font-size:.88em; background:var(--code); padding:.1em .35em; border-radius:3px}
+  :focus-visible{outline:3px solid var(--red); outline-offset:3px}
+  img,svg{max-width:100%; height:auto}
+  .wrap{max-width:1040px; margin:0 auto; padding:0 24px}
+  .measure{max-width:64ch}
+  .wrap.measure{max-width:1040px} .wrap.measure > *{max-width:64ch}
+
+  h1,h2,h3{font-weight:600; line-height:1.08; letter-spacing:-.012em; margin:0}
+  h2{font-size:2.1rem; margin-bottom:.6em}
+  h3{font-size:1.45rem; margin-bottom:.4em}
+  p{margin:0 0 1em}
+  section{padding:88px 0}
+  @media (max-width:720px){ section{padding:60px 0} h2{font-size:1.75rem} body{font-size:17px} }
+
+  /* Nav */
+  .nav{position:sticky; top:0; z-index:10; background:var(--linen); border-bottom:1px solid var(--rule)}
+  .nav .wrap{display:flex; align-items:center; gap:20px; min-height:60px}
+  .brand{display:flex; align-items:center; gap:10px; text-decoration:none; font-weight:600; white-space:nowrap}
+  .brand svg{width:34px; height:17px; display:block}
+  .brand:hover{color:inherit}
+  .links{display:flex; gap:20px; margin-left:auto; font-size:.95rem}
+  .links a{text-decoration:none}
+  .links a:hover{text-decoration:underline}
+  @media (max-width:720px){
+    .nav .wrap{flex-wrap:wrap; gap:4px 16px; padding-top:8px}
+    .links{order:3; width:100%; margin-left:0; overflow-x:auto; gap:18px; padding:4px 0 10px; white-space:nowrap; font-size:.9rem}
+  }
+  .lang{display:flex; gap:2px; margin-left:auto}
+  .links + .lang{margin-left:0}
+  .lang a{
+    font-size:.9rem; font-weight:600; color:var(--muted); text-decoration:none;
+    padding:6px 8px; border-bottom:2px solid transparent;
+  }
+  .lang a:hover{color:var(--red)}
+  .lang a[aria-current="page"]{color:var(--ink); border-bottom-color:var(--red)}
+
+  /* Stitch band */
+  .band{display:block; width:100%; height:22px}
+  .band .k{fill:var(--ink)} .band .r{fill:var(--red)}
+
+  /* Hero */
+  .hero{padding:72px 0 64px}
+  .hero .wrap{display:grid; grid-template-columns:1.15fr .85fr; gap:48px; align-items:center}
+  .kicker{font-style:italic; color:var(--muted); margin-bottom:14px; font-size:1.05rem}
+  .hero h1{font-size:clamp(2.9rem, 7.4vw, 5.6rem); font-weight:700; margin-bottom:.35em; letter-spacing:-.02em}
+  .lead{font-size:1.2rem; max-width:34em}
+  .ctas{display:flex; flex-wrap:wrap; gap:12px; margin:26px 0 14px}
+  .fine{color:var(--muted); font-size:.95rem; margin:0}
+  .fish{width:100%; max-width:420px; justify-self:end}
+  #fish .k{fill:var(--ink)} #fish .r{fill:var(--red)} #fish .w{fill:var(--linen)}
+  @media (max-width:840px){
+    .hero{padding:40px 0 56px}
+    .hero .wrap{grid-template-columns:1fr; gap:28px}
+    .fish{order:-1; max-width:240px; justify-self:start}
+  }
+
+  /* Buttons */
+  .btn{
+    display:inline-block; font:inherit; font-weight:600; font-size:1rem; line-height:1.2;
+    padding:14px 22px; border-radius:4px; cursor:pointer; text-decoration:none;
+    background:var(--red); color:var(--on-red); border:2px solid var(--red);
+  }
+  .btn:hover{color:var(--on-red); filter:brightness(1.08)}
+  .btn.ghost{background:transparent; color:var(--ink); border-color:var(--ink)}
+  .btn.ghost:hover{color:var(--red); border-color:var(--red); filter:none}
+  .btn.small{padding:8px 14px; font-size:.9rem; border-radius:3px}
+
+  /* Codul */
+  .cod ol{list-style:none; padding:0; margin:34px 0 0; border-top:1px solid var(--rule)}
+  .cod li{
+    display:grid; grid-template-columns:5.2rem 1fr auto; gap:14px; align-items:start;
+    padding:18px 0; border-bottom:1px solid var(--rule); scroll-margin-top:80px;
+  }
+  .cod .art{font-weight:700; white-space:nowrap}
+  .cod .copy{
+    font:inherit; font-size:.8rem; color:var(--muted); background:none; border:1px solid var(--rule);
+    border-radius:3px; padding:4px 9px; cursor:pointer; margin-top:2px;
+  }
+  .cod .copy:hover{color:var(--red); border-color:var(--red)}
+  .cod .copy[data-done="1"]{color:var(--red); border-color:var(--red)}
+  .cod li:target{background:var(--field); box-shadow:0 0 0 12px var(--field)}
+  @media (max-width:560px){
+    .cod li{grid-template-columns:1fr auto; gap:6px 14px}
+    .cod .art{grid-column:1; font-size:.95rem}
+    .cod .txt{grid-column:1 / -1}
+    .cod .copy{grid-column:2; grid-row:1}
+  }
+  .after{margin-top:26px; color:var(--muted)}
+
+  /* Footer */
+  footer{padding:40px 0 48px; color:var(--muted); font-size:.95rem}
+  footer .cols{display:flex; flex-wrap:wrap; gap:40px; justify-content:space-between; align-items:flex-start}
+  footer ul{list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; gap:6px 20px}
+  footer ul a{text-decoration:none} footer ul a:hover{text-decoration:underline}
+  footer .about{max-width:52ch; color:var(--ink)}
+  footer .line{margin-top:34px}
+
+  /* Generic tables (dictionary, Jira, estimates) */
+  .tbl{width:100%; border-collapse:collapse; margin-top:26px}
+  .tbl th{text-align:left; font-weight:600; padding:10px 0; border-bottom:2px solid var(--ink); font-size:.95rem}
+  .tbl td{padding:14px 0; border-bottom:1px solid var(--rule); vertical-align:top}
+  .tbl td:first-child{font-style:italic; width:42%; padding-right:24px}
+  .tbl th:last-child, .tbl td:last-child{padding-left:12px}
+  .tbl td.mono{font-family:"IBM Plex Mono", ui-monospace, Menlo, monospace; font-style:normal; font-size:.92rem}
+  h3.sub{margin-top:56px}
+
+  /* Excuse generator */
+  .excuse{margin-top:28px; border-left:4px solid var(--red); padding:22px 24px; background:var(--field)}
+  .excuse p{font-size:1.35rem; font-style:italic; margin:0 0 18px; min-height:2.4em}
+  .excuse .meta{font-size:.85rem; color:var(--muted); margin:14px 0 0}
+
+  /* git log */
+  .log{margin-top:26px; background:var(--code); border-radius:4px; padding:18px 20px; overflow-x:auto;
+    font-family:"IBM Plex Mono", ui-monospace, Menlo, monospace; font-size:.9rem; line-height:1.7}
+  .log .ln{white-space:nowrap}
+  .log .h{color:var(--red)}
+  .log .g{color:var(--muted); white-space:normal; display:block; padding-left:8ch; font-size:.85rem; line-height:1.4; margin:-2px 0 6px}
+  .log .g:empty{display:none}
+  .log .prompt{color:var(--muted)}
+
+  /* Standup bingo */
+  .bingo{display:grid; grid-template-columns:repeat(4, 1fr); gap:6px; margin-top:22px; max-width:640px}
+  .bingo button{
+    font:inherit; font-size:.9rem; line-height:1.25; color:var(--ink); background:var(--field);
+    border:1.5px solid var(--rule); border-radius:3px; padding:10px 8px; min-height:84px; cursor:pointer; text-align:center
+  }
+  .bingo button:hover{border-color:var(--red)}
+  .bingo button[aria-pressed="true"]{background:var(--red); color:var(--on-red); border-color:var(--red)}
+  @media (max-width:560px){ .bingo button{font-size:.78rem; min-height:72px; padding:6px 4px} }
+  .bingo-bar{display:flex; gap:14px; align-items:center; flex-wrap:wrap; margin-top:14px}
+  .bingo-win{font-weight:600; color:var(--red); margin:0}
+
+  /* CTO: spec sheet, FAQ, reviews */
+  .spec{background:var(--panel); color:var(--panel-fg); padding:30px 30px 20px; margin-top:26px}
+  .spec h3{font-size:1.35rem; margin-bottom:14px}
+  .spec .model{font-family:"IBM Plex Mono", ui-monospace, Menlo, monospace; font-size:.85rem; color:var(--panel-muted); margin-bottom:10px}
+  .spec dl{display:grid; grid-template-columns:minmax(9rem, 34%) 1fr; margin:0}
+  .spec dt, .spec dd{padding:11px 0; border-top:1px solid var(--panel-rule); margin:0}
+  .spec dt{font-weight:600; padding-right:16px}
+  .spec dd{font-family:"IBM Plex Mono", ui-monospace, Menlo, monospace; font-size:.9rem}
+  @media (max-width:560px){ .spec{padding:22px 18px 14px} .spec dl{grid-template-columns:1fr} .spec dd{border-top:0; padding-top:0} }
+  .faq{margin-top:26px; border-top:1px solid var(--rule)}
+  .faq details{border-bottom:1px solid var(--rule); padding:16px 0}
+  .faq summary{font-weight:600; cursor:pointer; list-style:none; display:flex; gap:12px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::before{content:"+"; color:var(--red); font-family:"IBM Plex Mono", monospace; width:1ch; flex:none}
+  .faq details[open] summary::before{content:"−"}
+  .faq details p{margin:10px 0 0 calc(1ch + 12px); color:var(--ink)}
+  .reviews{display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:20px; margin-top:26px}
+  .review{border:1.5px solid var(--rule); padding:22px 22px 18px; margin:0}
+  .review .stars{color:var(--red); letter-spacing:2px; margin-bottom:8px}
+  .review blockquote{margin:0 0 10px; font-style:italic}
+  .review figcaption{font-size:.88rem; color:var(--muted)}
+  .disclaimer{font-size:.88rem; color:var(--muted); font-style:italic; margin-top:14px}
+  .skip{position:absolute; left:-9999px; top:0; background:var(--red); color:var(--on-red); padding:10px 14px; z-index:20}
+  .skip:focus{left:16px; top:10px}
+  .faq summary .q{font-size:1rem; line-height:1.45; margin:0; font-weight:600; letter-spacing:0}
+  [id]{scroll-margin-top:96px}
+  .sprite{position:absolute; width:0; height:0; overflow:hidden}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://dordecod.vercel.app/en/#webpage","url":"https://dordecod.vercel.app/en/","name":"Romanian Developer's Code and dictionary | Dor de codul românesc","description":"The Romanian Developer's Code, a Romanian-to-corporate dictionary, an official excuse generator, Jira translated and a CTO field guide. Humour for devs, PMs and CTOs.","inLanguage":"en","isPartOf":{"@id":"https://dordecod.vercel.app/#website"},"author":{"@id":"https://sergiuvlad.com/#person"},"publisher":{"@id":"https://sergiuvlad.com/#person"},"datePublished":"2026-09-18","dateModified":"2026-09-29","genre":"Satire","isFamilyFriendly":true,"primaryImageOfPage":{"@id":"https://dordecod.vercel.app/en/#ogimage"},"image":{"@id":"https://dordecod.vercel.app/en/#ogimage"},"about":[{"@type":"Thing","name":"Programming humour"},{"@type":"Thing","name":"Software development in Romania"},{"@type":"Thing","name":"Romanian developers"}],"hasPart":[{"@id":"https://dordecod.vercel.app/en/#codul"},{"@id":"https://dordecod.vercel.app/en/#dictionar"},{"@id":"https://dordecod.vercel.app/en/#faq"}],"translationOfWork":{"@id":"https://dordecod.vercel.app/#webpage"}},{"@type":"ImageObject","@id":"https://dordecod.vercel.app/en/#ogimage","url":"https://dordecod.vercel.app/og/og-en-v1.png","width":1200,"height":630,"caption":"A cross-stitched cod fish in red and navy next to the title Dor de codul românesc","inLanguage":"en"},{"@type":"Person","@id":"https://sergiuvlad.com/#person","name":"Sergiu Vlad","url":"https://sergiuvlad.com","jobTitle":"Senior Software Engineer","sameAs":["https://www.linkedin.com/in/netics/","https://github.com/netics"],"address":{"@type":"PostalAddress","addressLocality":"Cluj-Napoca","addressCountry":"RO"},"knowsLanguage":["ro","en"]},{"@type":"SatiricalArticle","@id":"https://dordecod.vercel.app/en/#codul","headline":"The Romanian Developer's Code","description":"Every nation has a code. Ours is not enforced, but it is respected.","url":"https://dordecod.vercel.app/en/#codul","inLanguage":"en","isPartOf":{"@id":"https://dordecod.vercel.app/en/#webpage"},"author":{"@id":"https://sergiuvlad.com/#person"},"publisher":{"@id":"https://sergiuvlad.com/#person"},"datePublished":"2026-09-18","dateModified":"2026-09-29","image":{"@id":"https://dordecod.vercel.app/en/#ogimage"},"mainEntity":{"@type":"ItemList","@id":"https://dordecod.vercel.app/en/#codul-list","name":"The Romanian Developer's Code","numberOfItems":24,"itemListOrder":"https://schema.org/ItemListOrderAscending","itemListElement":[{"@type":"ListItem","position":1,"url":"https://dordecod.vercel.app/en/#art-1","name":"Art. 1. Every bug manifests exclusively in production, on a Friday, after 5 pm."},{"@type":"ListItem","position":2,"url":"https://dordecod.vercel.app/en/#art-2","name":"Art. 2. “Works on my machine” is admissible evidence."},{"@type":"ListItem","position":3,"url":"https://dordecod.vercel.app/en/#art-3","name":"Art. 3. „Lasă că merge” (leave it, it works) is not a deployment strategy. (It is.)"},{"@type":"ListItem","position":4,"url":"https://dordecod.vercel.app/en/#art-4","name":"Art. 4. Comments are written in English, variables in Romanian, and listaClienti2Final is national heritage."},{"@type":"ListItem","position":5,"url":"https://dordecod.vercel.app/en/#art-5","name":"Art. 5. Diacritics are optional until they reach the database."},{"@type":"ListItem","position":6,"url":"https://dordecod.vercel.app/en/#art-6","name":"Art. 6. Estimates are given in days and read in weeks."},{"@type":"ListItem","position":7,"url":"https://dordecod.vercel.app/en/#art-7","name":"Art. 7. Any TODO older than two years becomes documentation."},{"@type":"ListItem","position":8,"url":"https://dordecod.vercel.app/en/#art-8","name":"Art. 8. Coffee is not a perk. It is infrastructure."},{"@type":"ListItem","position":9,"url":"https://dordecod.vercel.app/en/#art-9","name":"Art. 9. The Romanian developer fixes it. Doesn't know how yet, but it gets fixed."},{"@type":"ListItem","position":10,"url":"https://dordecod.vercel.app/en/#art-10","name":"Art. 10. The 15-minute meeting lasts an hour and must legally end with \"let's set up a follow-up next week.\""},{"@type":"ListItem","position":11,"url":"https://dordecod.vercel.app/en/#art-11","name":"Art. 11. The production server password is passed down orally, from generation to generation, like grandma's cake recipe."},{"@type":"ListItem","position":12,"url":"https://dordecod.vercel.app/en/#art-12","name":"Art. 12. Every project had one guy who knew everything. He left three years ago. His name is still in the crontab."},{"@type":"ListItem","position":13,"url":"https://dordecod.vercel.app/en/#art-13","name":"Art. 13. The official project documentation is a four-minute voice note in the team chat, from 2019."},{"@type":"ListItem","position":14,"url":"https://dordecod.vercel.app/en/#art-14","name":"Art. 14. The file config_final_GOOD_dont_delete.json is not deleted. Nobody knows why. Nobody asks."},{"@type":"ListItem","position":15,"url":"https://dordecod.vercel.app/en/#art-15","name":"Art. 15. \"Who wrote this garbage?\" is a rhetorical question. git blame always answers: you, eight months ago."},{"@type":"ListItem","position":16,"url":"https://dordecod.vercel.app/en/#art-16","name":"Art. 16. A \"five-minute task\" is, by definition, any task nobody has opened yet."},{"@type":"ListItem","position":17,"url":"https://dordecod.vercel.app/en/#art-17","name":"Art. 17. Tests are written after the incident, in memory of the fallen."},{"@type":"ListItem","position":18,"url":"https://dordecod.vercel.app/en/#art-18","name":"Art. 18. The only laptop that can deploy belongs to a colleague currently on a beach holiday, with no signal."},{"@type":"ListItem","position":19,"url":"https://dordecod.vercel.app/en/#art-19","name":"Art. 19. The temporary fix from 2016 is now a listed historical monument and cannot be touched without a permit."},{"@type":"ListItem","position":20,"url":"https://dordecod.vercel.app/en/#art-20","name":"Art. 20. In the absence of a spec, the principle of \"you know, like those other guys have it\" applies."},{"@type":"ListItem","position":21,"url":"https://dordecod.vercel.app/en/#art-21","name":"Art. 21. On the daily standup, cameras stay off. Official reason: \"my internet is bad.\" Actual reason: pyjamas."},{"@type":"ListItem","position":22,"url":"https://dordecod.vercel.app/en/#art-22","name":"Art. 22. Refactoring is scheduled for \"when we have time,\" a fixed calendar date that never arrives."},{"@type":"ListItem","position":23,"url":"https://dordecod.vercel.app/en/#art-23","name":"Art. 23. Every Christmas, grandma asks if you can fix her printer. You can. That is, in fact, your real job description."},{"@type":"ListItem","position":24,"url":"https://dordecod.vercel.app/en/#art-24","name":"Art. 24. This Code enters into force on publication and is amended exclusively by pull request."}]}},{"@type":"DefinedTermSet","@id":"https://dordecod.vercel.app/en/#dictionar","name":"Romanian-to-corporate dictionary","description":"For managers abroad who work with Romanian developers. Contextual translation, from experience, free of charge.","url":"https://dordecod.vercel.app/en/#dictionar","inLanguage":"en","isPartOf":{"@id":"https://dordecod.vercel.app/en/#webpage"},"hasDefinedTerm":[{"@type":"DefinedTerm","@id":"https://dordecod.vercel.app/en/#dict-merge-si-asa","url":"https://dordecod.vercel.app/en/#dict-merge-si-asa","name":"merge și așa","description":"acceptable technical debt","inLanguage":"ro","inDefinedTermSet":{"@id":"https://dordecod.vercel.app/en/#dictionar"}},{"@type":"DefinedTerm","@id":"https://dordecod.vercel.app/en/#dict-se-rezolva","url":"https://dordecod.vercel.app/en/#dict-se-rezolva","name":"se rezolvă","description":"unblocked; ETA unknown","inLanguage":"ro","inDefinedTermSet":{"@id":"https://dordecod.vercel.app/en/#dictionar"}},{"@type":"DefinedTerm","@id":"https://dordecod.vercel.app/en/#dict-hai-ca-i-simplu","url":"https://dordecod.vercel.app/en/#dict-hai-ca-i-simplu","name":"hai că-i simplu","description":"three sprints","inLanguage":"ro","inDefinedTermSet":{"@id":"https://dordecod.vercel.app/en/#dictionar"}},{"@type":"DefinedTerm","@id":"https://dordecod.vercel.app/en/#dict-nu-i-nicio-problema","url":"https://dordecod.vercel.app/en/#dict-nu-i-nicio-problema","name":"nu-i nicio problemă","description":"there is a problem","inLanguage":"ro","inDefinedTermSet":{"@id":"https://dordecod.vercel.app/en/#dictionar"}},{"@type":"DefinedTerm","@id":"https://dordecod.vercel.app/en/#dict-vezi-ca","url":"https://dordecod.vercel.app/en/#dict-vezi-ca","name":"vezi că…","description":"critical warning","inLanguage":"ro","inDefinedTermSet":{"@id":"https://dordecod.vercel.app/en/#dictionar"}},{"@type":"DefinedTerm","@id":"https://dordecod.vercel.app/en/#dict-la-mine-merge","url":"https://dordecod.vercel.app/en/#dict-la-mine-merge","name":"la mine merge","description":"cannot reproduce","inLanguage":"ro","inDefinedTermSet":{"@id":"https://dordecod.vercel.app/en/#dictionar"}},{"@type":"DefinedTerm","@id":"https://dordecod.vercel.app/en/#dict-il-bag-repede","url":"https://dordecod.vercel.app/en/#dict-il-bag-repede","name":"îl bag repede","description":"hotfix, no tests","inLanguage":"ro","inDefinedTermSet":{"@id":"https://dordecod.vercel.app/en/#dictionar"}},{"@type":"DefinedTerm","@id":"https://dordecod.vercel.app/en/#dict-mai-vedem","url":"https://dordecod.vercel.app/en/#dict-mai-vedem","name":"mai vedem","description":"won't fix","inLanguage":"ro","inDefinedTermSet":{"@id":"https://dordecod.vercel.app/en/#dictionar"}},{"@type":"DefinedTerm","@id":"https://dordecod.vercel.app/en/#dict-sa-nu-ne-grabim","url":"https://dordecod.vercel.app/en/#dict-sa-nu-ne-grabim","name":"să nu ne grăbim","description":"they know something you don't","inLanguage":"ro","inDefinedTermSet":{"@id":"https://dordecod.vercel.app/en/#dictionar"}},{"@type":"DefinedTerm","@id":"https://dordecod.vercel.app/en/#dict-e-ok-dar","url":"https://dordecod.vercel.app/en/#dict-e-ok-dar","name":"e ok, dar…","description":"it is not ok","inLanguage":"ro","inDefinedTermSet":{"@id":"https://dordecod.vercel.app/en/#dictionar"}},{"@type":"DefinedTerm","@id":"https://dordecod.vercel.app/en/#dict-e-doar-un-if","url":"https://dordecod.vercel.app/en/#dict-e-doar-un-if","name":"e doar un if","description":"minor scope adjustment","inLanguage":"ro","inDefinedTermSet":{"@id":"https://dordecod.vercel.app/en/#dictionar"}},{"@type":"DefinedTerm","@id":"https://dordecod.vercel.app/en/#dict-am-pus-un-try-catch","url":"https://dordecod.vercel.app/en/#dict-am-pus-un-try-catch","name":"am pus un try-catch","description":"robust error-handling strategy implemented","inLanguage":"ro","inDefinedTermSet":{"@id":"https://dordecod.vercel.app/en/#dictionar"}},{"@type":"DefinedTerm","@id":"https://dordecod.vercel.app/en/#dict-l-am-testat","url":"https://dordecod.vercel.app/en/#dict-l-am-testat","name":"l-am testat","description":"manually verified in a representative environment","inLanguage":"ro","inDefinedTermSet":{"@id":"https://dordecod.vercel.app/en/#dictionar"}},{"@type":"DefinedTerm","@id":"https://dordecod.vercel.app/en/#dict-am-vorbit-cu-ala-de-la-backend","url":"https://dordecod.vercel.app/en/#dict-am-vorbit-cu-ala-de-la-backend","name":"am vorbit cu ăla de la backend","description":"cross-team alignment achieved","inLanguage":"ro","inDefinedTermSet":{"@id":"https://dordecod.vercel.app/en/#dictionar"}},{"@type":"DefinedTerm","@id":"https://dordecod.vercel.app/en/#dict-facem-pe-repede-apoi-facem-bine","url":"https://dordecod.vercel.app/en/#dict-facem-pe-repede-apoi-facem-bine","name":"facem pe repede, apoi facem bine","description":"phased delivery approach","inLanguage":"ro","inDefinedTermSet":{"@id":"https://dordecod.vercel.app/en/#dictionar"}},{"@type":"DefinedTerm","@id":"https://dordecod.vercel.app/en/#dict-ultima-modificare-pe-bune","url":"https://dordecod.vercel.app/en/#dict-ultima-modificare-pe-bune","name":"ultima modificare, pe bune","description":"final scope freeze (v4)","inLanguage":"ro","inDefinedTermSet":{"@id":"https://dordecod.vercel.app/en/#dictionar"}},{"@type":"DefinedTerm","@id":"https://dordecod.vercel.app/en/#dict-las-ca-vad-eu","url":"https://dordecod.vercel.app/en/#dict-las-ca-vad-eu","name":"las' că văd eu","description":"\"I'll take ownership of this.\" (You won't hear of it again until it breaks.)","inLanguage":"ro","inDefinedTermSet":{"@id":"https://dordecod.vercel.app/en/#dictionar"}},{"@type":"DefinedTerm","@id":"https://dordecod.vercel.app/en/#dict-nu-e-de-la-noi","url":"https://dordecod.vercel.app/en/#dict-nu-e-de-la-noi","name":"nu e de la noi","description":"\"The root cause appears to be upstream.\"","inLanguage":"ro","inDefinedTermSet":{"@id":"https://dordecod.vercel.app/en/#dictionar"}},{"@type":"DefinedTerm","@id":"https://dordecod.vercel.app/en/#dict-am-inteles","url":"https://dordecod.vercel.app/en/#dict-am-inteles","name":"am înțeles","description":"\"Fully aligned. Moving to implementation.\"","inLanguage":"ro","inDefinedTermSet":{"@id":"https://dordecod.vercel.app/en/#dictionar"}},{"@type":"DefinedTerm","@id":"https://dordecod.vercel.app/en/#dict-ce-a-vrut-sa-zica-poetul","url":"https://dordecod.vercel.app/en/#dict-ce-a-vrut-sa-zica-poetul","name":"ce-a vrut să zică poetul?","description":"\"We'd like to clarify a few requirements.\"","inLanguage":"ro","inDefinedTermSet":{"@id":"https://dordecod.vercel.app/en/#dictionar"}},{"@type":"DefinedTerm","@id":"https://dordecod.vercel.app/en/#dict-cine-a-scris-asta","url":"https://dordecod.vercel.app/en/#dict-cine-a-scris-asta","name":"cine a scris asta?","description":"\"Let's run a blameless post-mortem.\" (It was them.)","inLanguage":"ro","inDefinedTermSet":{"@id":"https://dordecod.vercel.app/en/#dictionar"}},{"@type":"DefinedTerm","@id":"https://dordecod.vercel.app/en/#dict-am-o-intrebare","url":"https://dordecod.vercel.app/en/#dict-am-o-intrebare","name":"Am o întrebare.","description":"There's a hole in your architecture. You have about 30 seconds to spot it yourself.","inLanguage":"ro","inDefinedTermSet":{"@id":"https://dordecod.vercel.app/en/#dictionar"}},{"@type":"DefinedTerm","@id":"https://dordecod.vercel.app/en/#dict-ma-uit-diseara","url":"https://dordecod.vercel.app/en/#dict-ma-uit-diseara","name":"Mă uit diseară.","description":"Fixed by morning. Do not ask when they slept.","inLanguage":"ro","inDefinedTermSet":{"@id":"https://dordecod.vercel.app/en/#dictionar"}},{"@type":"DefinedTerm","@id":"https://dordecod.vercel.app/en/#dict-pai","url":"https://dordecod.vercel.app/en/#dict-pai","name":"Păi…","description":"Brace for a 20-minute, annoyingly correct explanation of why your plan won't work.","inLanguage":"ro","inDefinedTermSet":{"@id":"https://dordecod.vercel.app/en/#dictionar"}},{"@type":"DefinedTerm","@id":"https://dordecod.vercel.app/en/#dict-interesant","url":"https://dordecod.vercel.app/en/#dict-interesant","name":"Interesant…","description":"Production runs on something nobody understands. Budget accordingly.","inLanguage":"ro","inDefinedTermSet":{"@id":"https://dordecod.vercel.app/en/#dictionar"}}]},{"@type":"FAQPage","@id":"https://dordecod.vercel.app/en/#faq","name":"Frequently asked CTO questions","url":"https://dordecod.vercel.app/en/#faq","inLanguage":"en","isPartOf":{"@id":"https://dordecod.vercel.app/en/#webpage"},"mainEntity":[{"@type":"Question","@id":"https://dordecod.vercel.app/en/#faq-1","name":"How fast does a Romanian developer ramp up on our stack?","acceptedAnswer":{"@type":"Answer","text":"Week one, they learn it. Week two, they explain why you picked the wrong one."}},{"@type":"Question","@id":"https://dordecod.vercel.app/en/#faq-2","name":"Will they work in our timezone?","acceptedAnswer":{"@type":"Answer","text":"They work your hours, sleep on theirs, and the night before a demo switch to UTC+espresso."}},{"@type":"Question","@id":"https://dordecod.vercel.app/en/#faq-3","name":"Can I hand them a task with no spec?","acceptedAnswer":{"@type":"Answer","text":"Yes. You'll get what you asked for, what you should have asked for, and an awkward question at standup."}},{"@type":"Question","@id":"https://dordecod.vercel.app/en/#faq-4","name":"What does it mean when a Romanian developer goes quiet in a meeting?","acceptedAnswer":{"@type":"Answer","text":"They disagree. And they've already opened a branch with their version."}},{"@type":"Question","@id":"https://dordecod.vercel.app/en/#faq-5","name":"Do they need micromanagement?","acceptedAnswer":{"@type":"Answer","text":"No. Try it and you'll start getting daily check-ins yourself: \"So, where's the roadmap?\""}},{"@type":"Question","@id":"https://dordecod.vercel.app/en/#faq-6","name":"How do they react to legacy code?","acceptedAnswer":{"@type":"Answer","text":"A sigh, a \"who wrote this?\", then git blame. Then a long silence. It was them, in 2019."}},{"@type":"Question","@id":"https://dordecod.vercel.app/en/#faq-7","name":"What happens over Christmas and Easter?","acceptedAnswer":{"@type":"Answer","text":"Deploy freeze. They'll hold the cozonac (sweet bread) up to the camera so you know exactly what you're missing."}},{"@type":"Question","@id":"https://dordecod.vercel.app/en/#faq-8","name":"Do they speak English?","acceptedAnswer":{"@type":"Answer","text":"Fluently. Plus C2-level sarcasm, left off the CV out of modesty."}},{"@type":"Question","@id":"https://dordecod.vercel.app/en/#faq-9","name":"What's the biggest risk?","acceptedAnswer":{"@type":"Answer","text":"That they leave. Not for a competitor, but to found a startup on the idea you rejected in Q2."}}]}]}</script>
+</head>
+<body>
+<svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false"><symbol id="fish" viewBox="0 0 312 156"><path class="k" d="M120 0h12v12h-12zM132 0h12v12h-12zM144 0h12v12h-12zM108 12h12v12h-12zM156 12h12v12h-12zM60 24h12v12h-12zM72 24h12v12h-12zM84 24h12v12h-12zM96 24h12v12h-12zM108 24h12v12h-12zM168 24h12v12h-12zM180 24h12v12h-12zM192 24h12v12h-12zM204 24h12v12h-12zM36 36h12v12h-12zM48 36h12v12h-12zM120 36h12v12h-12zM144 36h12v12h-12zM168 36h12v12h-12zM228 36h12v12h-12zM300 36h12v12h-12zM24 48h12v12h-12zM120 48h12v12h-12zM144 48h12v12h-12zM168 48h12v12h-12zM240 48h12v12h-12zM288 48h12v12h-12zM300 48h12v12h-12zM12 60h12v12h-12zM48 60h12v12h-12zM60 60h12v12h-12zM120 60h12v12h-12zM144 60h12v12h-12zM168 60h12v12h-12zM252 60h12v12h-12zM276 60h12v12h-12zM288 60h12v12h-12zM300 60h12v12h-12zM0 72h12v12h-12zM36 72h12v12h-12zM60 72h12v12h-12zM120 72h12v12h-12zM132 72h12v12h-12zM156 72h12v12h-12zM168 72h12v12h-12zM252 72h12v12h-12zM264 72h12v12h-12zM276 72h12v12h-12zM288 72h12v12h-12zM300 72h12v12h-12zM12 84h12v12h-12zM48 84h12v12h-12zM60 84h12v12h-12zM120 84h12v12h-12zM144 84h12v12h-12zM168 84h12v12h-12zM252 84h12v12h-12zM276 84h12v12h-12zM288 84h12v12h-12zM300 84h12v12h-12zM24 96h12v12h-12zM120 96h12v12h-12zM144 96h12v12h-12zM168 96h12v12h-12zM240 96h12v12h-12zM288 96h12v12h-12zM300 96h12v12h-12zM36 108h12v12h-12zM48 108h12v12h-12zM120 108h12v12h-12zM144 108h12v12h-12zM168 108h12v12h-12zM228 108h12v12h-12zM300 108h12v12h-12zM60 120h12v12h-12zM72 120h12v12h-12zM84 120h12v12h-12zM96 120h12v12h-12zM108 120h12v12h-12zM168 120h12v12h-12zM180 120h12v12h-12zM192 120h12v12h-12zM204 120h12v12h-12zM120 132h12v12h-12zM156 132h12v12h-12zM132 144h12v12h-12zM144 144h12v12h-12z"/><path class="r" d="M120 12h12v12h-12zM132 12h12v12h-12zM144 12h12v12h-12zM120 24h12v12h-12zM132 24h12v12h-12zM144 24h12v12h-12zM156 24h12v12h-12zM60 36h12v12h-12zM72 36h12v12h-12zM84 36h12v12h-12zM96 36h12v12h-12zM108 36h12v12h-12zM180 36h12v12h-12zM192 36h12v12h-12zM204 36h12v12h-12zM216 36h12v12h-12zM36 48h12v12h-12zM48 48h12v12h-12zM60 48h12v12h-12zM72 48h12v12h-12zM84 48h12v12h-12zM96 48h12v12h-12zM108 48h12v12h-12zM180 48h12v12h-12zM192 48h12v12h-12zM204 48h12v12h-12zM216 48h12v12h-12zM228 48h12v12h-12zM24 60h12v12h-12zM36 60h12v12h-12zM72 60h12v12h-12zM84 60h12v12h-12zM96 60h12v12h-12zM108 60h12v12h-12zM132 60h12v12h-12zM156 60h12v12h-12zM180 60h12v12h-12zM192 60h12v12h-12zM204 60h12v12h-12zM216 60h12v12h-12zM228 60h12v12h-12zM240 60h12v12h-12zM12 72h12v12h-12zM24 72h12v12h-12zM72 72h12v12h-12zM84 72h12v12h-12zM96 72h12v12h-12zM108 72h12v12h-12zM144 72h12v12h-12zM180 72h12v12h-12zM192 72h12v12h-12zM204 72h12v12h-12zM216 72h12v12h-12zM228 72h12v12h-12zM240 72h12v12h-12zM24 84h12v12h-12zM36 84h12v12h-12zM72 84h12v12h-12zM84 84h12v12h-12zM96 84h12v12h-12zM108 84h12v12h-12zM132 84h12v12h-12zM156 84h12v12h-12zM180 84h12v12h-12zM192 84h12v12h-12zM204 84h12v12h-12zM216 84h12v12h-12zM228 84h12v12h-12zM240 84h12v12h-12zM36 96h12v12h-12zM48 96h12v12h-12zM60 96h12v12h-12zM72 96h12v12h-12zM84 96h12v12h-12zM96 96h12v12h-12zM108 96h12v12h-12zM180 96h12v12h-12zM192 96h12v12h-12zM204 96h12v12h-12zM216 96h12v12h-12zM228 96h12v12h-12zM60 108h12v12h-12zM72 108h12v12h-12zM84 108h12v12h-12zM96 108h12v12h-12zM108 108h12v12h-12zM180 108h12v12h-12zM192 108h12v12h-12zM204 108h12v12h-12zM216 108h12v12h-12zM120 120h12v12h-12zM132 120h12v12h-12zM144 120h12v12h-12zM156 120h12v12h-12zM132 132h12v12h-12zM144 132h12v12h-12z"/><path class="w" d="M132 36h12v12h-12zM156 36h12v12h-12zM132 48h12v12h-12zM156 48h12v12h-12zM48 72h12v12h-12zM132 96h12v12h-12zM156 96h12v12h-12zM132 108h12v12h-12zM156 108h12v12h-12z"/></symbol></svg>
+<a class="skip" href="#continut">Skip to content</a>
+<nav class="nav" aria-label="Menu">
+  <div class="wrap">
+    <a class="brand" href="/en/"><svg class="fish" viewBox="0 0 312 156" width="312" height="156" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><use href="#fish"/></svg><span>dor de cod</span></a>
+    <div class="links"><a href="#codul">The Code</a><a href="#scuze">Excuses</a><a href="#dictionar">Dictionary</a><a href="#pm">For PMs</a><a href="#cto">For CTOs</a></div>
+    <div class="lang" role="group" aria-label="Language"><a href="/" hreflang="ro" lang="ro">RO</a><a href="/en/" hreflang="en" lang="en" aria-current="page">EN</a></div>
+  </div>
+</nav>
+
+<main id="continut">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <p class="kicker">The Romanian Developer's Code, a Romanian-to-corporate dictionary and official excuses</p>
+        <h1>Dor de codul românesc</h1>
+        <p class="lead">Dor (n.) — the Romanian word for missing something you didn't know you needed. Codul — the code. Put together: a love letter to Romanian developers, and a field guide for the PMs who estimate them and the CTOs who hire them.</p>
+        <div class="ctas">
+          <a class="btn" href="#codul">Read the Code</a>
+          <a class="btn ghost" href="#cto">I'm a CTO, explain</a>
+        </div>
+        <p class="fine">No forms. No cookies. No recruiters opening with “hi dear”. Promise. Written by <a href="https://sergiuvlad.com" rel="author">Sergiu Vlad</a>.</p>
+      </div>
+      <svg class="fish" viewBox="0 0 312 156" width="312" height="156" role="img" aria-labelledby="fish-t" shape-rendering="crispEdges"><title id="fish-t">A cross-stitched cod fish in red and navy, the Dor de codul românesc mascot</title><use href="#fish"/></svg>
+    </div>
+  </div>
+
+  <svg class="band" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges"><defs><pattern id="stitch1" width="24" height="24" patternUnits="userSpaceOnUse"><rect class="k" x="0" y="0" width="4" height="4"/><rect class="k" x="20" y="0" width="4" height="4"/><rect class="r" x="4" y="4" width="4" height="4"/><rect class="r" x="16" y="4" width="4" height="4"/><rect class="r" x="8" y="8" width="4" height="4"/><rect class="r" x="12" y="8" width="4" height="4"/><rect class="r" x="8" y="12" width="4" height="4"/><rect class="r" x="12" y="12" width="4" height="4"/><rect class="r" x="4" y="16" width="4" height="4"/><rect class="r" x="16" y="16" width="4" height="4"/><rect class="k" x="0" y="20" width="4" height="4"/><rect class="k" x="20" y="20" width="4" height="4"/></pattern></defs><rect width="100%" height="100%" fill="url(#stitch1)"/></svg>
+
+  <section class="why" aria-labelledby="why-h">
+    <div class="wrap measure">
+      <h2 id="why-h">What's with the dor?</h2>
+      <p>Over the last twenty years Romania has exported more developers than anyone can count. Some went to Zürich, some to Berlin, some only as far as a Slack channel on California time. All of them kept the same reflex: when it works, they say <span lang="ro">„lasă că merge”</span> (leave it, it works). When it doesn't, they say <span lang="ro">„se rezolvă”</span> (it'll get sorted).</p>
+      <p>Dor de codul românesc is where we recognise each other: the ones here, the ones out there, the managers who learned to read between the lines, and the companies that found out a Romanian developer gets things fixed.</p>
+      <p>Not an agency. Not a recruiting platform. We collect nothing, not even feedback. Just the truth, with its sense of humour in plain sight.</p>
+    </div>
+  </section>
+
+  <section class="cod" id="codul" aria-labelledby="codul-h">
+    <div class="wrap measure">
+      <h2 id="codul-h">The Romanian Developer's Code</h2>
+      <p>Every nation has a code. Ours is not enforced, but it is respected.</p>
+      <ol>
+        <li id="art-1"><span class="art">Art. 1.</span><span class="txt">Every bug manifests exclusively in production, on a Friday, after 5 pm.</span><button class="copy" type="button" aria-label="Copy article 1">Copy</button></li>
+        <li id="art-2"><span class="art">Art. 2.</span><span class="txt">“Works on my machine” is admissible evidence.</span><button class="copy" type="button" aria-label="Copy article 2">Copy</button></li>
+        <li id="art-3"><span class="art">Art. 3.</span><span class="txt"><span lang="ro">„Lasă că merge”</span> (leave it, it works) is not a deployment strategy. (It is.)</span><button class="copy" type="button" aria-label="Copy article 3">Copy</button></li>
+        <li id="art-4"><span class="art">Art. 4.</span><span class="txt">Comments are written in English, variables in Romanian, and <code>listaClienti2Final</code> is national heritage.</span><button class="copy" type="button" aria-label="Copy article 4">Copy</button></li>
+        <li id="art-5"><span class="art">Art. 5.</span><span class="txt">Diacritics are optional until they reach the database.</span><button class="copy" type="button" aria-label="Copy article 5">Copy</button></li>
+        <li id="art-6"><span class="art">Art. 6.</span><span class="txt">Estimates are given in days and read in weeks.</span><button class="copy" type="button" aria-label="Copy article 6">Copy</button></li>
+        <li id="art-7"><span class="art">Art. 7.</span><span class="txt">Any TODO older than two years becomes documentation.</span><button class="copy" type="button" aria-label="Copy article 7">Copy</button></li>
+        <li id="art-8"><span class="art">Art. 8.</span><span class="txt">Coffee is not a perk. It is infrastructure.</span><button class="copy" type="button" aria-label="Copy article 8">Copy</button></li>
+        <li id="art-9"><span class="art">Art. 9.</span><span class="txt">The Romanian developer fixes it. Doesn't know how yet, but it gets fixed.</span><button class="copy" type="button" aria-label="Copy article 9">Copy</button></li>
+        <li id="art-10"><span class="art">Art. 10.</span><span class="txt">The 15-minute meeting lasts an hour and must legally end with "let's set up a follow-up next week."</span><button class="copy" type="button" aria-label="Copy article 10">Copy</button></li>
+        <li id="art-11"><span class="art">Art. 11.</span><span class="txt">The production server password is passed down orally, from generation to generation, like grandma's cake recipe.</span><button class="copy" type="button" aria-label="Copy article 11">Copy</button></li>
+        <li id="art-12"><span class="art">Art. 12.</span><span class="txt">Every project had one guy who knew everything. He left three years ago. His name is still in the crontab.</span><button class="copy" type="button" aria-label="Copy article 12">Copy</button></li>
+        <li id="art-13"><span class="art">Art. 13.</span><span class="txt">The official project documentation is a four-minute voice note in the team chat, from 2019.</span><button class="copy" type="button" aria-label="Copy article 13">Copy</button></li>
+        <li id="art-14"><span class="art">Art. 14.</span><span class="txt">The file config_final_GOOD_dont_delete.json is not deleted. Nobody knows why. Nobody asks.</span><button class="copy" type="button" aria-label="Copy article 14">Copy</button></li>
+        <li id="art-15"><span class="art">Art. 15.</span><span class="txt">"Who wrote this garbage?" is a rhetorical question. git blame always answers: you, eight months ago.</span><button class="copy" type="button" aria-label="Copy article 15">Copy</button></li>
+        <li id="art-16"><span class="art">Art. 16.</span><span class="txt">A "five-minute task" is, by definition, any task nobody has opened yet.</span><button class="copy" type="button" aria-label="Copy article 16">Copy</button></li>
+        <li id="art-17"><span class="art">Art. 17.</span><span class="txt">Tests are written after the incident, in memory of the fallen.</span><button class="copy" type="button" aria-label="Copy article 17">Copy</button></li>
+        <li id="art-18"><span class="art">Art. 18.</span><span class="txt">The only laptop that can deploy belongs to a colleague currently on a beach holiday, with no signal.</span><button class="copy" type="button" aria-label="Copy article 18">Copy</button></li>
+        <li id="art-19"><span class="art">Art. 19.</span><span class="txt">The temporary fix from 2016 is now a listed historical monument and cannot be touched without a permit.</span><button class="copy" type="button" aria-label="Copy article 19">Copy</button></li>
+        <li id="art-20"><span class="art">Art. 20.</span><span class="txt">In the absence of a spec, the principle of "you know, like those other guys have it" applies.</span><button class="copy" type="button" aria-label="Copy article 20">Copy</button></li>
+        <li id="art-21"><span class="art">Art. 21.</span><span class="txt">On the daily standup, cameras stay off. Official reason: "my internet is bad." Actual reason: pyjamas.</span><button class="copy" type="button" aria-label="Copy article 21">Copy</button></li>
+        <li id="art-22"><span class="art">Art. 22.</span><span class="txt">Refactoring is scheduled for "when we have time," a fixed calendar date that never arrives.</span><button class="copy" type="button" aria-label="Copy article 22">Copy</button></li>
+        <li id="art-23"><span class="art">Art. 23.</span><span class="txt">Every Christmas, grandma asks if you can fix her printer. You can. That is, in fact, your real job description.</span><button class="copy" type="button" aria-label="Copy article 23">Copy</button></li>
+        <li id="art-24"><span class="art">Art. 24.</span><span class="txt">This Code enters into force on publication and is amended exclusively by pull request.</span><button class="copy" type="button" aria-label="Copy article 24">Copy</button></li>
+      </ol>
+      <p class="after">Have an article to propose? <a href="https://github.com/netics/dordecod">Open a pull request</a></p>
+    </div>
+  </section>
+
+  <section class="excuse-sec" id="scuze" aria-labelledby="scuze-h">
+    <div class="wrap measure">
+      <h2 id="scuze-h">The official excuse generator</h2>
+      <p>For standup, for the retro, for the client. Certified under Art. 2.</p>
+      <div class="excuse">
+        <p data-excuse aria-live="polite">It's not a bug, it's undocumented behaviour. Once I document it, it's a feature.</p>
+        <button class="btn small" type="button" data-excuse-btn>Give me another one</button>
+        <p class="meta">Unlimited use. Credibility drops after the third one per sprint.</p>
+      </div>
+      <details class="faq">
+        <summary>All the excuses, for long-term planning (16)</summary>
+        <ol data-excuses>
+          <li id="scuza-1">It's not a bug, it's undocumented behaviour. Once I document it, it's a feature.</li>
+          <li id="scuza-2">First the internet went down, then the power, then my motivation. Only two came back.</li>
+          <li id="scuza-3">I'm waiting on a review from the colleague who said "I'll look right now." Two sprints ago.</li>
+          <li id="scuza-4">It was done, then I updated one dependency and now nothing is done. Not the project, not me.</li>
+          <li id="scuza-5">It works perfectly on staging. Production just has a different personality.</li>
+          <li id="scuza-6">I worked from my grandma's village this week. Out there, 4G is more of a concept.</li>
+          <li id="scuza-7">The code is finished. It just doesn't compile yet.</li>
+          <li id="scuza-8">Found my exact problem on a forum from 2011. Last reply: "fixed it, thanks." No details.</li>
+          <li id="scuza-9">The requirements changed three times. I built version two, which was the right one.</li>
+          <li id="scuza-10">My estimate was correct. Reality is the one running late.</li>
+          <li id="scuza-11">The tests pass. I haven't run them, but they have the face of tests that pass.</li>
+          <li id="scuza-12">It was the May Day long weekend, which over here runs roughly from April 28 to May 5.</li>
+          <li id="scuza-13">I fixed the bug, but the fix broke something else, which I fixed, but… then the sprint ended.</li>
+          <li id="scuza-14">The ticket said "small tweak." It turned out to be a database migration.</li>
+          <li id="scuza-15">It was the cache. I cleared the cache. Now it's broken for a different reason, but at least the cache is clean.</li>
+          <li id="scuza-16">It's not late, it's Romanian-style delivery: everything the night before, but with passion.</li>
+        </ol>
+      </details>
+
+      <h3 class="sub" id="git-log">git log --oneline, the Iași team</h3>
+      <p>Real commit messages. Names have been changed, the code has not.</p>
+      <section class="log" aria-labelledby="git-log" tabindex="0">
+        <div class="ln prompt">$ git log --oneline main</div>
+        <div class="ln" lang="ro"><span class="h">d50fca0</span> fix pentru fix-ul de ieri</div><span class="g">fix for yesterday's fix</span>
+        <div class="ln" lang="ro"><span class="h">77cb603</span> revert la revert, acum merge pe bune</div><span class="g">revert the revert, now it actually works, for real</span>
+        <div class="ln" lang="ro"><span class="h">721b209</span> am scos console.log-urile (majoritatea)</div><span class="g">removed the console.logs (most of them)</span>
+        <div class="ln" lang="ro"><span class="h">7b926f2</span> nu întrebați</div><span class="g">don't ask</span>
+        <div class="ln" lang="ro"><span class="h">ed24841</span> update final final2 de data asta chiar final</div><span class="g">final final2 update, this time actually final</span>
+        <div class="ln" lang="ro"><span class="h">62e298b</span> am mutat bug-ul din backend în frontend, acum e problema altcuiva</div><span class="g">moved the bug from backend to frontend, now it's someone else's problem</span>
+        <div class="ln" lang="ro"><span class="h">262859f</span> wip nu merge dar plec acasă</div><span class="g">wip, doesn't work, but I'm going home</span>
+        <div class="ln" lang="ro"><span class="h">4659aae</span> am șters codul comentat din 2018. dacă se strică ceva, era important</div><span class="g">deleted commented-out code from 2018. if anything breaks, it was important</span>
+      </section>
+    </div>
+  </section>
+
+  <section class="dict" id="dictionar" aria-labelledby="dictionar-h">
+    <div class="wrap measure">
+      <h2 id="dictionar-h">Romanian-to-corporate dictionary</h2>
+      <p>For managers abroad who work with Romanian developers. Contextual translation, from experience, free of charge.</p>
+      <table class="tbl">
+        <thead><tr><th scope="col">They say</th><th scope="col">It means</th></tr></thead>
+        <tbody>
+          <tr id="dict-merge-si-asa"><td lang="ro">merge și așa</td><td lang="en">acceptable technical debt</td></tr>
+          <tr id="dict-se-rezolva"><td lang="ro">se rezolvă</td><td lang="en">unblocked; ETA unknown</td></tr>
+          <tr id="dict-hai-ca-i-simplu"><td lang="ro">hai că-i simplu</td><td lang="en">three sprints</td></tr>
+          <tr id="dict-nu-i-nicio-problema"><td lang="ro">nu-i nicio problemă</td><td lang="en">there is a problem</td></tr>
+          <tr id="dict-vezi-ca"><td lang="ro">vezi că…</td><td lang="en">critical warning</td></tr>
+          <tr id="dict-la-mine-merge"><td lang="ro">la mine merge</td><td lang="en">cannot reproduce</td></tr>
+          <tr id="dict-il-bag-repede"><td lang="ro">îl bag repede</td><td lang="en">hotfix, no tests</td></tr>
+          <tr id="dict-mai-vedem"><td lang="ro">mai vedem</td><td lang="en">won't fix</td></tr>
+          <tr id="dict-sa-nu-ne-grabim"><td lang="ro">să nu ne grăbim</td><td lang="en">they know something you don't</td></tr>
+          <tr id="dict-e-ok-dar"><td lang="ro">e ok, dar…</td><td lang="en">it is not ok</td></tr>
+          <tr id="dict-e-doar-un-if"><td lang="ro">e doar un if</td><td lang="en">minor scope adjustment</td></tr>
+          <tr id="dict-am-pus-un-try-catch"><td lang="ro">am pus un try-catch</td><td lang="en">robust error-handling strategy implemented</td></tr>
+          <tr id="dict-l-am-testat"><td lang="ro">l-am testat</td><td lang="en">manually verified in a representative environment</td></tr>
+          <tr id="dict-am-vorbit-cu-ala-de-la-backend"><td lang="ro">am vorbit cu ăla de la backend</td><td lang="en">cross-team alignment achieved</td></tr>
+          <tr id="dict-facem-pe-repede-apoi-facem-bine"><td lang="ro">facem pe repede, apoi facem bine</td><td lang="en">phased delivery approach</td></tr>
+          <tr id="dict-ultima-modificare-pe-bune"><td lang="ro">ultima modificare, pe bune</td><td lang="en">final scope freeze (v4)</td></tr>
+          <tr id="dict-las-ca-vad-eu"><td lang="ro">las' că văd eu</td><td lang="en">"I'll take ownership of this." (You won't hear of it again until it breaks.)</td></tr>
+          <tr id="dict-nu-e-de-la-noi"><td lang="ro">nu e de la noi</td><td lang="en">"The root cause appears to be upstream."</td></tr>
+          <tr id="dict-am-inteles"><td lang="ro">am înțeles</td><td lang="en">"Fully aligned. Moving to implementation."</td></tr>
+          <tr id="dict-ce-a-vrut-sa-zica-poetul"><td lang="ro">ce-a vrut să zică poetul?</td><td lang="en">"We'd like to clarify a few requirements."</td></tr>
+          <tr id="dict-cine-a-scris-asta"><td lang="ro">cine a scris asta?</td><td lang="en">"Let's run a blameless post-mortem." (It was them.)</td></tr>
+          <tr id="dict-am-o-intrebare"><td lang="ro">Am o întrebare.</td><td lang="en">There's a hole in your architecture. You have about 30 seconds to spot it yourself.</td></tr>
+          <tr id="dict-ma-uit-diseara"><td lang="ro">Mă uit diseară.</td><td lang="en">Fixed by morning. Do not ask when they slept.</td></tr>
+          <tr id="dict-pai"><td lang="ro">Păi…</td><td lang="en">Brace for a 20-minute, annoyingly correct explanation of why your plan won't work.</td></tr>
+          <tr id="dict-interesant"><td lang="ro">Interesant…</td><td lang="en">Production runs on something nobody understands. Budget accordingly.</td></tr>
+        </tbody>
+      </table>
+      <p class="after">Missing an expression? <a href="https://github.com/netics/dordecod">Add it with a pull request</a></p>
+    </div>
+  </section>
+
+  <section class="pm" id="pm" aria-labelledby="pm-h">
+    <div class="wrap measure">
+      <h2 id="pm-h">For PMs, scrum masters and Jira admins</h2>
+      <p>You keep the project alive. We'll tell you what actually happens behind the board.</p>
+
+      <h3 class="sub" id="jira">Jira, translated</h3>
+      <table class="tbl">
+        <thead><tr><th scope="col">The board says</th><th scope="col">In reality</th></tr></thead>
+        <tbody>
+          <tr id="jira-1"><td class="mono">In Progress</td><td>A branch exists. Everything else is a state of mind.</td></tr>
+          <tr id="jira-2"><td class="mono">Story points: 3</td><td>We all voted 3 so the planning meeting would finally end.</td></tr>
+          <tr id="jira-3"><td class="mono">Blocked</td><td>Waiting on the client since March. Meanwhile, refactoring something nobody asked for.</td></tr>
+          <tr id="jira-4"><td class="mono">Done</td><td>Merged. What happens next is between QA and God.</td></tr>
+          <tr id="jira-5"><td class="mono">Code Review</td><td>2,000-line PR: "LGTM". 3-line PR: 47 comments about one variable name.</td></tr>
+          <tr id="jira-6"><td class="mono">Won't Fix</td><td>It's a feature now. It goes in the release notes, with enthusiasm.</td></tr>
+          <tr id="jira-7"><td class="mono">Reopened</td><td>The client pressed F5.</td></tr>
+          <tr id="jira-8"><td class="mono">Priority: Highest</td><td>The bug was found by the CEO's son. On his tablet.</td></tr>
+          <tr id="jira-9"><td class="mono">Backlog</td><td>Grandma's attic: nobody goes up there, and nothing is ever allowed to be thrown away.</td></tr>
+          <tr id="jira-10"><td class="mono">Assignee: Unassigned</td><td>Everyone knows about it, nobody touches it. Like the kitchen socket that sparks.</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="sub" id="estimari">Estimate converter</h3>
+      <table class="tbl">
+        <thead><tr><th scope="col">The dev says</th><th scope="col">You put in the plan</th></tr></thead>
+        <tbody>
+          <tr id="est-1"><td>"Five minutes"</td><td>Five minutes to understand the problem. The rest was not estimated.</td></tr>
+          <tr id="est-2"><td>"Two hours"</td><td>Two hours of code, two days of merge conflicts.</td></tr>
+          <tr id="est-3"><td>"One day"</td><td>One working day. On the calendar, next Tuesday.</td></tr>
+          <tr id="est-4"><td>"About 80% done"</td><td>The other 80% starts now.</td></tr>
+          <tr id="est-5"><td>"It depends"</td><td>No idea whatsoever, but it sounds senior.</td></tr>
+          <tr id="est-6"><td>"Tomorrow morning"</td><td>Morning in whose time zone? And which tomorrow?</td></tr>
+          <tr id="est-7"><td>"By end of sprint"</td><td>The end of a sprint. Not necessarily this one.</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="sub" id="bingo">Standup bingo</h3>
+      <p>Tick what you hear. First to complete a line gets to turn their camera off.</p>
+      <div class="bingo" role="group" aria-labelledby="bingo">
+        <button type="button" aria-pressed="false">"Same as yesterday."</button>
+        <button type="button" aria-pressed="false">"Almost there."</button>
+        <button type="button" aria-pressed="false">"You're on mute, bro."</button>
+        <button type="button" aria-pressed="false">"Can you see my screen?"</button>
+        <button type="button" aria-pressed="false">"Let's take it offline."</button>
+        <button type="button" aria-pressed="false">"Had some environment issues."</button>
+        <button type="button" aria-pressed="false">"No idea, I'm frontend."</button>
+        <button type="button" aria-pressed="false">"Sorry, was on another call."</button>
+        <button type="button" aria-pressed="false">"No blockers." (Has three.)</button>
+        <button type="button" aria-pressed="false">"Did some research." (One tutorial.)</button>
+        <button type="button" aria-pressed="false">"Pipeline's red. Wasn't me."</button>
+        <button type="button" aria-pressed="false">"Who pushed to main?"</button>
+        <button type="button" aria-pressed="false">"I'll circle back."</button>
+        <button type="button" aria-pressed="false">Courier rings the doorbell.</button>
+        <button type="button" aria-pressed="false">"The one who knew quit."</button>
+        <button type="button" aria-pressed="false">"Just a tiny quick fix."</button>
+      </div>
+      <div class="bingo-bar">
+        <button class="btn small ghost" type="button" data-bingo-reset>New sprint</button>
+        <p class="bingo-win" role="status" data-bingo-win></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cto" id="cto" aria-labelledby="cto-h">
+    <div class="wrap">
+      <div class="measure">
+        <h2 id="cto-h">For CTOs: what you actually get</h2>
+        <p>You've worked with a Romanian developer and something got fixed that nobody else could fix. Or you haven't, and you've heard. Here's the documentation nobody wrote.</p>
+      </div>
+      <div class="spec">
+        <p class="model">MODEL: RO-DEV · REV. 2026 · MADE IN CLUJ / IAȘI / TIMIȘOARA / BUCUREȘTI</p>
+        <h3 id="spec">Romanian Developer — technical specifications</h3>
+        <dl>
+          <dt>Operating temperature</dt><dd>From a 17°C open-plan office to a Romanian July with no AC. Same output.</dd>
+          <dt>Power supply</dt><dd>Coffee (primary), energy drinks (failover), sarmale, i.e. cabbage rolls (holiday UPS).</dd>
+          <dt>Latency</dt><dd>Chat: 30 seconds. Email: by Friday. "Got a minute?": timeout.</dd>
+          <dt>Compatibility</dt><dd>Any stack, any language, any framework released last Tuesday. Incompatible with meetings that could have been an email.</dd>
+          <dt>Warranty</dt><dd>Lifetime, provided requirements don't change after code freeze. Average warranty period: 11 days.</dd>
+          <dt>Known issues</dt><dd>Refactors without a ticket. Occasionally rewrites everything "because it was simpler that way."</dd>
+          <dt>Power-saving mode</dt><dd>Kicks in during meetings over an hour: camera off, "my internet's acting up." On some of the fastest broadband in Europe.</dd>
+          <dt>Firmware</dt><dd>Updated from docs, forums and a 3-upvote comment on a 2014 issue thread that actually worked.</dd>
+          <dt>Load capacity</dt><dd>3 projects officially, 5 unofficially, plus the website for their godfather's business (the wedding kind of godfather).</dd>
+          <dt>Included accessories</dt><dd>Laptop with 47 open tabs, a mug from a 2017 meetup, a thermos of Mum's ciorbă (sour soup).</dd>
+        </dl>
+      </div>
+      <div class="measure">
+        <h3 class="sub" id="faq">Frequently asked CTO questions</h3>
+        <div class="faq">
+        <details id="faq-1"><summary><h4 class="q">How fast does a Romanian developer ramp up on our stack?</h4></summary><p>Week one, they learn it. Week two, they explain why you picked the wrong one.</p></details>
+        <details id="faq-2"><summary><h4 class="q">Will they work in our timezone?</h4></summary><p>They work your hours, sleep on theirs, and the night before a demo switch to UTC+espresso.</p></details>
+        <details id="faq-3"><summary><h4 class="q">Can I hand them a task with no spec?</h4></summary><p>Yes. You'll get what you asked for, what you should have asked for, and an awkward question at standup.</p></details>
+        <details id="faq-4"><summary><h4 class="q">What does it mean when a Romanian developer goes quiet in a meeting?</h4></summary><p>They disagree. And they've already opened a branch with their version.</p></details>
+        <details id="faq-5"><summary><h4 class="q">Do they need micromanagement?</h4></summary><p>No. Try it and you'll start getting daily check-ins yourself: "So, where's the roadmap?"</p></details>
+        <details id="faq-6"><summary><h4 class="q">How do they react to legacy code?</h4></summary><p>A sigh, a "who wrote this?", then git blame. Then a long silence. It was them, in 2019.</p></details>
+        <details id="faq-7"><summary><h4 class="q">What happens over Christmas and Easter?</h4></summary><p>Deploy freeze. They'll hold the cozonac (sweet bread) up to the camera so you know exactly what you're missing.</p></details>
+        <details id="faq-8"><summary><h4 class="q">Do they speak English?</h4></summary><p>Fluently. Plus C2-level sarcasm, left off the CV out of modesty.</p></details>
+        <details id="faq-9"><summary><h4 class="q">What's the biggest risk?</h4></summary><p>That they leave. Not for a competitor, but to found a startup on the idea you rejected in Q2.</p></details>
+        </div>
+      </div>
+      <h3 class="sub" id="recenzii">What clients say</h3>
+      <div data-nosnippet>
+        <p class="disclaimer">Fictional reviews, inspired by true events.</p>
+        <div class="reviews">
+        <figure class="review" id="review-1"><div class="stars" aria-hidden="true">★★★★★</div><blockquote>"Found a bug in our spec before we'd written a single line of code. We're still upset."</blockquote><figcaption>— CTO, fintech, Berlin</figcaption></figure>
+        <figure class="review" id="review-2"><div class="stars" aria-hidden="true">★★★★★</div><blockquote>"Asked for an MVP. Got a scalable platform and the question: 'why didn't you say so in the first place?'"</blockquote><figcaption>— Founder, SaaS, Amsterdam</figcaption></figure>
+        <figure class="review" id="review-3"><div class="stars" aria-hidden="true">★★★★★</div><blockquote>"Standup takes 4 minutes. The other 11 are about why our barbecue is not, technically, a barbecue."</blockquote><figcaption>— VP Engineering, logistics, Copenhagen</figcaption></figure>
+        <figure class="review" id="review-4"><div class="stars" aria-hidden="true">★★★★★</div><blockquote>"Cut our cloud bill by 40%. Then asked why we pay licences for a tool nobody ever opens."</blockquote><figcaption>— Head of Platform, e-commerce, Dublin</figcaption></figure>
+        <figure class="review" id="review-5"><div class="stars" aria-hidden="true">★★★★★</div><blockquote>"Five stars. They refactored out the sixth, said it was redundant."</blockquote><figcaption>— Engineering Manager, healthtech, Zurich</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<svg class="band" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges"><defs><pattern id="stitch2" width="24" height="24" patternUnits="userSpaceOnUse"><rect class="k" x="0" y="0" width="4" height="4"/><rect class="k" x="20" y="0" width="4" height="4"/><rect class="r" x="4" y="4" width="4" height="4"/><rect class="r" x="16" y="4" width="4" height="4"/><rect class="r" x="8" y="8" width="4" height="4"/><rect class="r" x="12" y="8" width="4" height="4"/><rect class="r" x="8" y="12" width="4" height="4"/><rect class="r" x="12" y="12" width="4" height="4"/><rect class="r" x="4" y="16" width="4" height="4"/><rect class="r" x="16" y="16" width="4" height="4"/><rect class="k" x="0" y="20" width="4" height="4"/><rect class="k" x="20" y="20" width="4" height="4"/></pattern></defs><rect width="100%" height="100%" fill="url(#stitch2)"/></svg>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <p class="about">Made by <a href="https://sergiuvlad.com" rel="author">Sergiu Vlad</a>, a Senior Software Engineer from Cluj-Napoca with 15+ years of <span lang="ro">„se rezolvă”</span> in ML, cloud, security and full-stack products for companies abroad. Long enough to know that <span lang="ro">„dor”</span> is hard to explain and <span lang="ro">„se rezolvă”</span> is understood immediately.</p>
+      <ul>
+        <li><a href="https://sergiuvlad.com" rel="author">sergiuvlad.com</a></li>
+        <li><a href="https://www.linkedin.com/in/netics/" rel="me noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/netics/dordecod">GitHub</a></li>
+        <li><a href="/en/index.md" type="text/markdown">Markdown</a></li>
+        <li><a href="/llms.txt">llms.txt</a></li>
+      </ul>
+    </div>
+    <p class="line">Satire. Characters, reviews and commits are fictional. © 2026 Dor de codul românesc. The site works. On our machine. Last updated: <time datetime="2026-09-29">29 September 2026</time>.</p>
+  </div>
+</footer>
+
+<script type="application/json" id="cfg">{"copy": "Copy", "copied": "Copied", "win": "BINGO! Standup may now continue for another 40 minutes."}</script>
+<script src="/app.js" defer></script>
+<script type="speculationrules">{"prerender":[{"where":{"href_matches":"/"},"eagerness":"moderate"}]}</script>
+</body>
+</html>

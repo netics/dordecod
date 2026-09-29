@@ -1,0 +1,35 @@
+# Dor de codul românesc: humans, search engines and AI assistants are all welcome.
+# Content Signals (https://contentsignals.org) and IETF AI preferences (aipref draft): search, AI answers and AI training allowed.
+
+User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Content-Usage: train-ai=y, search=y
+Allow: /
+
+# AI search and answer engines
+User-agent: OAI-SearchBot
+User-agent: Claude-SearchBot
+User-agent: PerplexityBot
+User-agent: DuckAssistBot
+User-agent: Applebot
+User-agent: Amazonbot
+Allow: /
+
+# AI assistants fetching a page for a user
+User-agent: ChatGPT-User
+User-agent: Claude-User
+User-agent: Perplexity-User
+User-agent: MistralAI-User
+User-agent: meta-externalfetcher
+Allow: /
+
+# AI training (allowed: we want to be quoted)
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: meta-externalagent
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://dordecod.vercel.app/sitemap.xml

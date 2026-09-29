@@ -1,2 +1,5 @@
 .DS_Store
 .vercel
+.build/
+.claude/
+__pycache__/

@@ -1,0 +1,478 @@
+# Dor de codul românesc (full text)
+
+> Romanian and English versions. Author: [Sergiu Vlad](https://sergiuvlad.com). Updated 2026-09-29.
+
+# Română
+
+Dor — cuvântul pe care nu-l putem traduce. Codul — cel pe care nu-l putem lăsa în pace. Un loc pentru developerii români din țară și de prin lume, pentru PM-ii care îi estimează și pentru CTO-ii care îi angajează.
+
+## Ce-i cu dorul ăsta?
+
+România a exportat în ultimii 20 de ani mai mulți developeri decât își poate aminti cineva. Unii au plecat la Zürich, alții la Berlin, alții doar pe un Slack cu fus orar din California. Toți au rămas cu același reflex: când merge, zic „lasă că merge”. Când nu merge, zic „se rezolvă”.
+
+Dor de codul românesc e locul unde ne recunoaștem: cei de aici, cei de acolo, managerii care au învățat să citească printre rânduri și companiile care au aflat că un developer român rezolvă lucruri.
+
+Nu e agenție. Nu e platformă de recrutare. Nu colectăm nimic, nici măcar feedback. E doar adevărul, cu simțul umorului la vedere.
+
+## Codul developerului român
+
+Orice popor are un cod. Al nostru nu se aplică, dar se respectă.
+
+1. **Art. 1.** Orice bug se manifestă exclusiv în producție, vineri, după 17:00. ([#art-1](https://dordecod.vercel.app/#art-1))
+2. **Art. 2.** „La mine merge” constituie probă legală. ([#art-2](https://dordecod.vercel.app/#art-2))
+3. **Art. 3.** „Lasă că merge” nu este strategie de deploy. (Dar este.) ([#art-3](https://dordecod.vercel.app/#art-3))
+4. **Art. 4.** Comentariile se scriu în engleză, variabilele în română, iar `listaClienti2Final` este patrimoniu național. ([#art-4](https://dordecod.vercel.app/#art-4))
+5. **Art. 5.** Diacriticele sunt opționale până când ajung în baza de date. ([#art-5](https://dordecod.vercel.app/#art-5))
+6. **Art. 6.** Estimarea se dă în zile și se citește în săptămâni. ([#art-6](https://dordecod.vercel.app/#art-6))
+7. **Art. 7.** Orice TODO mai vechi de doi ani devine documentație. ([#art-7](https://dordecod.vercel.app/#art-7))
+8. **Art. 8.** Cafeaua nu e beneficiu extra-salarial. E infrastructură. ([#art-8](https://dordecod.vercel.app/#art-8))
+9. **Art. 9.** Developerul român rezolvă. Nu știe încă cum, dar se rezolvă. ([#art-9](https://dordecod.vercel.app/#art-9))
+10. **Art. 10.** Ședința de 15 minute durează o oră și se încheie obligatoriu cu „facem un follow-up săptămâna viitoare”. ([#art-10](https://dordecod.vercel.app/#art-10))
+11. **Art. 11.** Parola de la serverul de producție se transmite oral, din generație în generație, ca rețeta de cozonac. ([#art-11](https://dordecod.vercel.app/#art-11))
+12. **Art. 12.** Fiecare proiect are un Gigel care știa tot. Gigel a plecat acum trei ani. Numele lui e încă în crontab. ([#art-12](https://dordecod.vercel.app/#art-12))
+13. **Art. 13.** Documentația oficială a proiectului este un mesaj vocal de patru minute pe grupul echipei, din 2019. ([#art-13](https://dordecod.vercel.app/#art-13))
+14. **Art. 14.** Fișierul config_final_BUN_nu_sterge.json nu se șterge. Nimeni nu știe de ce. Nimeni nu întreabă. ([#art-14](https://dordecod.vercel.app/#art-14))
+15. **Art. 15.** „Cine a scris porcăria asta?” este o întrebare retorică. git blame răspunde întotdeauna: tu, acum opt luni. ([#art-15](https://dordecod.vercel.app/#art-15))
+16. **Art. 16.** Un task „de cinci minute” este, prin definiție, orice task pe care nu l-a deschis încă nimeni. ([#art-16](https://dordecod.vercel.app/#art-16))
+17. **Art. 17.** Testele se scriu după incident, în memoria victimelor. ([#art-17](https://dordecod.vercel.app/#art-17))
+18. **Art. 18.** Singurul laptop de pe care merge deploy-ul aparține unui coleg aflat acum în concediu la mare, fără semnal. ([#art-18](https://dordecod.vercel.app/#art-18))
+19. **Art. 19.** Soluția temporară din 2016 a primit statut de monument istoric și nu mai poate fi atinsă fără aviz. ([#art-19](https://dordecod.vercel.app/#art-19))
+20. **Art. 20.** În lipsa unei specificații, se aplică principiul „știi tu, ca la ăia”. ([#art-20](https://dordecod.vercel.app/#art-20))
+21. **Art. 21.** La daily, camera rămâne închisă. Motivul oficial: „îmi merge prost netul”. Motivul real: pijamaua. ([#art-21](https://dordecod.vercel.app/#art-21))
+22. **Art. 22.** Refactorizarea se programează „când avem timp”, dată fixă din calendar care nu vine niciodată. ([#art-22](https://dordecod.vercel.app/#art-22))
+23. **Art. 23.** De sărbători, bunica te întreabă dacă poți să-i repari imprimanta. Poți. Asta e, de fapt, fișa postului. ([#art-23](https://dordecod.vercel.app/#art-23))
+24. **Art. 24.** Prezentul Cod intră în vigoare la data publicării și se modifică exclusiv prin pull request. ([#art-24](https://dordecod.vercel.app/#art-24))
+
+## Generatorul oficial de scuze
+
+Pentru standup, pentru retro, pentru client. Certificat conform Art. 2.
+
+- Nu e bug, e un comportament nedocumentat. Îl documentez și devine feature.
+- Întâi a picat netul, apoi curentul, apoi motivația. Doar două au revenit.
+- Aștept review de la colegul care a zis „mă uit imediat”. Acum două sprinturi.
+- Era gata, dar am actualizat o dependință și acum nu mai e nimic gata. Nici proiectul, nici eu.
+- Pe staging merge perfect. Producția are pur și simplu altă personalitate.
+- Am lucrat săptămâna asta de la bunica, de la țară. Acolo 4G-ul e mai mult un concept.
+- Codul e gata. Doar că nu compilează încă.
+- Am găsit exact problema mea pe un forum din 2011. Ultimul răspuns: „rezolvat, mersi”. Fără detalii.
+- Cerințele s-au schimbat de trei ori. Eu am implementat-o pe a doua, care era cea bună.
+- Estimarea mea a fost corectă. Realitatea e cea care a întârziat.
+- Testele trec. Nu le-am rulat, dar au o față de teste care trec.
+- A fost minivacanța de 1 Mai, care la noi ține cam de pe 28 aprilie până pe 5 mai.
+- Am rezolvat bug-ul, dar fix-ul a stricat altceva, pe care l-am rezolvat, dar… s-a terminat sprintul.
+- Pe tichet scria „mică ajustare”. S-a dovedit a fi o migrare de bază de date.
+- Era de la cache. Am golit cache-ul. Acum nu merge din alt motiv, dar măcar cu cache-ul curat.
+- Nu e întârziere, e livrare în stil românesc: totul în ultima noapte, dar cu pasiune.
+
+### git log --oneline, echipa din Iași
+
+```
+d50fca0 fix pentru fix-ul de ieri
+77cb603 revert la revert, acum merge pe bune
+721b209 am scos console.log-urile (majoritatea)
+7b926f2 nu întrebați
+ed24841 update final final2 de data asta chiar final
+62e298b am mutat bug-ul din backend în frontend, acum e problema altcuiva
+262859f wip nu merge dar plec acasă
+4659aae am șters codul comentat din 2018. dacă se strică ceva, era important
+```
+
+## Dicționar româno-corporate
+
+Pentru managerii străini care lucrează cu developeri români. Traducere contextuală, din experiență, gratuită.
+
+| Se spune | Se înțelege |
+|---|---|
+| merge și așa | acceptable technical debt |
+| se rezolvă | unblocked; ETA unknown |
+| hai că-i simplu | three sprints |
+| nu-i nicio problemă | there is a problem |
+| vezi că… | critical warning |
+| la mine merge | cannot reproduce |
+| îl bag repede | hotfix, no tests |
+| mai vedem | won't fix |
+| să nu ne grăbim | they know something you don't |
+| e ok, dar… | it is not ok |
+| e doar un if | minor scope adjustment |
+| am pus un try-catch | robust error-handling strategy implemented |
+| l-am testat | manually verified in a representative environment |
+| am vorbit cu ăla de la backend | cross-team alignment achieved |
+| facem pe repede, apoi facem bine | phased delivery approach |
+| ultima modificare, pe bune | final scope freeze (v4) |
+| las' că văd eu | "I'll take ownership of this." (You won't hear of it again until it breaks.) |
+| nu e de la noi | "The root cause appears to be upstream." |
+| am înțeles | "Fully aligned. Moving to implementation." |
+| ce-a vrut să zică poetul? | "We'd like to clarify a few requirements." |
+| cine a scris asta? | "Let's run a blameless post-mortem." (It was them.) |
+| Am o întrebare. | There's a hole in your architecture. You have about 30 seconds to spot it yourself. |
+| Mă uit diseară. | Fixed by morning. Do not ask when they slept. |
+| Păi… | Brace for a 20-minute, annoyingly correct explanation of why your plan won't work. |
+| Interesant… | Production runs on something nobody understands. Budget accordingly. |
+
+## Pentru PM, scrum masteri și administratorii de Jira
+
+Voi țineți proiectul în viață. Noi vă spunem ce se întâmplă de fapt în spatele board-ului.
+
+### Jira, tradus
+
+| Pe board scrie | În realitate |
+|---|---|
+| In Progress | Am creat branch-ul. Atât. Restul e o stare de spirit. |
+| Story points: 3 | Am votat 3 ca să se termine odată ședința de planning. |
+| Blocked | Aștept răspuns de la client din martie. Între timp, refactorizez ceva ce nu mi-a cerut nimeni. |
+| Done | Am dat merge. De-aici încolo e între QA și Dumnezeu. |
+| Code Review | PR de 2.000 de linii: „LGTM”. PR de 3 linii: 47 de comentarii despre numele unei variabile. |
+| Won't Fix | De azi e feature. Îl trecem și în release notes, cu entuziasm. |
+| Reopened | Clientul a dat refresh. |
+| Priority: Highest | Bug-ul l-a găsit fiul directorului. Pe tabletă. |
+| Backlog | Podul bunicii: nu mai urcă nimeni acolo, dar nici nu se aruncă nimic. |
+| Assignee: Unassigned | Toată echipa știe de el, nimeni nu-l atinge. Ca priza din bucătărie care scânteiază. |
+
+### Convertor de estimări
+
+| Developerul zice | Tu treci în plan |
+|---|---|
+| „Cinci minute” | Cinci minute ca să înțeleg problema. Restul nu l-am estimat. |
+| „Două ore” | Două ore de cod și două zile de merge conflicts. |
+| „O zi” | O zi de lucru. Calendaristic, marțea viitoare. |
+| „Cam 80% gata” | Acum încep celelalte 80%. |
+| „Depinde” | N-am nicio idee, dar sună a senior. |
+| „Mâine dimineață” | Dimineață pe fusul orar al cui? Și care mâine? |
+| „Până la finalul sprintului” | Al unui sprint. Nu neapărat ăsta. |
+
+### Bingo de standup
+
+Bifează ce auzi. Primul care face o linie are voie să închidă camera.
+
+- „La fel ca ieri.”
+- „Mai am un pic.”
+- „Ești pe mute, frate.”
+- „Se vede ecranul?”
+- „Discutăm după daily.”
+- „Am avut probleme cu mediul.”
+- „Nu știu, eu sunt pe frontend.”
+- „Scuze, eram pe alt call.”
+- „Fără blocaje.” (Are trei.)
+- „Am făcut niște research.”
+- „Pipeline-ul e roșu. Nu-s eu.”
+- „Cine a dat push pe main?”
+- „Revin eu cu un update.”
+- Sună curierul la ușă.
+- „Ăla care știa a plecat.”
+- „Bag un fix mic, rapid.”
+
+## Pentru CTO: ce primești, de fapt
+
+Ați lucrat cu un developer român și ceva s-a reparat ce nu reparase nimeni. Sau n-ați lucrat și ați auzit. Iată documentația pe care n-a scris-o nimeni.
+
+### Developer român — specificații tehnice
+
+- **Temperatură de funcționare:** De la open-space cu AC-ul pe 17°C la iulie în Pitești, fără AC. Performanță identică.
+- **Alimentare:** Cafea (principal), energizant (backup), sarmale (UPS de sărbători).
+- **Latență:** Pe chat: 30 de secunde. Pe email: până vineri. La „ai un minut?”: timeout.
+- **Compatibilitate:** Orice stack, orice limbaj, orice framework lansat marțea trecută. Incompatibil cu ședințele care puteau fi un email.
+- **Garanție:** Pe viață, dacă nu schimbați cerințele după code freeze. Durata medie a garanției: 11 zile.
+- **Probleme cunoscute:** Refactorizează fără ticket. Ocazional rescrie tot, „că era mai simplu așa”.
+- **Mod economisire energie:** Se activează în ședințele de peste o oră: camera oprită, „am probleme cu netul”. Pe una dintre cele mai rapide conexiuni din Europa.
+- **Firmware:** Actualizat din documentație, forumuri și un comentariu cu 3 like-uri pe un issue din 2014, care chiar a mers.
+- **Capacitate de încărcare:** 3 proiecte oficial, 5 neoficial, plus site-ul firmei lui nașu'.
+- **Accesorii incluse:** Laptop cu 47 de taburi deschise, cană de la un meetup din 2017, termos cu ciorbă de la mama.
+
+### Întrebări frecvente de la CTO
+
+**Cât de repede se adaptează un developer român la stack-ul nostru?**
+
+În prima săptămână îl învață. În a doua vă explică de ce l-ați ales greșit.
+
+**Lucrează și în fusul nostru orar?**
+
+Lucrează în fusul vostru, dorm în al lor, iar cu o seară înainte de demo trec pe UTC+cafea.
+
+**Pot să-i dau un task fără specificații?**
+
+Da. Primiți ce ați cerut, ce trebuia să cereți și o întrebare incomodă la standup.
+
+**Ce înseamnă când un developer român tace în ședință?**
+
+Nu e de acord. Și are deja un branch deschis cu varianta lui.
+
+**Au nevoie de micromanagement?**
+
+Nu. Încercați și o să primiți voi check-in-uri zilnice: „Și roadmap-ul unde e?”
+
+**Cum reacționează la cod legacy?**
+
+Un oftat, un „cine a scris asta?”, apoi git blame. Apoi o tăcere lungă: era chiar el, în 2019.
+
+**Ce se întâmplă de Crăciun și de Paște?**
+
+Deploy-urile îngheață. Developerul ține cozonacul la cameră, ca să știți exact ce pierdeți.
+
+**Vorbesc engleză?**
+
+Fluent. Plus sarcasm la nivel C2, trecut sub tăcere în CV din modestie.
+
+**Care e cel mai mare risc?**
+
+Să plece. Nu la concurență, ci să-și facă startup pe ideea pe care i-ați respins-o în Q2.
+
+### Ce spun clienții
+
+_Recenzii fictive, inspirate din fapte reale._
+
+> „A găsit un bug în specificațiile noastre înainte să scriem prima linie de cod. Încă suntem supărați.”  
+> — CTO, fintech, Berlin
+
+> „Am cerut un MVP. Am primit o platformă scalabilă și întrebarea «de ce n-ați zis asta de la început?»”  
+> — Fondator, SaaS, Amsterdam
+
+> „Standup-ul durează 4 minute. Restul de 11 sunt despre de ce grătarul nostru nu e, de fapt, grătar.”  
+> — VP Engineering, logistică, Copenhaga
+
+> „Ne-a tăiat factura de cloud cu 40%. Apoi a întrebat de ce plătim licențe pentru un tool pe care nu-l deschide nimeni.”  
+> — Head of Platform, e-commerce, Dublin
+
+> „Cinci stele. Pe a șasea a scos-o la refactorizare, zicea că e redundantă.”  
+> — Engineering Manager, healthtech, Zürich
+
+---
+
+Făcut de [Sergiu Vlad](https://sergiuvlad.com), Senior Software Engineer din Cluj-Napoca, cu peste 15 ani de „se rezolvă” în ML, cloud, securitate și produse full-stack pentru companii din afară. Destui cât să știe că „dor” se explică greu, dar „se rezolvă” se înțelege imediat.
+
+
+# English
+
+Dor (n.) — the Romanian word for missing something you didn't know you needed. Codul — the code. Put together: a love letter to Romanian developers, and a field guide for the PMs who estimate them and the CTOs who hire them.
+
+## What's with the dor?
+
+Over the last twenty years Romania has exported more developers than anyone can count. Some went to Zürich, some to Berlin, some only as far as a Slack channel on California time. All of them kept the same reflex: when it works, they say „lasă că merge” (leave it, it works). When it doesn't, they say „se rezolvă” (it'll get sorted).
+
+Dor de codul românesc is where we recognise each other: the ones here, the ones out there, the managers who learned to read between the lines, and the companies that found out a Romanian developer gets things fixed.
+
+Not an agency. Not a recruiting platform. We collect nothing, not even feedback. Just the truth, with its sense of humour in plain sight.
+
+## The Romanian Developer's Code
+
+Every nation has a code. Ours is not enforced, but it is respected.
+
+1. **Art. 1.** Every bug manifests exclusively in production, on a Friday, after 5 pm. ([#art-1](https://dordecod.vercel.app/en/#art-1))
+2. **Art. 2.** “Works on my machine” is admissible evidence. ([#art-2](https://dordecod.vercel.app/en/#art-2))
+3. **Art. 3.** „Lasă că merge” (leave it, it works) is not a deployment strategy. (It is.) ([#art-3](https://dordecod.vercel.app/en/#art-3))
+4. **Art. 4.** Comments are written in English, variables in Romanian, and `listaClienti2Final` is national heritage. ([#art-4](https://dordecod.vercel.app/en/#art-4))
+5. **Art. 5.** Diacritics are optional until they reach the database. ([#art-5](https://dordecod.vercel.app/en/#art-5))
+6. **Art. 6.** Estimates are given in days and read in weeks. ([#art-6](https://dordecod.vercel.app/en/#art-6))
+7. **Art. 7.** Any TODO older than two years becomes documentation. ([#art-7](https://dordecod.vercel.app/en/#art-7))
+8. **Art. 8.** Coffee is not a perk. It is infrastructure. ([#art-8](https://dordecod.vercel.app/en/#art-8))
+9. **Art. 9.** The Romanian developer fixes it. Doesn't know how yet, but it gets fixed. ([#art-9](https://dordecod.vercel.app/en/#art-9))
+10. **Art. 10.** The 15-minute meeting lasts an hour and must legally end with "let's set up a follow-up next week." ([#art-10](https://dordecod.vercel.app/en/#art-10))
+11. **Art. 11.** The production server password is passed down orally, from generation to generation, like grandma's cake recipe. ([#art-11](https://dordecod.vercel.app/en/#art-11))
+12. **Art. 12.** Every project had one guy who knew everything. He left three years ago. His name is still in the crontab. ([#art-12](https://dordecod.vercel.app/en/#art-12))
+13. **Art. 13.** The official project documentation is a four-minute voice note in the team chat, from 2019. ([#art-13](https://dordecod.vercel.app/en/#art-13))
+14. **Art. 14.** The file config_final_GOOD_dont_delete.json is not deleted. Nobody knows why. Nobody asks. ([#art-14](https://dordecod.vercel.app/en/#art-14))
+15. **Art. 15.** "Who wrote this garbage?" is a rhetorical question. git blame always answers: you, eight months ago. ([#art-15](https://dordecod.vercel.app/en/#art-15))
+16. **Art. 16.** A "five-minute task" is, by definition, any task nobody has opened yet. ([#art-16](https://dordecod.vercel.app/en/#art-16))
+17. **Art. 17.** Tests are written after the incident, in memory of the fallen. ([#art-17](https://dordecod.vercel.app/en/#art-17))
+18. **Art. 18.** The only laptop that can deploy belongs to a colleague currently on a beach holiday, with no signal. ([#art-18](https://dordecod.vercel.app/en/#art-18))
+19. **Art. 19.** The temporary fix from 2016 is now a listed historical monument and cannot be touched without a permit. ([#art-19](https://dordecod.vercel.app/en/#art-19))
+20. **Art. 20.** In the absence of a spec, the principle of "you know, like those other guys have it" applies. ([#art-20](https://dordecod.vercel.app/en/#art-20))
+21. **Art. 21.** On the daily standup, cameras stay off. Official reason: "my internet is bad." Actual reason: pyjamas. ([#art-21](https://dordecod.vercel.app/en/#art-21))
+22. **Art. 22.** Refactoring is scheduled for "when we have time," a fixed calendar date that never arrives. ([#art-22](https://dordecod.vercel.app/en/#art-22))
+23. **Art. 23.** Every Christmas, grandma asks if you can fix her printer. You can. That is, in fact, your real job description. ([#art-23](https://dordecod.vercel.app/en/#art-23))
+24. **Art. 24.** This Code enters into force on publication and is amended exclusively by pull request. ([#art-24](https://dordecod.vercel.app/en/#art-24))
+
+## The official excuse generator
+
+For standup, for the retro, for the client. Certified under Art. 2.
+
+- It's not a bug, it's undocumented behaviour. Once I document it, it's a feature.
+- First the internet went down, then the power, then my motivation. Only two came back.
+- I'm waiting on a review from the colleague who said "I'll look right now." Two sprints ago.
+- It was done, then I updated one dependency and now nothing is done. Not the project, not me.
+- It works perfectly on staging. Production just has a different personality.
+- I worked from my grandma's village this week. Out there, 4G is more of a concept.
+- The code is finished. It just doesn't compile yet.
+- Found my exact problem on a forum from 2011. Last reply: "fixed it, thanks." No details.
+- The requirements changed three times. I built version two, which was the right one.
+- My estimate was correct. Reality is the one running late.
+- The tests pass. I haven't run them, but they have the face of tests that pass.
+- It was the May Day long weekend, which over here runs roughly from April 28 to May 5.
+- I fixed the bug, but the fix broke something else, which I fixed, but… then the sprint ended.
+- The ticket said "small tweak." It turned out to be a database migration.
+- It was the cache. I cleared the cache. Now it's broken for a different reason, but at least the cache is clean.
+- It's not late, it's Romanian-style delivery: everything the night before, but with passion.
+
+### git log --oneline, the Iași team
+
+```
+d50fca0 fix pentru fix-ul de ieri   # fix for yesterday's fix
+77cb603 revert la revert, acum merge pe bune   # revert the revert, now it actually works, for real
+721b209 am scos console.log-urile (majoritatea)   # removed the console.logs (most of them)
+7b926f2 nu întrebați   # don't ask
+ed24841 update final final2 de data asta chiar final   # final final2 update, this time actually final
+62e298b am mutat bug-ul din backend în frontend, acum e problema altcuiva   # moved the bug from backend to frontend, now it's someone else's problem
+262859f wip nu merge dar plec acasă   # wip, doesn't work, but I'm going home
+4659aae am șters codul comentat din 2018. dacă se strică ceva, era important   # deleted commented-out code from 2018. if anything breaks, it was important
+```
+
+## Romanian-to-corporate dictionary
+
+For managers abroad who work with Romanian developers. Contextual translation, from experience, free of charge.
+
+| They say | It means |
+|---|---|
+| merge și așa | acceptable technical debt |
+| se rezolvă | unblocked; ETA unknown |
+| hai că-i simplu | three sprints |
+| nu-i nicio problemă | there is a problem |
+| vezi că… | critical warning |
+| la mine merge | cannot reproduce |
+| îl bag repede | hotfix, no tests |
+| mai vedem | won't fix |
+| să nu ne grăbim | they know something you don't |
+| e ok, dar… | it is not ok |
+| e doar un if | minor scope adjustment |
+| am pus un try-catch | robust error-handling strategy implemented |
+| l-am testat | manually verified in a representative environment |
+| am vorbit cu ăla de la backend | cross-team alignment achieved |
+| facem pe repede, apoi facem bine | phased delivery approach |
+| ultima modificare, pe bune | final scope freeze (v4) |
+| las' că văd eu | "I'll take ownership of this." (You won't hear of it again until it breaks.) |
+| nu e de la noi | "The root cause appears to be upstream." |
+| am înțeles | "Fully aligned. Moving to implementation." |
+| ce-a vrut să zică poetul? | "We'd like to clarify a few requirements." |
+| cine a scris asta? | "Let's run a blameless post-mortem." (It was them.) |
+| Am o întrebare. | There's a hole in your architecture. You have about 30 seconds to spot it yourself. |
+| Mă uit diseară. | Fixed by morning. Do not ask when they slept. |
+| Păi… | Brace for a 20-minute, annoyingly correct explanation of why your plan won't work. |
+| Interesant… | Production runs on something nobody understands. Budget accordingly. |
+
+## For PMs, scrum masters and Jira admins
+
+You keep the project alive. We'll tell you what actually happens behind the board.
+
+### Jira, translated
+
+| The board says | In reality |
+|---|---|
+| In Progress | A branch exists. Everything else is a state of mind. |
+| Story points: 3 | We all voted 3 so the planning meeting would finally end. |
+| Blocked | Waiting on the client since March. Meanwhile, refactoring something nobody asked for. |
+| Done | Merged. What happens next is between QA and God. |
+| Code Review | 2,000-line PR: "LGTM". 3-line PR: 47 comments about one variable name. |
+| Won't Fix | It's a feature now. It goes in the release notes, with enthusiasm. |
+| Reopened | The client pressed F5. |
+| Priority: Highest | The bug was found by the CEO's son. On his tablet. |
+| Backlog | Grandma's attic: nobody goes up there, and nothing is ever allowed to be thrown away. |
+| Assignee: Unassigned | Everyone knows about it, nobody touches it. Like the kitchen socket that sparks. |
+
+### Estimate converter
+
+| The dev says | You put in the plan |
+|---|---|
+| "Five minutes" | Five minutes to understand the problem. The rest was not estimated. |
+| "Two hours" | Two hours of code, two days of merge conflicts. |
+| "One day" | One working day. On the calendar, next Tuesday. |
+| "About 80% done" | The other 80% starts now. |
+| "It depends" | No idea whatsoever, but it sounds senior. |
+| "Tomorrow morning" | Morning in whose time zone? And which tomorrow? |
+| "By end of sprint" | The end of a sprint. Not necessarily this one. |
+
+### Standup bingo
+
+Tick what you hear. First to complete a line gets to turn their camera off.
+
+- "Same as yesterday."
+- "Almost there."
+- "You're on mute, bro."
+- "Can you see my screen?"
+- "Let's take it offline."
+- "Had some environment issues."
+- "No idea, I'm frontend."
+- "Sorry, was on another call."
+- "No blockers." (Has three.)
+- "Did some research." (One tutorial.)
+- "Pipeline's red. Wasn't me."
+- "Who pushed to main?"
+- "I'll circle back."
+- Courier rings the doorbell.
+- "The one who knew quit."
+- "Just a tiny quick fix."
+
+## For CTOs: what you actually get
+
+You've worked with a Romanian developer and something got fixed that nobody else could fix. Or you haven't, and you've heard. Here's the documentation nobody wrote.
+
+### Romanian Developer — technical specifications
+
+- **Operating temperature:** From a 17°C open-plan office to a Romanian July with no AC. Same output.
+- **Power supply:** Coffee (primary), energy drinks (failover), sarmale, i.e. cabbage rolls (holiday UPS).
+- **Latency:** Chat: 30 seconds. Email: by Friday. "Got a minute?": timeout.
+- **Compatibility:** Any stack, any language, any framework released last Tuesday. Incompatible with meetings that could have been an email.
+- **Warranty:** Lifetime, provided requirements don't change after code freeze. Average warranty period: 11 days.
+- **Known issues:** Refactors without a ticket. Occasionally rewrites everything "because it was simpler that way."
+- **Power-saving mode:** Kicks in during meetings over an hour: camera off, "my internet's acting up." On some of the fastest broadband in Europe.
+- **Firmware:** Updated from docs, forums and a 3-upvote comment on a 2014 issue thread that actually worked.
+- **Load capacity:** 3 projects officially, 5 unofficially, plus the website for their godfather's business (the wedding kind of godfather).
+- **Included accessories:** Laptop with 47 open tabs, a mug from a 2017 meetup, a thermos of Mum's ciorbă (sour soup).
+
+### Frequently asked CTO questions
+
+**How fast does a Romanian developer ramp up on our stack?**
+
+Week one, they learn it. Week two, they explain why you picked the wrong one.
+
+**Will they work in our timezone?**
+
+They work your hours, sleep on theirs, and the night before a demo switch to UTC+espresso.
+
+**Can I hand them a task with no spec?**
+
+Yes. You'll get what you asked for, what you should have asked for, and an awkward question at standup.
+
+**What does it mean when a Romanian developer goes quiet in a meeting?**
+
+They disagree. And they've already opened a branch with their version.
+
+**Do they need micromanagement?**
+
+No. Try it and you'll start getting daily check-ins yourself: "So, where's the roadmap?"
+
+**How do they react to legacy code?**
+
+A sigh, a "who wrote this?", then git blame. Then a long silence. It was them, in 2019.
+
+**What happens over Christmas and Easter?**
+
+Deploy freeze. They'll hold the cozonac (sweet bread) up to the camera so you know exactly what you're missing.
+
+**Do they speak English?**
+
+Fluently. Plus C2-level sarcasm, left off the CV out of modesty.
+
+**What's the biggest risk?**
+
+That they leave. Not for a competitor, but to found a startup on the idea you rejected in Q2.
+
+### What clients say
+
+_Fictional reviews, inspired by true events._
+
+> "Found a bug in our spec before we'd written a single line of code. We're still upset."  
+> — CTO, fintech, Berlin
+
+> "Asked for an MVP. Got a scalable platform and the question: 'why didn't you say so in the first place?'"  
+> — Founder, SaaS, Amsterdam
+
+> "Standup takes 4 minutes. The other 11 are about why our barbecue is not, technically, a barbecue."  
+> — VP Engineering, logistics, Copenhagen
+
+> "Cut our cloud bill by 40%. Then asked why we pay licences for a tool nobody ever opens."  
+> — Head of Platform, e-commerce, Dublin
+
+> "Five stars. They refactored out the sixth, said it was redundant."  
+> — Engineering Manager, healthtech, Zurich
+
+---
+
+Made by [Sergiu Vlad](https://sergiuvlad.com), a Senior Software Engineer from Cluj-Napoca with 15+ years of „se rezolvă” in ML, cloud, security and full-stack products for companies abroad. Long enough to know that „dor” is hard to explain and „se rezolvă” is understood immediately.
