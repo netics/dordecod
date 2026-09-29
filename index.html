@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dor de codul românesc</title>
+<meta name="description" content="Codul, dicționarul și scuzele oficiale ale developerului român. Pentru developeri, PM-i și CTO-i.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --linen:#ffffff; --ink:#1b2340; --red:#c41e3a; --muted:#5d637f;
+    --rule:#e2e0d8; --field:#f5f4ef; --code:#eeece4;
+    --panel:#1b2340; --panel-fg:#f4f2ea; --panel-muted:#b9bdd0; --panel-field:#27305a; --panel-rule:#3a4470;
+    --on-red:#ffffff;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --linen:#12162a; --ink:#ecebe3; --red:#f0506a; --muted:#a3a8c2;
+      --rule:#2b3252; --field:#1a2038; --code:#1f2542;
+      --panel:#ecebe3; --panel-fg:#12162a; --panel-muted:#4a5070; --panel-field:#dcdbd0; --panel-rule:#b9b8ad;
+      --on-red:#12162a;
+    }
+  }
+  :root[data-theme="dark"]{
+    --linen:#12162a; --ink:#ecebe3; --red:#f0506a; --muted:#a3a8c2;
+    --rule:#2b3252; --field:#1a2038; --code:#1f2542;
+    --panel:#ecebe3; --panel-fg:#12162a; --panel-muted:#4a5070; --panel-field:#dcdbd0; --panel-rule:#b9b8ad;
+    --on-red:#12162a;
+  }
+
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{transition:none !important} }
+  body{
+    margin:0; background:var(--linen); color:var(--ink);
+    font-family:"Fraunces", Georgia, "Times New Roman", serif;
+    font-optical-sizing:auto; font-size:18px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit; text-decoration:underline; text-decoration-color:var(--red); text-underline-offset:3px; text-decoration-thickness:1.5px}
+  a:hover{color:var(--red)}
+  code{font-family:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace; font-size:.88em; background:var(--code); padding:.1em .35em; border-radius:3px}
+  :focus-visible{outline:3px solid var(--red); outline-offset:3px}
+  img,svg{max-width:100%; height:auto}
+  .wrap{max-width:1040px; margin:0 auto; padding:0 24px}
+  .measure{max-width:64ch}
+  .wrap.measure{max-width:1040px} .wrap.measure > *{max-width:64ch}
+
+  h1,h2,h3{font-weight:600; line-height:1.08; letter-spacing:-.012em; margin:0}
+  h2{font-size:2.1rem; margin-bottom:.6em}
+  h3{font-size:1.45rem; margin-bottom:.4em}
+  p{margin:0 0 1em}
+  section{padding:88px 0}
+  @media (max-width:720px){ section{padding:60px 0} h2{font-size:1.75rem} body{font-size:17px} }
+
+  /* Nav */
+  .nav{position:sticky; top:0; z-index:10; background:var(--linen); border-bottom:1px solid var(--rule)}
+  .nav .wrap{display:flex; align-items:center; gap:20px; min-height:60px}
+  .brand{display:flex; align-items:center; gap:10px; text-decoration:none; font-weight:600; white-space:nowrap}
+  .brand svg{width:34px; height:17px; display:block}
+  .brand:hover{color:inherit}
+  .links{display:flex; gap:20px; margin-left:auto; font-size:.95rem}
+  .links a{text-decoration:none}
+  .links a:hover{text-decoration:underline}
+  @media (max-width:720px){ .links{display:none} }
+  .lang{display:flex; gap:2px; margin-left:auto}
+  .links + .lang{margin-left:0}
+  .lang button{
+    font:inherit; font-size:.9rem; font-weight:600; background:none; border:0; color:var(--muted);
+    padding:6px 8px; cursor:pointer; border-bottom:2px solid transparent; border-radius:0;
+  }
+  .lang button[aria-pressed="true"]{color:var(--ink); border-bottom-color:var(--red)}
+
+  /* Stitch band */
+  .band{display:block; width:100%; height:22px}
+  .band .k{fill:var(--ink)} .band .r{fill:var(--red)}
+
+  /* Hero */
+  .hero{padding:72px 0 64px}
+  .hero .wrap{display:grid; grid-template-columns:1.15fr .85fr; gap:48px; align-items:center}
+  .kicker{font-style:italic; color:var(--muted); margin-bottom:14px; font-size:1.05rem}
+  .hero h1{font-size:clamp(2.9rem, 7.4vw, 5.6rem); font-weight:700; margin-bottom:.35em; letter-spacing:-.02em}
+  .lead{font-size:1.2rem; max-width:34em}
+  .ctas{display:flex; flex-wrap:wrap; gap:12px; margin:26px 0 14px}
+  .fine{color:var(--muted); font-size:.95rem; margin:0}
+  .fish{width:100%; max-width:420px; justify-self:end}
+  .fish .k{fill:var(--ink)} .fish .r{fill:var(--red)} .fish .w{fill:var(--linen)}
+  @media (max-width:840px){
+    .hero{padding:40px 0 56px}
+    .hero .wrap{grid-template-columns:1fr; gap:28px}
+    .fish{order:-1; max-width:240px; justify-self:start}
+  }
+
+  /* Buttons */
+  .btn{
+    display:inline-block; font:inherit; font-weight:600; font-size:1rem; line-height:1.2;
+    padding:14px 22px; border-radius:4px; cursor:pointer; text-decoration:none;
+    background:var(--red); color:var(--on-red); border:2px solid var(--red);
+  }
+  .btn:hover{color:var(--on-red); filter:brightness(1.08)}
+  .btn.ghost{background:transparent; color:var(--ink); border-color:var(--ink)}
+  .btn.ghost:hover{color:var(--red); border-color:var(--red); filter:none}
+  .btn.small{padding:8px 14px; font-size:.9rem; border-radius:3px}
+
+  /* Codul */
+  .cod ol{list-style:none; padding:0; margin:34px 0 0; border-top:1px solid var(--rule)}
+  .cod li{
+    display:grid; grid-template-columns:5.2rem 1fr auto; gap:14px; align-items:start;
+    padding:18px 0; border-bottom:1px solid var(--rule); scroll-margin-top:80px;
+  }
+  .cod .art{font-weight:700; white-space:nowrap}
+  .cod .copy{
+    font:inherit; font-size:.8rem; color:var(--muted); background:none; border:1px solid var(--rule);
+    border-radius:3px; padding:4px 9px; cursor:pointer; margin-top:2px;
+  }
+  .cod .copy:hover{color:var(--red); border-color:var(--red)}
+  .cod .copy[data-done="1"]{color:var(--red); border-color:var(--red)}
+  .cod li:target{background:var(--field); box-shadow:0 0 0 12px var(--field)}
+  @media (max-width:560px){
+    .cod li{grid-template-columns:1fr auto; gap:6px 14px}
+    .cod .art{grid-column:1; font-size:.95rem}
+    .cod .txt{grid-column:1 / -1}
+    .cod .copy{grid-column:2; grid-row:1}
+  }
+  .after{margin-top:26px; color:var(--muted)}
+
+  /* Dictionary */
+  .dict table{width:100%; border-collapse:collapse; margin-top:26px}
+  .dict th{text-align:left; font-weight:600; padding:10px 0; border-bottom:2px solid var(--ink); font-size:.95rem}
+  .dict td{padding:14px 0; border-bottom:1px solid var(--rule); vertical-align:top}
+  .dict td:first-child{font-style:italic; width:42%; padding-right:24px}
+  .dict th:last-child, .dict td:last-child{padding-left:12px}
+
+  /* Doors */
+  .doors .grid{display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-top:34px; align-items:start}
+  @media (max-width:840px){ .doors .grid{grid-template-columns:1fr} }
+  .door{padding:34px 30px}
+  .door.a{border:3px solid var(--red)}
+  .door.b{background:var(--panel); color:var(--panel-fg)}
+  .door.b a{text-decoration-color:var(--panel-muted)}
+  .door.b a:hover{color:inherit}
+  .door h3{font-size:1.7rem; margin-bottom:.5em}
+  .door .note{font-size:.9rem; color:var(--muted); margin-bottom:10px; font-style:italic}
+  .door.b .note{color:var(--panel-muted)}
+  .door ol{padding-left:1.2em; margin:0 0 1em}
+  .door ol li{margin-bottom:.3em}
+  form{margin-top:22px}
+  .row{display:grid; gap:12px; margin-bottom:12px}
+  .row.two{grid-template-columns:1fr 1fr}
+  @media (max-width:560px){ .row.two{grid-template-columns:1fr} }
+  label{display:block; font-size:.9rem; font-weight:600; margin-bottom:5px}
+  input[type=text],input[type=email],textarea,select{
+    width:100%; font:inherit; font-size:1rem; color:inherit;
+    background:var(--field); border:1.5px solid var(--rule); border-radius:4px; padding:11px 13px;
+  }
+  textarea{min-height:110px; resize:vertical}
+  .door.b input[type=text],.door.b input[type=email],.door.b textarea,.door.b select{
+    background:var(--panel-field); border-color:var(--panel-rule); color:var(--panel-fg)
+  }
+  .door.b select option{color:#1b2340}
+  .check{display:flex; gap:10px; align-items:flex-start; font-weight:400; font-size:.95rem; margin:6px 0 18px}
+  .check input{margin-top:5px; accent-color:var(--red)}
+  .door.b .btn{background:var(--red); color:#fff; border-color:var(--red)}
+  .ok{
+    font-family:"IBM Plex Mono", ui-monospace, Menlo, monospace; font-size:.95rem;
+    padding:16px; border-left:4px solid var(--red); background:var(--field); margin-top:22px;
+  }
+  .door.b .ok{background:var(--panel-field)}
+
+  /* Directory */
+  .dir .two{display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:start; margin-top:10px}
+  @media (max-width:840px){ .dir .two{grid-template-columns:1fr} }
+  .stitches{display:grid; grid-template-columns:repeat(25, 1fr); gap:4px; margin:14px 0 8px; max-width:420px}
+  .stitches i{display:block; aspect-ratio:1; background:var(--rule)}
+  .stitches i.on{background:var(--red)}
+  .count{font-weight:600}
+  .profile{border:1.5px solid var(--rule); padding:24px 26px; max-width:380px}
+  .profile .name{font-size:1.45rem; font-weight:600; margin-bottom:6px}
+  .profile dl{margin:0 0 14px; display:grid; grid-template-columns:auto 1fr; gap:4px 16px; font-size:.95rem}
+  .profile dt{color:var(--muted)} .profile dd{margin:0}
+  .profile q{font-style:italic; quotes:"„" "”"}
+  .profile .mock{font-size:.8rem; color:var(--muted); margin:16px 0 0}
+
+  /* Digest */
+  .news form{display:flex; gap:12px; max-width:520px; flex-wrap:wrap}
+  .news input{flex:1 1 240px}
+
+  /* Footer */
+  footer{padding:40px 0 48px; color:var(--muted); font-size:.95rem}
+  footer .cols{display:flex; flex-wrap:wrap; gap:40px; justify-content:space-between; align-items:flex-start}
+  footer ul{list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; gap:6px 20px}
+  footer ul a{text-decoration:none} footer ul a:hover{text-decoration:underline}
+  footer .about{max-width:52ch; color:var(--ink)}
+  footer .line{margin-top:34px}
+
+  /* Generic tables (dictionary, Jira, estimates) */
+  .tbl{width:100%; border-collapse:collapse; margin-top:26px}
+  .tbl th{text-align:left; font-weight:600; padding:10px 0; border-bottom:2px solid var(--ink); font-size:.95rem}
+  .tbl td{padding:14px 0; border-bottom:1px solid var(--rule); vertical-align:top}
+  .tbl td:first-child{font-style:italic; width:42%; padding-right:24px}
+  .tbl th:last-child, .tbl td:last-child{padding-left:12px}
+  .tbl td.mono{font-family:"IBM Plex Mono", ui-monospace, Menlo, monospace; font-style:normal; font-size:.92rem}
+  h3.sub{margin-top:56px}
+
+  /* Excuse generator */
+  .excuse{margin-top:28px; border-left:4px solid var(--red); padding:22px 24px; background:var(--field)}
+  .excuse p{font-size:1.35rem; font-style:italic; margin:0 0 18px; min-height:2.4em}
+  .excuse .meta{font-size:.85rem; color:var(--muted); margin:14px 0 0}
+
+  /* git log */
+  .log{margin-top:26px; background:var(--code); border-radius:4px; padding:18px 20px; overflow-x:auto;
+    font-family:"IBM Plex Mono", ui-monospace, Menlo, monospace; font-size:.9rem; line-height:1.7}
+  .log .ln{white-space:nowrap}
+  .log .h{color:var(--red)}
+  .log .g{color:var(--muted); white-space:normal; display:block; padding-left:8ch; font-size:.85rem; line-height:1.4; margin:-2px 0 6px}
+  .log .g:empty{display:none}
+  .log .prompt{color:var(--muted)}
+
+  /* Standup bingo */
+  .bingo{display:grid; grid-template-columns:repeat(4, 1fr); gap:6px; margin-top:22px; max-width:640px}
+  .bingo button{
+    font:inherit; font-size:.9rem; line-height:1.25; color:var(--ink); background:var(--field);
+    border:1.5px solid var(--rule); border-radius:3px; padding:10px 8px; min-height:84px; cursor:pointer; text-align:center
+  }
+  .bingo button:hover{border-color:var(--red)}
+  .bingo button[aria-pressed="true"]{background:var(--red); color:var(--on-red); border-color:var(--red)}
+  @media (max-width:560px){ .bingo button{font-size:.78rem; min-height:72px; padding:6px 4px} }
+  .bingo-bar{display:flex; gap:14px; align-items:center; flex-wrap:wrap; margin-top:14px}
+  .bingo-win{font-weight:600; color:var(--red); margin:0}
+
+  /* CTO: spec sheet, FAQ, reviews */
+  .spec{background:var(--panel); color:var(--panel-fg); padding:30px 30px 20px; margin-top:26px}
+  .spec h3{font-size:1.35rem; margin-bottom:14px}
+  .spec .model{font-family:"IBM Plex Mono", ui-monospace, Menlo, monospace; font-size:.85rem; color:var(--panel-muted); margin-bottom:10px}
+  .spec dl{display:grid; grid-template-columns:minmax(9rem, 34%) 1fr; margin:0}
+  .spec dt, .spec dd{padding:11px 0; border-top:1px solid var(--panel-rule); margin:0}
+  .spec dt{font-weight:600; padding-right:16px}
+  .spec dd{font-family:"IBM Plex Mono", ui-monospace, Menlo, monospace; font-size:.9rem}
+  @media (max-width:560px){ .spec{padding:22px 18px 14px} .spec dl{grid-template-columns:1fr} .spec dd{border-top:0; padding-top:0} }
+  .faq{margin-top:26px; border-top:1px solid var(--rule)}
+  .faq details{border-bottom:1px solid var(--rule); padding:16px 0}
+  .faq summary{font-weight:600; cursor:pointer; list-style:none; display:flex; gap:12px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::before{content:"+"; color:var(--red); font-family:"IBM Plex Mono", monospace; width:1ch; flex:none}
+  .faq details[open] summary::before{content:"−"}
+  .faq details p{margin:10px 0 0 calc(1ch + 12px); color:var(--ink)}
+  .reviews{display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:20px; margin-top:26px}
+  .review{border:1.5px solid var(--rule); padding:22px 22px 18px; margin:0}
+  .review .stars{color:var(--red); letter-spacing:2px; margin-bottom:8px}
+  .review blockquote{margin:0 0 10px; font-style:italic}
+  .review figcaption{font-size:.88rem; color:var(--muted)}
+
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Meniu">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Dor de codul românesc">
+      <svg class="fish" viewBox="0 0 312 156" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges"><rect class="k" x="120" y="0" width="12" height="12"/><rect class="k" x="132" y="0" width="12" height="12"/><rect class="k" x="144" y="0" width="12" height="12"/><rect class="k" x="108" y="12" width="12" height="12"/><rect class="r" x="120" y="12" width="12" height="12"/><rect class="r" x="132" y="12" width="12" height="12"/><rect class="r" x="144" y="12" width="12" height="12"/><rect class="k" x="156" y="12" width="12" height="12"/><rect class="k" x="60" y="24" width="12" height="12"/><rect class="k" x="72" y="24" width="12" height="12"/><rect class="k" x="84" y="24" width="12" height="12"/><rect class="k" x="96" y="24" width="12" height="12"/><rect class="k" x="108" y="24" width="12" height="12"/><rect class="r" x="120" y="24" width="12" height="12"/><rect class="r" x="132" y="24" width="12" height="12"/><rect class="r" x="144" y="24" width="12" height="12"/><rect class="r" x="156" y="24" width="12" height="12"/><rect class="k" x="168" y="24" width="12" height="12"/><rect class="k" x="180" y="24" width="12" height="12"/><rect class="k" x="192" y="24" width="12" height="12"/><rect class="k" x="204" y="24" width="12" height="12"/><rect class="k" x="36" y="36" width="12" height="12"/><rect class="k" x="48" y="36" width="12" height="12"/><rect class="r" x="60" y="36" width="12" height="12"/><rect class="r" x="72" y="36" width="12" height="12"/><rect class="r" x="84" y="36" width="12" height="12"/><rect class="r" x="96" y="36" width="12" height="12"/><rect class="r" x="108" y="36" width="12" height="12"/><rect class="k" x="120" y="36" width="12" height="12"/><rect class="w" x="132" y="36" width="12" height="12"/><rect class="k" x="144" y="36" width="12" height="12"/><rect class="w" x="156" y="36" width="12" height="12"/><rect class="k" x="168" y="36" width="12" height="12"/><rect class="r" x="180" y="36" width="12" height="12"/><rect class="r" x="192" y="36" width="12" height="12"/><rect class="r" x="204" y="36" width="12" height="12"/><rect class="r" x="216" y="36" width="12" height="12"/><rect class="k" x="228" y="36" width="12" height="12"/><rect class="k" x="300" y="36" width="12" height="12"/><rect class="k" x="24" y="48" width="12" height="12"/><rect class="r" x="36" y="48" width="12" height="12"/><rect class="r" x="48" y="48" width="12" height="12"/><rect class="r" x="60" y="48" width="12" height="12"/><rect class="r" x="72" y="48" width="12" height="12"/><rect class="r" x="84" y="48" width="12" height="12"/><rect class="r" x="96" y="48" width="12" height="12"/><rect class="r" x="108" y="48" width="12" height="12"/><rect class="k" x="120" y="48" width="12" height="12"/><rect class="w" x="132" y="48" width="12" height="12"/><rect class="k" x="144" y="48" width="12" height="12"/><rect class="w" x="156" y="48" width="12" height="12"/><rect class="k" x="168" y="48" width="12" height="12"/><rect class="r" x="180" y="48" width="12" height="12"/><rect class="r" x="192" y="48" width="12" height="12"/><rect class="r" x="204" y="48" width="12" height="12"/><rect class="r" x="216" y="48" width="12" height="12"/><rect class="r" x="228" y="48" width="12" height="12"/><rect class="k" x="240" y="48" width="12" height="12"/><rect class="k" x="288" y="48" width="12" height="12"/><rect class="k" x="300" y="48" width="12" height="12"/><rect class="k" x="12" y="60" width="12" height="12"/><rect class="r" x="24" y="60" width="12" height="12"/><rect class="r" x="36" y="60" width="12" height="12"/><rect class="k" x="48" y="60" width="12" height="12"/><rect class="k" x="60" y="60" width="12" height="12"/><rect class="r" x="72" y="60" width="12" height="12"/><rect class="r" x="84" y="60" width="12" height="12"/><rect class="r" x="96" y="60" width="12" height="12"/><rect class="r" x="108" y="60" width="12" height="12"/><rect class="k" x="120" y="60" width="12" height="12"/><rect class="r" x="132" y="60" width="12" height="12"/><rect class="k" x="144" y="60" width="12" height="12"/><rect class="r" x="156" y="60" width="12" height="12"/><rect class="k" x="168" y="60" width="12" height="12"/><rect class="r" x="180" y="60" width="12" height="12"/><rect class="r" x="192" y="60" width="12" height="12"/><rect class="r" x="204" y="60" width="12" height="12"/><rect class="r" x="216" y="60" width="12" height="12"/><rect class="r" x="228" y="60" width="12" height="12"/><rect class="r" x="240" y="60" width="12" height="12"/><rect class="k" x="252" y="60" width="12" height="12"/><rect class="k" x="276" y="60" width="12" height="12"/><rect class="k" x="288" y="60" width="12" height="12"/><rect class="k" x="300" y="60" width="12" height="12"/><rect class="k" x="0" y="72" width="12" height="12"/><rect class="r" x="12" y="72" width="12" height="12"/><rect class="r" x="24" y="72" width="12" height="12"/><rect class="k" x="36" y="72" width="12" height="12"/><rect class="w" x="48" y="72" width="12" height="12"/><rect class="k" x="60" y="72" width="12" height="12"/><rect class="r" x="72" y="72" width="12" height="12"/><rect class="r" x="84" y="72" width="12" height="12"/><rect class="r" x="96" y="72" width="12" height="12"/><rect class="r" x="108" y="72" width="12" height="12"/><rect class="k" x="120" y="72" width="12" height="12"/><rect class="k" x="132" y="72" width="12" height="12"/><rect class="r" x="144" y="72" width="12" height="12"/><rect class="k" x="156" y="72" width="12" height="12"/><rect class="k" x="168" y="72" width="12" height="12"/><rect class="r" x="180" y="72" width="12" height="12"/><rect class="r" x="192" y="72" width="12" height="12"/><rect class="r" x="204" y="72" width="12" height="12"/><rect class="r" x="216" y="72" width="12" height="12"/><rect class="r" x="228" y="72" width="12" height="12"/><rect class="r" x="240" y="72" width="12" height="12"/><rect class="k" x="252" y="72" width="12" height="12"/><rect class="k" x="264" y="72" width="12" height="12"/><rect class="k" x="276" y="72" width="12" height="12"/><rect class="k" x="288" y="72" width="12" height="12"/><rect class="k" x="300" y="72" width="12" height="12"/><rect class="k" x="12" y="84" width="12" height="12"/><rect class="r" x="24" y="84" width="12" height="12"/><rect class="r" x="36" y="84" width="12" height="12"/><rect class="k" x="48" y="84" width="12" height="12"/><rect class="k" x="60" y="84" width="12" height="12"/><rect class="r" x="72" y="84" width="12" height="12"/><rect class="r" x="84" y="84" width="12" height="12"/><rect class="r" x="96" y="84" width="12" height="12"/><rect class="r" x="108" y="84" width="12" height="12"/><rect class="k" x="120" y="84" width="12" height="12"/><rect class="r" x="132" y="84" width="12" height="12"/><rect class="k" x="144" y="84" width="12" height="12"/><rect class="r" x="156" y="84" width="12" height="12"/><rect class="k" x="168" y="84" width="12" height="12"/><rect class="r" x="180" y="84" width="12" height="12"/><rect class="r" x="192" y="84" width="12" height="12"/><rect class="r" x="204" y="84" width="12" height="12"/><rect class="r" x="216" y="84" width="12" height="12"/><rect class="r" x="228" y="84" width="12" height="12"/><rect class="r" x="240" y="84" width="12" height="12"/><rect class="k" x="252" y="84" width="12" height="12"/><rect class="k" x="276" y="84" width="12" height="12"/><rect class="k" x="288" y="84" width="12" height="12"/><rect class="k" x="300" y="84" width="12" height="12"/><rect class="k" x="24" y="96" width="12" height="12"/><rect class="r" x="36" y="96" width="12" height="12"/><rect class="r" x="48" y="96" width="12" height="12"/><rect class="r" x="60" y="96" width="12" height="12"/><rect class="r" x="72" y="96" width="12" height="12"/><rect class="r" x="84" y="96" width="12" height="12"/><rect class="r" x="96" y="96" width="12" height="12"/><rect class="r" x="108" y="96" width="12" height="12"/><rect class="k" x="120" y="96" width="12" height="12"/><rect class="w" x="132" y="96" width="12" height="12"/><rect class="k" x="144" y="96" width="12" height="12"/><rect class="w" x="156" y="96" width="12" height="12"/><rect class="k" x="168" y="96" width="12" height="12"/><rect class="r" x="180" y="96" width="12" height="12"/><rect class="r" x="192" y="96" width="12" height="12"/><rect class="r" x="204" y="96" width="12" height="12"/><rect class="r" x="216" y="96" width="12" height="12"/><rect class="r" x="228" y="96" width="12" height="12"/><rect class="k" x="240" y="96" width="12" height="12"/><rect class="k" x="288" y="96" width="12" height="12"/><rect class="k" x="300" y="96" width="12" height="12"/><rect class="k" x="36" y="108" width="12" height="12"/><rect class="k" x="48" y="108" width="12" height="12"/><rect class="r" x="60" y="108" width="12" height="12"/><rect class="r" x="72" y="108" width="12" height="12"/><rect class="r" x="84" y="108" width="12" height="12"/><rect class="r" x="96" y="108" width="12" height="12"/><rect class="r" x="108" y="108" width="12" height="12"/><rect class="k" x="120" y="108" width="12" height="12"/><rect class="w" x="132" y="108" width="12" height="12"/><rect class="k" x="144" y="108" width="12" height="12"/><rect class="w" x="156" y="108" width="12" height="12"/><rect class="k" x="168" y="108" width="12" height="12"/><rect class="r" x="180" y="108" width="12" height="12"/><rect class="r" x="192" y="108" width="12" height="12"/><rect class="r" x="204" y="108" width="12" height="12"/><rect class="r" x="216" y="108" width="12" height="12"/><rect class="k" x="228" y="108" width="12" height="12"/><rect class="k" x="300" y="108" width="12" height="12"/><rect class="k" x="60" y="120" width="12" height="12"/><rect class="k" x="72" y="120" width="12" height="12"/><rect class="k" x="84" y="120" width="12" height="12"/><rect class="k" x="96" y="120" width="12" height="12"/><rect class="k" x="108" y="120" width="12" height="12"/><rect class="r" x="120" y="120" width="12" height="12"/><rect class="r" x="132" y="120" width="12" height="12"/><rect class="r" x="144" y="120" width="12" height="12"/><rect class="r" x="156" y="120" width="12" height="12"/><rect class="k" x="168" y="120" width="12" height="12"/><rect class="k" x="180" y="120" width="12" height="12"/><rect class="k" x="192" y="120" width="12" height="12"/><rect class="k" x="204" y="120" width="12" height="12"/><rect class="k" x="120" y="132" width="12" height="12"/><rect class="r" x="132" y="132" width="12" height="12"/><rect class="r" x="144" y="132" width="12" height="12"/><rect class="k" x="156" y="132" width="12" height="12"/><rect class="k" x="132" y="144" width="12" height="12"/><rect class="k" x="144" y="144" width="12" height="12"/></svg>
+      <span>dor de cod</span>
+    </a>
+    <div class="links">
+      <a href="#codul" data-i18n="nav.cod">Codul</a>
+      <a href="#scuze" data-i18n="nav.excuse">Scuze</a>
+      <a href="#dictionar" data-i18n="nav.dict">Dicționar</a>
+      <a href="#pm" data-i18n="nav.pm">Pentru PM</a>
+      <a href="#cto" data-i18n="nav.cto">Pentru CTO</a>
+    </div>
+    <div class="lang" role="group" aria-label="Limbă">
+      <button type="button" data-lang="ro" aria-pressed="true">RO</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+  <header class="hero">
+    <div class="wrap">
+      <div>
+        <p class="kicker" data-i18n="hero.kicker">Un proiect pentru developerii români de pretutindeni</p>
+        <h1>Dor de codul românesc</h1>
+        <p class="lead" data-i18n="hero.lead">Dor — cuvântul pe care nu-l putem traduce. Codul — cel pe care nu-l putem lăsa în pace. Un loc pentru developerii români din țară și de prin lume, pentru PM-ii care îi estimează și pentru CTO-ii care îi angajează.</p>
+        <div class="ctas">
+          <a class="btn" href="#codul" data-i18n="hero.cta1">Citește Codul</a>
+          <a class="btn ghost" href="#cto" data-i18n="hero.cta2">Sunt CTO, explicați-mi</a>
+        </div>
+        <p class="fine" data-i18n="hero.note">Fără formulare. Fără cookies. Fără recruiteri cu „hi dear”. Promis.</p>
+      </div>
+      <svg class="fish" viewBox="0 0 312 156" role="img" aria-label="Un cod cusut în cruciulițe, mascota proiectului" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges"><rect class="k" x="120" y="0" width="12" height="12"/><rect class="k" x="132" y="0" width="12" height="12"/><rect class="k" x="144" y="0" width="12" height="12"/><rect class="k" x="108" y="12" width="12" height="12"/><rect class="r" x="120" y="12" width="12" height="12"/><rect class="r" x="132" y="12" width="12" height="12"/><rect class="r" x="144" y="12" width="12" height="12"/><rect class="k" x="156" y="12" width="12" height="12"/><rect class="k" x="60" y="24" width="12" height="12"/><rect class="k" x="72" y="24" width="12" height="12"/><rect class="k" x="84" y="24" width="12" height="12"/><rect class="k" x="96" y="24" width="12" height="12"/><rect class="k" x="108" y="24" width="12" height="12"/><rect class="r" x="120" y="24" width="12" height="12"/><rect class="r" x="132" y="24" width="12" height="12"/><rect class="r" x="144" y="24" width="12" height="12"/><rect class="r" x="156" y="24" width="12" height="12"/><rect class="k" x="168" y="24" width="12" height="12"/><rect class="k" x="180" y="24" width="12" height="12"/><rect class="k" x="192" y="24" width="12" height="12"/><rect class="k" x="204" y="24" width="12" height="12"/><rect class="k" x="36" y="36" width="12" height="12"/><rect class="k" x="48" y="36" width="12" height="12"/><rect class="r" x="60" y="36" width="12" height="12"/><rect class="r" x="72" y="36" width="12" height="12"/><rect class="r" x="84" y="36" width="12" height="12"/><rect class="r" x="96" y="36" width="12" height="12"/><rect class="r" x="108" y="36" width="12" height="12"/><rect class="k" x="120" y="36" width="12" height="12"/><rect class="w" x="132" y="36" width="12" height="12"/><rect class="k" x="144" y="36" width="12" height="12"/><rect class="w" x="156" y="36" width="12" height="12"/><rect class="k" x="168" y="36" width="12" height="12"/><rect class="r" x="180" y="36" width="12" height="12"/><rect class="r" x="192" y="36" width="12" height="12"/><rect class="r" x="204" y="36" width="12" height="12"/><rect class="r" x="216" y="36" width="12" height="12"/><rect class="k" x="228" y="36" width="12" height="12"/><rect class="k" x="300" y="36" width="12" height="12"/><rect class="k" x="24" y="48" width="12" height="12"/><rect class="r" x="36" y="48" width="12" height="12"/><rect class="r" x="48" y="48" width="12" height="12"/><rect class="r" x="60" y="48" width="12" height="12"/><rect class="r" x="72" y="48" width="12" height="12"/><rect class="r" x="84" y="48" width="12" height="12"/><rect class="r" x="96" y="48" width="12" height="12"/><rect class="r" x="108" y="48" width="12" height="12"/><rect class="k" x="120" y="48" width="12" height="12"/><rect class="w" x="132" y="48" width="12" height="12"/><rect class="k" x="144" y="48" width="12" height="12"/><rect class="w" x="156" y="48" width="12" height="12"/><rect class="k" x="168" y="48" width="12" height="12"/><rect class="r" x="180" y="48" width="12" height="12"/><rect class="r" x="192" y="48" width="12" height="12"/><rect class="r" x="204" y="48" width="12" height="12"/><rect class="r" x="216" y="48" width="12" height="12"/><rect class="r" x="228" y="48" width="12" height="12"/><rect class="k" x="240" y="48" width="12" height="12"/><rect class="k" x="288" y="48" width="12" height="12"/><rect class="k" x="300" y="48" width="12" height="12"/><rect class="k" x="12" y="60" width="12" height="12"/><rect class="r" x="24" y="60" width="12" height="12"/><rect class="r" x="36" y="60" width="12" height="12"/><rect class="k" x="48" y="60" width="12" height="12"/><rect class="k" x="60" y="60" width="12" height="12"/><rect class="r" x="72" y="60" width="12" height="12"/><rect class="r" x="84" y="60" width="12" height="12"/><rect class="r" x="96" y="60" width="12" height="12"/><rect class="r" x="108" y="60" width="12" height="12"/><rect class="k" x="120" y="60" width="12" height="12"/><rect class="r" x="132" y="60" width="12" height="12"/><rect class="k" x="144" y="60" width="12" height="12"/><rect class="r" x="156" y="60" width="12" height="12"/><rect class="k" x="168" y="60" width="12" height="12"/><rect class="r" x="180" y="60" width="12" height="12"/><rect class="r" x="192" y="60" width="12" height="12"/><rect class="r" x="204" y="60" width="12" height="12"/><rect class="r" x="216" y="60" width="12" height="12"/><rect class="r" x="228" y="60" width="12" height="12"/><rect class="r" x="240" y="60" width="12" height="12"/><rect class="k" x="252" y="60" width="12" height="12"/><rect class="k" x="276" y="60" width="12" height="12"/><rect class="k" x="288" y="60" width="12" height="12"/><rect class="k" x="300" y="60" width="12" height="12"/><rect class="k" x="0" y="72" width="12" height="12"/><rect class="r" x="12" y="72" width="12" height="12"/><rect class="r" x="24" y="72" width="12" height="12"/><rect class="k" x="36" y="72" width="12" height="12"/><rect class="w" x="48" y="72" width="12" height="12"/><rect class="k" x="60" y="72" width="12" height="12"/><rect class="r" x="72" y="72" width="12" height="12"/><rect class="r" x="84" y="72" width="12" height="12"/><rect class="r" x="96" y="72" width="12" height="12"/><rect class="r" x="108" y="72" width="12" height="12"/><rect class="k" x="120" y="72" width="12" height="12"/><rect class="k" x="132" y="72" width="12" height="12"/><rect class="r" x="144" y="72" width="12" height="12"/><rect class="k" x="156" y="72" width="12" height="12"/><rect class="k" x="168" y="72" width="12" height="12"/><rect class="r" x="180" y="72" width="12" height="12"/><rect class="r" x="192" y="72" width="12" height="12"/><rect class="r" x="204" y="72" width="12" height="12"/><rect class="r" x="216" y="72" width="12" height="12"/><rect class="r" x="228" y="72" width="12" height="12"/><rect class="r" x="240" y="72" width="12" height="12"/><rect class="k" x="252" y="72" width="12" height="12"/><rect class="k" x="264" y="72" width="12" height="12"/><rect class="k" x="276" y="72" width="12" height="12"/><rect class="k" x="288" y="72" width="12" height="12"/><rect class="k" x="300" y="72" width="12" height="12"/><rect class="k" x="12" y="84" width="12" height="12"/><rect class="r" x="24" y="84" width="12" height="12"/><rect class="r" x="36" y="84" width="12" height="12"/><rect class="k" x="48" y="84" width="12" height="12"/><rect class="k" x="60" y="84" width="12" height="12"/><rect class="r" x="72" y="84" width="12" height="12"/><rect class="r" x="84" y="84" width="12" height="12"/><rect class="r" x="96" y="84" width="12" height="12"/><rect class="r" x="108" y="84" width="12" height="12"/><rect class="k" x="120" y="84" width="12" height="12"/><rect class="r" x="132" y="84" width="12" height="12"/><rect class="k" x="144" y="84" width="12" height="12"/><rect class="r" x="156" y="84" width="12" height="12"/><rect class="k" x="168" y="84" width="12" height="12"/><rect class="r" x="180" y="84" width="12" height="12"/><rect class="r" x="192" y="84" width="12" height="12"/><rect class="r" x="204" y="84" width="12" height="12"/><rect class="r" x="216" y="84" width="12" height="12"/><rect class="r" x="228" y="84" width="12" height="12"/><rect class="r" x="240" y="84" width="12" height="12"/><rect class="k" x="252" y="84" width="12" height="12"/><rect class="k" x="276" y="84" width="12" height="12"/><rect class="k" x="288" y="84" width="12" height="12"/><rect class="k" x="300" y="84" width="12" height="12"/><rect class="k" x="24" y="96" width="12" height="12"/><rect class="r" x="36" y="96" width="12" height="12"/><rect class="r" x="48" y="96" width="12" height="12"/><rect class="r" x="60" y="96" width="12" height="12"/><rect class="r" x="72" y="96" width="12" height="12"/><rect class="r" x="84" y="96" width="12" height="12"/><rect class="r" x="96" y="96" width="12" height="12"/><rect class="r" x="108" y="96" width="12" height="12"/><rect class="k" x="120" y="96" width="12" height="12"/><rect class="w" x="132" y="96" width="12" height="12"/><rect class="k" x="144" y="96" width="12" height="12"/><rect class="w" x="156" y="96" width="12" height="12"/><rect class="k" x="168" y="96" width="12" height="12"/><rect class="r" x="180" y="96" width="12" height="12"/><rect class="r" x="192" y="96" width="12" height="12"/><rect class="r" x="204" y="96" width="12" height="12"/><rect class="r" x="216" y="96" width="12" height="12"/><rect class="r" x="228" y="96" width="12" height="12"/><rect class="k" x="240" y="96" width="12" height="12"/><rect class="k" x="288" y="96" width="12" height="12"/><rect class="k" x="300" y="96" width="12" height="12"/><rect class="k" x="36" y="108" width="12" height="12"/><rect class="k" x="48" y="108" width="12" height="12"/><rect class="r" x="60" y="108" width="12" height="12"/><rect class="r" x="72" y="108" width="12" height="12"/><rect class="r" x="84" y="108" width="12" height="12"/><rect class="r" x="96" y="108" width="12" height="12"/><rect class="r" x="108" y="108" width="12" height="12"/><rect class="k" x="120" y="108" width="12" height="12"/><rect class="w" x="132" y="108" width="12" height="12"/><rect class="k" x="144" y="108" width="12" height="12"/><rect class="w" x="156" y="108" width="12" height="12"/><rect class="k" x="168" y="108" width="12" height="12"/><rect class="r" x="180" y="108" width="12" height="12"/><rect class="r" x="192" y="108" width="12" height="12"/><rect class="r" x="204" y="108" width="12" height="12"/><rect class="r" x="216" y="108" width="12" height="12"/><rect class="k" x="228" y="108" width="12" height="12"/><rect class="k" x="300" y="108" width="12" height="12"/><rect class="k" x="60" y="120" width="12" height="12"/><rect class="k" x="72" y="120" width="12" height="12"/><rect class="k" x="84" y="120" width="12" height="12"/><rect class="k" x="96" y="120" width="12" height="12"/><rect class="k" x="108" y="120" width="12" height="12"/><rect class="r" x="120" y="120" width="12" height="12"/><rect class="r" x="132" y="120" width="12" height="12"/><rect class="r" x="144" y="120" width="12" height="12"/><rect class="r" x="156" y="120" width="12" height="12"/><rect class="k" x="168" y="120" width="12" height="12"/><rect class="k" x="180" y="120" width="12" height="12"/><rect class="k" x="192" y="120" width="12" height="12"/><rect class="k" x="204" y="120" width="12" height="12"/><rect class="k" x="120" y="132" width="12" height="12"/><rect class="r" x="132" y="132" width="12" height="12"/><rect class="r" x="144" y="132" width="12" height="12"/><rect class="k" x="156" y="132" width="12" height="12"/><rect class="k" x="132" y="144" width="12" height="12"/><rect class="k" x="144" y="144" width="12" height="12"/></svg>
+    </div>
+  </header>
+
+  <svg class="band" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges"><defs><pattern id="stitch1" width="24" height="24" patternUnits="userSpaceOnUse"><rect class="k" x="0" y="0" width="4" height="4"/><rect class="k" x="20" y="0" width="4" height="4"/><rect class="r" x="4" y="4" width="4" height="4"/><rect class="r" x="16" y="4" width="4" height="4"/><rect class="r" x="8" y="8" width="4" height="4"/><rect class="r" x="12" y="8" width="4" height="4"/><rect class="r" x="8" y="12" width="4" height="4"/><rect class="r" x="12" y="12" width="4" height="4"/><rect class="r" x="4" y="16" width="4" height="4"/><rect class="r" x="16" y="16" width="4" height="4"/><rect class="k" x="0" y="20" width="4" height="4"/><rect class="k" x="20" y="20" width="4" height="4"/></pattern></defs><rect width="100%" height="100%" fill="url(#stitch1)"/></svg>
+
+  <section class="why">
+    <div class="wrap measure">
+      <h2 data-i18n="why.title">Ce-i cu dorul ăsta?</h2>
+      <p data-i18n="why.p1">România a exportat în ultimii 20 de ani mai mulți developeri decât își poate aminti cineva. Unii au plecat la Zürich, alții la Berlin, alții doar pe un Slack cu fus orar din California. Toți au rămas cu același reflex: când merge, zic „lasă că merge”. Când nu merge, zic „se rezolvă”.</p>
+      <p data-i18n="why.p2">Dor de codul românesc e locul unde ne recunoaștem: cei de aici, cei de acolo, managerii care au învățat să citească printre rânduri și companiile care au aflat că un developer român rezolvă lucruri.</p>
+      <p data-i18n="why.p3">Nu e agenție. Nu e platformă de recrutare. Nu colectăm nimic, nici măcar feedback. E doar adevărul, cu simțul umorului la vedere.</p>
+    </div>
+  </section>
+
+  <section class="cod" id="codul">
+    <div class="wrap measure">
+      <h2 data-i18n="cod.title">Codul developerului român</h2>
+      <p data-i18n="cod.intro">Orice popor are un cod. Al nostru nu se aplică, dar se respectă.</p>
+      <ol>
+        <li id="art-1"><span class="art">Art. 1.</span><span class="txt" data-i18n="cod.a1">Orice bug se manifestă exclusiv în producție, vineri, după 17:00.</span><button class="copy" type="button" data-i18n="cod.copy">Copiază</button></li>
+        <li id="art-2"><span class="art">Art. 2.</span><span class="txt" data-i18n="cod.a2">„La mine merge” constituie probă legală.</span><button class="copy" type="button" data-i18n="cod.copy">Copiază</button></li>
+        <li id="art-3"><span class="art">Art. 3.</span><span class="txt" data-i18n="cod.a3">„Lasă că merge” nu este strategie de deploy. (Dar este.)</span><button class="copy" type="button" data-i18n="cod.copy">Copiază</button></li>
+        <li id="art-4"><span class="art">Art. 4.</span><span class="txt" data-i18n="cod.a4">Comentariile se scriu în engleză, variabilele în română, iar <code>listaClienti2Final</code> este patrimoniu național.</span><button class="copy" type="button" data-i18n="cod.copy">Copiază</button></li>
+        <li id="art-5"><span class="art">Art. 5.</span><span class="txt" data-i18n="cod.a5">Diacriticele sunt opționale până când ajung în baza de date.</span><button class="copy" type="button" data-i18n="cod.copy">Copiază</button></li>
+        <li id="art-6"><span class="art">Art. 6.</span><span class="txt" data-i18n="cod.a6">Estimarea se dă în zile și se citește în săptămâni.</span><button class="copy" type="button" data-i18n="cod.copy">Copiază</button></li>
+        <li id="art-7"><span class="art">Art. 7.</span><span class="txt" data-i18n="cod.a7">Orice TODO mai vechi de doi ani devine documentație.</span><button class="copy" type="button" data-i18n="cod.copy">Copiază</button></li>
+        <li id="art-8"><span class="art">Art. 8.</span><span class="txt" data-i18n="cod.a8">Cafeaua nu e beneficiu extra-salarial. E infrastructură.</span><button class="copy" type="button" data-i18n="cod.copy">Copiază</button></li>
+        <li id="art-9"><span class="art">Art. 9.</span><span class="txt" data-i18n="cod.a9">Developerul român rezolvă. Nu știe încă cum, dar se rezolvă.</span><button class="copy" type="button" data-i18n="cod.copy">Copiază</button></li>
+        <li id="art-10"><span class="art">Art. 10.</span><span class="txt" data-i18n="cod.a10">Ședința de 15 minute durează o oră și se încheie obligatoriu cu „facem un follow-up săptămâna viitoare”.</span><button class="copy" type="button" data-i18n="cod.copy">Copiază</button></li>
+        <li id="art-11"><span class="art">Art. 11.</span><span class="txt" data-i18n="cod.a11">Parola de la serverul de producție se transmite oral, din generație în generație, ca rețeta de cozonac.</span><button class="copy" type="button" data-i18n="cod.copy">Copiază</button></li>
+        <li id="art-12"><span class="art">Art. 12.</span><span class="txt" data-i18n="cod.a12">Fiecare proiect are un Gigel care știa tot. Gigel a plecat acum trei ani. Numele lui e încă în crontab.</span><button class="copy" type="button" data-i18n="cod.copy">Copiază</button></li>
+        <li id="art-13"><span class="art">Art. 13.</span><span class="txt" data-i18n="cod.a13">Documentația oficială a proiectului este un mesaj vocal de patru minute pe grupul echipei, din 2019.</span><button class="copy" type="button" data-i18n="cod.copy">Copiază</button></li>
+        <li id="art-14"><span class="art">Art. 14.</span><span class="txt" data-i18n="cod.a14">Fișierul config_final_BUN_nu_sterge.json nu se șterge. Nimeni nu știe de ce. Nimeni nu întreabă.</span><button class="copy" type="button" data-i18n="cod.copy">Copiază</button></li>
+        <li id="art-15"><span class="art">Art. 15.</span><span class="txt" data-i18n="cod.a15">„Cine a scris porcăria asta?” este o întrebare retorică. git blame răspunde întotdeauna: tu, acum opt luni.</span><button class="copy" type="button" data-i18n="cod.copy">Copiază</button></li>
+        <li id="art-16"><span class="art">Art. 16.</span><span class="txt" data-i18n="cod.a16">Un task „de cinci minute” este, prin definiție, orice task pe care nu l-a deschis încă nimeni.</span><button class="copy" type="button" data-i18n="cod.copy">Copiază</button></li>
+        <li id="art-17"><span class="art">Art. 17.</span><span class="txt" data-i18n="cod.a17">Testele se scriu după incident, în memoria victimelor.</span><button class="copy" type="button" data-i18n="cod.copy">Copiază</button></li>
+        <li id="art-18"><span class="art">Art. 18.</span><span class="txt" data-i18n="cod.a18">Singurul laptop de pe care merge deploy-ul aparține unui coleg aflat acum în concediu la mare, fără semnal.</span><button class="copy" type="button" data-i18n="cod.copy">Copiază</button></li>
+        <li id="art-19"><span class="art">Art. 19.</span><span class="txt" data-i18n="cod.a19">Soluția temporară din 2016 a primit statut de monument istoric și nu mai poate fi atinsă fără aviz.</span><button class="copy" type="button" data-i18n="cod.copy">Copiază</button></li>
+        <li id="art-20"><span class="art">Art. 20.</span><span class="txt" data-i18n="cod.a20">În lipsa unei specificații, se aplică principiul „știi tu, ca la ăia”.</span><button class="copy" type="button" data-i18n="cod.copy">Copiază</button></li>
+        <li id="art-21"><span class="art">Art. 21.</span><span class="txt" data-i18n="cod.a21">La daily, camera rămâne închisă. Motivul oficial: „îmi merge prost netul”. Motivul real: pijamaua.</span><button class="copy" type="button" data-i18n="cod.copy">Copiază</button></li>
+        <li id="art-22"><span class="art">Art. 22.</span><span class="txt" data-i18n="cod.a22">Refactorizarea se programează „când avem timp”, dată fixă din calendar care nu vine niciodată.</span><button class="copy" type="button" data-i18n="cod.copy">Copiază</button></li>
+        <li id="art-23"><span class="art">Art. 23.</span><span class="txt" data-i18n="cod.a23">De sărbători, bunica te întreabă dacă poți să-i repari imprimanta. Poți. Asta e, de fapt, fișa postului.</span><button class="copy" type="button" data-i18n="cod.copy">Copiază</button></li>
+        <li id="art-24"><span class="art">Art. 24.</span><span class="txt" data-i18n="cod.a24">Prezentul Cod intră în vigoare la data publicării și se modifică exclusiv prin pull request.</span><button class="copy" type="button" data-i18n="cod.copy">Copiază</button></li>
+      </ol>
+      <p class="after"><span data-i18n="cod.amend">Ai un articol de propus?</span> <a href="https://github.com/netics/dordecod" data-i18n="cod.amendLink">Deschide un pull request</a></p>
+    </div>
+  </section>
+
+  <section class="excuse-sec" id="scuze">
+    <div class="wrap measure">
+      <h2 data-i18n="exc.title">Generatorul oficial de scuze</h2>
+      <p data-i18n="exc.intro">Pentru standup, pentru retro, pentru client. Certificat conform Art. 2.</p>
+      <div class="excuse" aria-live="polite">
+        <p data-excuse>Nu e bug, e un comportament nedocumentat. Îl documentez și devine feature.</p>
+        <button class="btn small" type="button" data-excuse-btn data-i18n="exc.btn">Dă-mi altă scuză</button>
+        <p class="meta" data-i18n="exc.meta">Folosire nelimitată. Credibilitatea scade după a treia pe sprint.</p>
+      </div>
+
+      <h3 class="sub" data-i18n="log.title">git log --oneline, echipa din Iași</h3>
+      <p data-i18n="log.intro">Mesaje reale de commit. Numele au fost schimbate, codul nu.</p>
+      <div class="log" role="region" aria-label="git log">
+        <div class="ln prompt">$ git log --oneline main</div>
+        <div class="ln"><span class="h">d50fca0</span> fix pentru fix-ul de ieri</div><span class="g" data-i18n="commit.g0"></span>
+        <div class="ln"><span class="h">77cb603</span> revert la revert, acum merge pe bune</div><span class="g" data-i18n="commit.g1"></span>
+        <div class="ln"><span class="h">721b209</span> am scos console.log-urile (majoritatea)</div><span class="g" data-i18n="commit.g2"></span>
+        <div class="ln"><span class="h">7b926f2</span> nu întrebați</div><span class="g" data-i18n="commit.g3"></span>
+        <div class="ln"><span class="h">ed24841</span> update final final2 de data asta chiar final</div><span class="g" data-i18n="commit.g4"></span>
+        <div class="ln"><span class="h">62e298b</span> am mutat bug-ul din backend în frontend, acum e problema altcuiva</div><span class="g" data-i18n="commit.g5"></span>
+        <div class="ln"><span class="h">262859f</span> wip nu merge dar plec acasă</div><span class="g" data-i18n="commit.g6"></span>
+        <div class="ln"><span class="h">4659aae</span> am șters codul comentat din 2018. dacă se strică ceva, era important</div><span class="g" data-i18n="commit.g7"></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="dict" id="dictionar">
+    <div class="wrap measure">
+      <h2 data-i18n="dict.title">Dicționar româno-corporate</h2>
+      <p data-i18n="dict.intro">Pentru managerii străini care lucrează cu developeri români. Traducere contextuală, din experiență, gratuită.</p>
+      <table class="tbl">
+        <thead><tr><th data-i18n="dict.c1">Se spune</th><th data-i18n="dict.c2">Se înțelege</th></tr></thead>
+        <tbody>
+          <tr><td>merge și așa</td><td>acceptable technical debt</td></tr>
+          <tr><td>se rezolvă</td><td>unblocked; ETA unknown</td></tr>
+          <tr><td>hai că-i simplu</td><td>three sprints</td></tr>
+          <tr><td>nu-i nicio problemă</td><td>there is a problem</td></tr>
+          <tr><td>vezi că…</td><td>critical warning</td></tr>
+          <tr><td>la mine merge</td><td>cannot reproduce</td></tr>
+          <tr><td>îl bag repede</td><td>hotfix, no tests</td></tr>
+          <tr><td>mai vedem</td><td>won't fix</td></tr>
+          <tr><td>să nu ne grăbim</td><td>they know something you don't</td></tr>
+          <tr><td>e ok, dar…</td><td>it is not ok</td></tr>
+          <tr><td>e doar un if</td><td>minor scope adjustment</td></tr>
+          <tr><td>am pus un try-catch</td><td>robust error-handling strategy implemented</td></tr>
+          <tr><td>l-am testat</td><td>manually verified in a representative environment</td></tr>
+          <tr><td>am vorbit cu ăla de la backend</td><td>cross-team alignment achieved</td></tr>
+          <tr><td>facem pe repede, apoi facem bine</td><td>phased delivery approach</td></tr>
+          <tr><td>ultima modificare, pe bune</td><td>final scope freeze (v4)</td></tr>
+          <tr><td>las' că văd eu</td><td>"I'll take ownership of this." (You won't hear of it again until it breaks.)</td></tr>
+          <tr><td>nu e de la noi</td><td>"The root cause appears to be upstream."</td></tr>
+          <tr><td>am înțeles</td><td>"Fully aligned. Moving to implementation."</td></tr>
+          <tr><td>ce-a vrut să zică poetul?</td><td>"We'd like to clarify a few requirements."</td></tr>
+          <tr><td>cine a scris asta?</td><td>"Let's run a blameless post-mortem." (It was them.)</td></tr>
+          <tr><td>Am o întrebare.</td><td>There's a hole in your architecture. You have about 30 seconds to spot it yourself.</td></tr>
+          <tr><td>Mă uit diseară.</td><td>Fixed by morning. Do not ask when they slept.</td></tr>
+          <tr><td>Păi…</td><td>Brace for a 20-minute, annoyingly correct explanation of why your plan won't work.</td></tr>
+          <tr><td>Interesant…</td><td>Production runs on something nobody understands. Budget accordingly.</td></tr>
+        </tbody>
+      </table>
+      <p class="after"><span data-i18n="dict.more">Lipsește o expresie?</span> <a href="https://github.com/netics/dordecod" data-i18n="dict.moreLink">Adaug-o prin pull request</a></p>
+    </div>
+  </section>
+
+  <section class="pm" id="pm">
+    <div class="wrap measure">
+      <h2 data-i18n="pm.title">Pentru PM, scrum masteri și administratorii de Jira</h2>
+      <p data-i18n="pm.intro">Voi țineți proiectul în viață. Noi vă spunem ce se întâmplă de fapt în spatele board-ului.</p>
+
+      <h3 class="sub" data-i18n="jira.title">Jira, tradus</h3>
+      <table class="tbl">
+        <thead><tr><th data-i18n="jira.c1">Pe board scrie</th><th data-i18n="jira.c2">În realitate</th></tr></thead>
+        <tbody>
+          <tr><td class="mono" data-i18n="jira.a0">In Progress</td><td data-i18n="jira.b0">Am creat branch-ul. Atât. Restul e o stare de spirit.</td></tr>
+          <tr><td class="mono" data-i18n="jira.a1">Story points: 3</td><td data-i18n="jira.b1">Am votat 3 ca să se termine odată ședința de planning.</td></tr>
+          <tr><td class="mono" data-i18n="jira.a2">Blocked</td><td data-i18n="jira.b2">Aștept răspuns de la client din martie. Între timp, refactorizez ceva ce nu mi-a cerut nimeni.</td></tr>
+          <tr><td class="mono" data-i18n="jira.a3">Done</td><td data-i18n="jira.b3">Am dat merge. De-aici încolo e între QA și Dumnezeu.</td></tr>
+          <tr><td class="mono" data-i18n="jira.a4">Code Review</td><td data-i18n="jira.b4">PR de 2.000 de linii: „LGTM”. PR de 3 linii: 47 de comentarii despre numele unei variabile.</td></tr>
+          <tr><td class="mono" data-i18n="jira.a5">Won't Fix</td><td data-i18n="jira.b5">De azi e feature. Îl trecem și în release notes, cu entuziasm.</td></tr>
+          <tr><td class="mono" data-i18n="jira.a6">Reopened</td><td data-i18n="jira.b6">Clientul a dat refresh.</td></tr>
+          <tr><td class="mono" data-i18n="jira.a7">Priority: Highest</td><td data-i18n="jira.b7">Bug-ul l-a găsit fiul directorului. Pe tabletă.</td></tr>
+          <tr><td class="mono" data-i18n="jira.a8">Backlog</td><td data-i18n="jira.b8">Podul bunicii: nu mai urcă nimeni acolo, dar nici nu se aruncă nimic.</td></tr>
+          <tr><td class="mono" data-i18n="jira.a9">Assignee: Unassigned</td><td data-i18n="jira.b9">Toată echipa știe de el, nimeni nu-l atinge. Ca priza din bucătărie care scânteiază.</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="sub" data-i18n="est.title">Convertor de estimări</h3>
+      <table class="tbl">
+        <thead><tr><th data-i18n="est.c1">Developerul zice</th><th data-i18n="est.c2">Tu treci în plan</th></tr></thead>
+        <tbody>
+          <tr><td data-i18n="est.a0">„Cinci minute”</td><td data-i18n="est.b0">Cinci minute ca să înțeleg problema. Restul nu l-am estimat.</td></tr>
+          <tr><td data-i18n="est.a1">„Două ore”</td><td data-i18n="est.b1">Două ore de cod și două zile de merge conflicts.</td></tr>
+          <tr><td data-i18n="est.a2">„O zi”</td><td data-i18n="est.b2">O zi de lucru. Calendaristic, marțea viitoare.</td></tr>
+          <tr><td data-i18n="est.a3">„Cam 80% gata”</td><td data-i18n="est.b3">Acum încep celelalte 80%.</td></tr>
+          <tr><td data-i18n="est.a4">„Depinde”</td><td data-i18n="est.b4">N-am nicio idee, dar sună a senior.</td></tr>
+          <tr><td data-i18n="est.a5">„Mâine dimineață”</td><td data-i18n="est.b5">Dimineață pe fusul orar al cui? Și care mâine?</td></tr>
+          <tr><td data-i18n="est.a6">„Până la finalul sprintului”</td><td data-i18n="est.b6">Al unui sprint. Nu neapărat ăsta.</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="sub" data-i18n="bingo.title">Bingo de standup</h3>
+      <p data-i18n="bingo.intro">Bifează ce auzi. Primul care face o linie are voie să închidă camera.</p>
+      <div class="bingo" role="group" aria-label="Bingo">
+        <button type="button" aria-pressed="false" data-i18n="bingo.c0">„La fel ca ieri.”</button>
+        <button type="button" aria-pressed="false" data-i18n="bingo.c1">„Mai am un pic.”</button>
+        <button type="button" aria-pressed="false" data-i18n="bingo.c2">„Ești pe mute, frate.”</button>
+        <button type="button" aria-pressed="false" data-i18n="bingo.c3">„Se vede ecranul?”</button>
+        <button type="button" aria-pressed="false" data-i18n="bingo.c4">„Discutăm după daily.”</button>
+        <button type="button" aria-pressed="false" data-i18n="bingo.c5">„Am avut probleme cu mediul.”</button>
+        <button type="button" aria-pressed="false" data-i18n="bingo.c6">„Nu știu, eu sunt pe frontend.”</button>
+        <button type="button" aria-pressed="false" data-i18n="bingo.c7">„Scuze, eram pe alt call.”</button>
+        <button type="button" aria-pressed="false" data-i18n="bingo.c8">„Fără blocaje.” (Are trei.)</button>
+        <button type="button" aria-pressed="false" data-i18n="bingo.c9">„Am făcut niște research.”</button>
+        <button type="button" aria-pressed="false" data-i18n="bingo.c10">„Pipeline-ul e roșu. Nu-s eu.”</button>
+        <button type="button" aria-pressed="false" data-i18n="bingo.c11">„Cine a dat push pe main?”</button>
+        <button type="button" aria-pressed="false" data-i18n="bingo.c12">„Revin eu cu un update.”</button>
+        <button type="button" aria-pressed="false" data-i18n="bingo.c13">Sună curierul la ușă.</button>
+        <button type="button" aria-pressed="false" data-i18n="bingo.c14">„Ăla care știa a plecat.”</button>
+        <button type="button" aria-pressed="false" data-i18n="bingo.c15">„Bag un fix mic, rapid.”</button>
+      </div>
+      <div class="bingo-bar">
+        <button class="btn small ghost" type="button" data-bingo-reset data-i18n="bingo.reset">Sprint nou</button>
+        <p class="bingo-win" role="status" data-bingo-win></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cto" id="cto">
+    <div class="wrap">
+      <div class="measure">
+        <h2 data-i18n="cto.title">Pentru CTO: ce primești, de fapt</h2>
+        <p data-i18n="cto.intro">Ați lucrat cu un developer român și ceva s-a reparat ce nu reparase nimeni. Sau n-ați lucrat și ați auzit. Iată documentația pe care n-a scris-o nimeni.</p>
+      </div>
+      <div class="spec">
+        <p class="model">MODEL: RO-DEV · REV. 2026 · MADE IN CLUJ / IAȘI / TIMIȘOARA / BUCUREȘTI</p>
+        <h3 data-i18n="spec.title">Developer român — specificații tehnice</h3>
+        <dl>
+          <dt data-i18n="spec.a0">Temperatură de funcționare</dt><dd data-i18n="spec.b0">De la open-space cu AC-ul pe 17°C la iulie în Pitești, fără AC. Performanță identică.</dd>
+          <dt data-i18n="spec.a1">Alimentare</dt><dd data-i18n="spec.b1">Cafea (principal), energizant (backup), sarmale (UPS de sărbători).</dd>
+          <dt data-i18n="spec.a2">Latență</dt><dd data-i18n="spec.b2">Pe chat: 30 de secunde. Pe email: până vineri. La „ai un minut?”: timeout.</dd>
+          <dt data-i18n="spec.a3">Compatibilitate</dt><dd data-i18n="spec.b3">Orice stack, orice limbaj, orice framework lansat marțea trecută. Incompatibil cu ședințele care puteau fi un email.</dd>
+          <dt data-i18n="spec.a4">Garanție</dt><dd data-i18n="spec.b4">Pe viață, dacă nu schimbați cerințele după code freeze. Durata medie a garanției: 11 zile.</dd>
+          <dt data-i18n="spec.a5">Probleme cunoscute</dt><dd data-i18n="spec.b5">Refactorizează fără ticket. Ocazional rescrie tot, „că era mai simplu așa”.</dd>
+          <dt data-i18n="spec.a6">Mod economisire energie</dt><dd data-i18n="spec.b6">Se activează în ședințele de peste o oră: camera oprită, „am probleme cu netul”. Pe una dintre cele mai rapide conexiuni din Europa.</dd>
+          <dt data-i18n="spec.a7">Firmware</dt><dd data-i18n="spec.b7">Actualizat din documentație, forumuri și un comentariu cu 3 like-uri pe un issue din 2014, care chiar a mers.</dd>
+          <dt data-i18n="spec.a8">Capacitate de încărcare</dt><dd data-i18n="spec.b8">3 proiecte oficial, 5 neoficial, plus site-ul firmei lui nașu'.</dd>
+          <dt data-i18n="spec.a9">Accesorii incluse</dt><dd data-i18n="spec.b9">Laptop cu 47 de taburi deschise, cană de la un meetup din 2017, termos cu ciorbă de la mama.</dd>
+        </dl>
+      </div>
+      <div class="measure">
+        <h3 class="sub" data-i18n="faq.title">Întrebări frecvente de la CTO</h3>
+        <div class="faq">
+        <details><summary><span data-i18n="faq.q0">Cât de repede se adaptează un developer român la stack-ul nostru?</span></summary><p data-i18n="faq.a0">În prima săptămână îl învață. În a doua vă explică de ce l-ați ales greșit.</p></details>
+        <details><summary><span data-i18n="faq.q1">Lucrează și în fusul nostru orar?</span></summary><p data-i18n="faq.a1">Lucrează în fusul vostru, dorm în al lor, iar cu o seară înainte de demo trec pe UTC+cafea.</p></details>
+        <details><summary><span data-i18n="faq.q2">Pot să-i dau un task fără specificații?</span></summary><p data-i18n="faq.a2">Da. Primiți ce ați cerut, ce trebuia să cereți și o întrebare incomodă la standup.</p></details>
+        <details><summary><span data-i18n="faq.q3">Ce înseamnă când un developer român tace în ședință?</span></summary><p data-i18n="faq.a3">Nu e de acord. Și are deja un branch deschis cu varianta lui.</p></details>
+        <details><summary><span data-i18n="faq.q4">Au nevoie de micromanagement?</span></summary><p data-i18n="faq.a4">Nu. Încercați și o să primiți voi check-in-uri zilnice: „Și roadmap-ul unde e?”</p></details>
+        <details><summary><span data-i18n="faq.q5">Cum reacționează la cod legacy?</span></summary><p data-i18n="faq.a5">Un oftat, un „cine a scris asta?”, apoi git blame. Apoi o tăcere lungă: era chiar el, în 2019.</p></details>
+        <details><summary><span data-i18n="faq.q6">Ce se întâmplă de Crăciun și de Paște?</span></summary><p data-i18n="faq.a6">Deploy-urile îngheață. Developerul ține cozonacul la cameră, ca să știți exact ce pierdeți.</p></details>
+        <details><summary><span data-i18n="faq.q7">Vorbesc engleză?</span></summary><p data-i18n="faq.a7">Fluent. Plus sarcasm la nivel C2, trecut sub tăcere în CV din modestie.</p></details>
+        <details><summary><span data-i18n="faq.q8">Care e cel mai mare risc?</span></summary><p data-i18n="faq.a8">Să plece. Nu la concurență, ci să-și facă startup pe ideea pe care i-ați respins-o în Q2.</p></details>
+        </div>
+      </div>
+      <h3 class="sub" data-i18n="rev.title">Ce spun clienții</h3>
+      <div class="reviews">
+        <figure class="review"><div class="stars" aria-label="5/5">★★★★★</div><blockquote data-i18n="rev.q0">„A găsit un bug în specificațiile noastre înainte să scriem prima linie de cod. Încă suntem supărați.”</blockquote><figcaption data-i18n="rev.by0">— — CTO, fintech, Berlin</figcaption></figure>
+        <figure class="review"><div class="stars" aria-label="5/5">★★★★★</div><blockquote data-i18n="rev.q1">„Am cerut un MVP. Am primit o platformă scalabilă și întrebarea «de ce n-ați zis asta de la început?»”</blockquote><figcaption data-i18n="rev.by1">— — Fondator, SaaS, Amsterdam</figcaption></figure>
+        <figure class="review"><div class="stars" aria-label="5/5">★★★★★</div><blockquote data-i18n="rev.q2">„Standup-ul durează 4 minute. Restul de 11 sunt despre de ce grătarul nostru nu e, de fapt, grătar.”</blockquote><figcaption data-i18n="rev.by2">— — VP Engineering, logistică, Copenhaga</figcaption></figure>
+        <figure class="review"><div class="stars" aria-label="5/5">★★★★★</div><blockquote data-i18n="rev.q3">„Ne-a tăiat factura de cloud cu 40%. Apoi a întrebat de ce plătim licențe pentru un tool pe care nu-l deschide nimeni.”</blockquote><figcaption data-i18n="rev.by3">— — Head of Platform, e-commerce, Dublin</figcaption></figure>
+        <figure class="review"><div class="stars" aria-label="5/5">★★★★★</div><blockquote data-i18n="rev.q4">„Cinci stele. Pe a șasea a scos-o la refactorizare, zicea că e redundantă.”</blockquote><figcaption data-i18n="rev.by4">— — Engineering Manager, healthtech, Zürich</figcaption></figure>
+      </div>
+    </div>
+  </section>
+</main>
+
+<svg class="band" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges"><defs><pattern id="stitch2" width="24" height="24" patternUnits="userSpaceOnUse"><rect class="k" x="0" y="0" width="4" height="4"/><rect class="k" x="20" y="0" width="4" height="4"/><rect class="r" x="4" y="4" width="4" height="4"/><rect class="r" x="16" y="4" width="4" height="4"/><rect class="r" x="8" y="8" width="4" height="4"/><rect class="r" x="12" y="8" width="4" height="4"/><rect class="r" x="8" y="12" width="4" height="4"/><rect class="r" x="12" y="12" width="4" height="4"/><rect class="r" x="4" y="16" width="4" height="4"/><rect class="r" x="16" y="16" width="4" height="4"/><rect class="k" x="0" y="20" width="4" height="4"/><rect class="k" x="20" y="20" width="4" height="4"/></pattern></defs><rect width="100%" height="100%" fill="url(#stitch2)"/></svg>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <p class="about" data-i18n="about">Făcut de Sergiu, developer full-stack care a lucrat destul cu companii din afară ca să știe că „dor” se explică greu, dar „se rezolvă” se înțelege imediat.</p>
+      <ul>
+        <li><a href="#codul" data-i18n="nav.cod">Codul</a></li>
+        <li><a href="#dictionar" data-i18n="nav.dict">Dicționar</a></li>
+        <li><a href="#pm" data-i18n="nav.pm">Pentru PM</a></li>
+        <li><a href="#cto" data-i18n="nav.cto">Pentru CTO</a></li>
+        <li><a href="https://github.com/netics/dordecod">GitHub</a></li>
+      </ul>
+    </div>
+    <p class="line" data-i18n="footer">© 2026 Dor de codul românesc. Site-ul merge. La noi.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var T = {"ro": {"nav.cod": "Codul", "nav.dict": "Dicționar", "nav.pm": "Pentru PM", "nav.cto": "Pentru CTO", "nav.excuse": "Scuze", "hero.kicker": "Un proiect pentru developerii români de pretutindeni", "hero.lead": "Dor — cuvântul pe care nu-l putem traduce. Codul — cel pe care nu-l putem lăsa în pace. Un loc pentru developerii români din țară și de prin lume, pentru PM-ii care îi estimează și pentru CTO-ii care îi angajează.", "hero.cta1": "Citește Codul", "hero.cta2": "Sunt CTO, explicați-mi", "hero.note": "Fără formulare. Fără cookies. Fără recruiteri cu „hi dear”. Promis.", "why.title": "Ce-i cu dorul ăsta?", "why.p1": "România a exportat în ultimii 20 de ani mai mulți developeri decât își poate aminti cineva. Unii au plecat la Zürich, alții la Berlin, alții doar pe un Slack cu fus orar din California. Toți au rămas cu același reflex: când merge, zic „lasă că merge”. Când nu merge, zic „se rezolvă”.", "why.p2": "Dor de codul românesc e locul unde ne recunoaștem: cei de aici, cei de acolo, managerii care au învățat să citească printre rânduri și companiile care au aflat că un developer român rezolvă lucruri.", "why.p3": "Nu e agenție. Nu e platformă de recrutare. Nu colectăm nimic, nici măcar feedback. E doar adevărul, cu simțul umorului la vedere.", "cod.copy": "Copiază", "cod.copied": "Copiat", "cod.a1": "Orice bug se manifestă exclusiv în producție, vineri, după 17:00.", "cod.a2": "„La mine merge” constituie probă legală.", "cod.a3": "„Lasă că merge” nu este strategie de deploy. (Dar este.)", "cod.a4": "Comentariile se scriu în engleză, variabilele în română, iar <code>listaClienti2Final</code> este patrimoniu național.", "cod.a5": "Diacriticele sunt opționale până când ajung în baza de date.", "cod.a6": "Estimarea se dă în zile și se citește în săptămâni.", "cod.a7": "Orice TODO mai vechi de doi ani devine documentație.", "cod.a8": "Cafeaua nu e beneficiu extra-salarial. E infrastructură.", "cod.a9": "Developerul român rezolvă. Nu știe încă cum, dar se rezolvă.", "cod.a10": "Ședința de 15 minute durează o oră și se încheie obligatoriu cu „facem un follow-up săptămâna viitoare”.", "cod.a11": "Parola de la serverul de producție se transmite oral, din generație în generație, ca rețeta de cozonac.", "cod.a12": "Fiecare proiect are un Gigel care știa tot. Gigel a plecat acum trei ani. Numele lui e încă în crontab.", "cod.a13": "Documentația oficială a proiectului este un mesaj vocal de patru minute pe grupul echipei, din 2019.", "cod.a14": "Fișierul config_final_BUN_nu_sterge.json nu se șterge. Nimeni nu știe de ce. Nimeni nu întreabă.", "cod.a15": "„Cine a scris porcăria asta?” este o întrebare retorică. git blame răspunde întotdeauna: tu, acum opt luni.", "cod.a16": "Un task „de cinci minute” este, prin definiție, orice task pe care nu l-a deschis încă nimeni.", "cod.a17": "Testele se scriu după incident, în memoria victimelor.", "cod.a18": "Singurul laptop de pe care merge deploy-ul aparține unui coleg aflat acum în concediu la mare, fără semnal.", "cod.a19": "Soluția temporară din 2016 a primit statut de monument istoric și nu mai poate fi atinsă fără aviz.", "cod.a20": "În lipsa unei specificații, se aplică principiul „știi tu, ca la ăia”.", "cod.a21": "La daily, camera rămâne închisă. Motivul oficial: „îmi merge prost netul”. Motivul real: pijamaua.", "cod.a22": "Refactorizarea se programează „când avem timp”, dată fixă din calendar care nu vine niciodată.", "cod.a23": "De sărbători, bunica te întreabă dacă poți să-i repari imprimanta. Poți. Asta e, de fapt, fișa postului.", "cod.a24": "Prezentul Cod intră în vigoare la data publicării și se modifică exclusiv prin pull request.", "cod.title": "Codul developerului român", "cod.intro": "Orice popor are un cod. Al nostru nu se aplică, dar se respectă.", "cod.amend": "Ai un articol de propus?", "cod.amendLink": "Deschide un pull request", "commit.g0": "", "commit.g1": "", "commit.g2": "", "commit.g3": "", "commit.g4": "", "commit.g5": "", "commit.g6": "", "commit.g7": "", "exc.title": "Generatorul oficial de scuze", "exc.intro": "Pentru standup, pentru retro, pentru client. Certificat conform Art. 2.", "exc.btn": "Dă-mi altă scuză", "exc.meta": "Folosire nelimitată. Credibilitatea scade după a treia pe sprint.", "log.title": "git log --oneline, echipa din Iași", "log.intro": "Mesaje reale de commit. Numele au fost schimbate, codul nu.", "dict.title": "Dicționar româno-corporate", "dict.intro": "Pentru managerii străini care lucrează cu developeri români. Traducere contextuală, din experiență, gratuită.", "dict.c1": "Se spune", "dict.c2": "Se înțelege", "dict.more": "Lipsește o expresie?", "dict.moreLink": "Adaug-o prin pull request", "bingo.c0": "„La fel ca ieri.”", "bingo.c1": "„Mai am un pic.”", "bingo.c2": "„Ești pe mute, frate.”", "bingo.c3": "„Se vede ecranul?”", "bingo.c4": "„Discutăm după daily.”", "bingo.c5": "„Am avut probleme cu mediul.”", "bingo.c6": "„Nu știu, eu sunt pe frontend.”", "bingo.c7": "„Scuze, eram pe alt call.”", "bingo.c8": "„Fără blocaje.” (Are trei.)", "bingo.c9": "„Am făcut niște research.”", "bingo.c10": "„Pipeline-ul e roșu. Nu-s eu.”", "bingo.c11": "„Cine a dat push pe main?”", "bingo.c12": "„Revin eu cu un update.”", "bingo.c13": "Sună curierul la ușă.", "bingo.c14": "„Ăla care știa a plecat.”", "bingo.c15": "„Bag un fix mic, rapid.”", "bingo.win": "BINGO! Standup-ul poate continua încă 40 de minute.", "pm.title": "Pentru PM, scrum masteri și administratorii de Jira", "pm.intro": "Voi țineți proiectul în viață. Noi vă spunem ce se întâmplă de fapt în spatele board-ului.", "jira.title": "Jira, tradus", "jira.c1": "Pe board scrie", "jira.c2": "În realitate", "jira.a0": "In Progress", "jira.b0": "Am creat branch-ul. Atât. Restul e o stare de spirit.", "jira.a1": "Story points: 3", "jira.b1": "Am votat 3 ca să se termine odată ședința de planning.", "jira.a2": "Blocked", "jira.b2": "Aștept răspuns de la client din martie. Între timp, refactorizez ceva ce nu mi-a cerut nimeni.", "jira.a3": "Done", "jira.b3": "Am dat merge. De-aici încolo e între QA și Dumnezeu.", "jira.a4": "Code Review", "jira.b4": "PR de 2.000 de linii: „LGTM”. PR de 3 linii: 47 de comentarii despre numele unei variabile.", "jira.a5": "Won't Fix", "jira.b5": "De azi e feature. Îl trecem și în release notes, cu entuziasm.", "jira.a6": "Reopened", "jira.b6": "Clientul a dat refresh.", "jira.a7": "Priority: Highest", "jira.b7": "Bug-ul l-a găsit fiul directorului. Pe tabletă.", "jira.a8": "Backlog", "jira.b8": "Podul bunicii: nu mai urcă nimeni acolo, dar nici nu se aruncă nimic.", "jira.a9": "Assignee: Unassigned", "jira.b9": "Toată echipa știe de el, nimeni nu-l atinge. Ca priza din bucătărie care scânteiază.", "est.title": "Convertor de estimări", "est.c1": "Developerul zice", "est.c2": "Tu treci în plan", "est.a0": "„Cinci minute”", "est.b0": "Cinci minute ca să înțeleg problema. Restul nu l-am estimat.", "est.a1": "„Două ore”", "est.b1": "Două ore de cod și două zile de merge conflicts.", "est.a2": "„O zi”", "est.b2": "O zi de lucru. Calendaristic, marțea viitoare.", "est.a3": "„Cam 80% gata”", "est.b3": "Acum încep celelalte 80%.", "est.a4": "„Depinde”", "est.b4": "N-am nicio idee, dar sună a senior.", "est.a5": "„Mâine dimineață”", "est.b5": "Dimineață pe fusul orar al cui? Și care mâine?", "est.a6": "„Până la finalul sprintului”", "est.b6": "Al unui sprint. Nu neapărat ăsta.", "bingo.title": "Bingo de standup", "bingo.intro": "Bifează ce auzi. Primul care face o linie are voie să închidă camera.", "bingo.reset": "Sprint nou", "spec.a0": "Temperatură de funcționare", "spec.b0": "De la open-space cu AC-ul pe 17°C la iulie în Pitești, fără AC. Performanță identică.", "spec.a1": "Alimentare", "spec.b1": "Cafea (principal), energizant (backup), sarmale (UPS de sărbători).", "spec.a2": "Latență", "spec.b2": "Pe chat: 30 de secunde. Pe email: până vineri. La „ai un minut?”: timeout.", "spec.a3": "Compatibilitate", "spec.b3": "Orice stack, orice limbaj, orice framework lansat marțea trecută. Incompatibil cu ședințele care puteau fi un email.", "spec.a4": "Garanție", "spec.b4": "Pe viață, dacă nu schimbați cerințele după code freeze. Durata medie a garanției: 11 zile.", "spec.a5": "Probleme cunoscute", "spec.b5": "Refactorizează fără ticket. Ocazional rescrie tot, „că era mai simplu așa”.", "spec.a6": "Mod economisire energie", "spec.b6": "Se activează în ședințele de peste o oră: camera oprită, „am probleme cu netul”. Pe una dintre cele mai rapide conexiuni din Europa.", "spec.a7": "Firmware", "spec.b7": "Actualizat din documentație, forumuri și un comentariu cu 3 like-uri pe un issue din 2014, care chiar a mers.", "spec.a8": "Capacitate de încărcare", "spec.b8": "3 proiecte oficial, 5 neoficial, plus site-ul firmei lui nașu'.", "spec.a9": "Accesorii incluse", "spec.b9": "Laptop cu 47 de taburi deschise, cană de la un meetup din 2017, termos cu ciorbă de la mama.", "faq.q0": "Cât de repede se adaptează un developer român la stack-ul nostru?", "faq.a0": "În prima săptămână îl învață. În a doua vă explică de ce l-ați ales greșit.", "faq.q1": "Lucrează și în fusul nostru orar?", "faq.a1": "Lucrează în fusul vostru, dorm în al lor, iar cu o seară înainte de demo trec pe UTC+cafea.", "faq.q2": "Pot să-i dau un task fără specificații?", "faq.a2": "Da. Primiți ce ați cerut, ce trebuia să cereți și o întrebare incomodă la standup.", "faq.q3": "Ce înseamnă când un developer român tace în ședință?", "faq.a3": "Nu e de acord. Și are deja un branch deschis cu varianta lui.", "faq.q4": "Au nevoie de micromanagement?", "faq.a4": "Nu. Încercați și o să primiți voi check-in-uri zilnice: „Și roadmap-ul unde e?”", "faq.q5": "Cum reacționează la cod legacy?", "faq.a5": "Un oftat, un „cine a scris asta?”, apoi git blame. Apoi o tăcere lungă: era chiar el, în 2019.", "faq.q6": "Ce se întâmplă de Crăciun și de Paște?", "faq.a6": "Deploy-urile îngheață. Developerul ține cozonacul la cameră, ca să știți exact ce pierdeți.", "faq.q7": "Vorbesc engleză?", "faq.a7": "Fluent. Plus sarcasm la nivel C2, trecut sub tăcere în CV din modestie.", "faq.q8": "Care e cel mai mare risc?", "faq.a8": "Să plece. Nu la concurență, ci să-și facă startup pe ideea pe care i-ați respins-o în Q2.", "rev.q0": "„A găsit un bug în specificațiile noastre înainte să scriem prima linie de cod. Încă suntem supărați.”", "rev.by0": "— — CTO, fintech, Berlin", "rev.q1": "„Am cerut un MVP. Am primit o platformă scalabilă și întrebarea «de ce n-ați zis asta de la început?»”", "rev.by1": "— — Fondator, SaaS, Amsterdam", "rev.q2": "„Standup-ul durează 4 minute. Restul de 11 sunt despre de ce grătarul nostru nu e, de fapt, grătar.”", "rev.by2": "— — VP Engineering, logistică, Copenhaga", "rev.q3": "„Ne-a tăiat factura de cloud cu 40%. Apoi a întrebat de ce plătim licențe pentru un tool pe care nu-l deschide nimeni.”", "rev.by3": "— — Head of Platform, e-commerce, Dublin", "rev.q4": "„Cinci stele. Pe a șasea a scos-o la refactorizare, zicea că e redundantă.”", "rev.by4": "— — Engineering Manager, healthtech, Zürich", "cto.title": "Pentru CTO: ce primești, de fapt", "cto.intro": "Ați lucrat cu un developer român și ceva s-a reparat ce nu reparase nimeni. Sau n-ați lucrat și ați auzit. Iată documentația pe care n-a scris-o nimeni.", "spec.title": "Developer român — specificații tehnice", "faq.title": "Întrebări frecvente de la CTO", "rev.title": "Ce spun clienții", "about": "Făcut de Sergiu, developer full-stack care a lucrat destul cu companii din afară ca să știe că „dor” se explică greu, dar „se rezolvă” se înțelege imediat.", "footer": "© 2026 Dor de codul românesc. Site-ul merge. La noi."}, "en": {"nav.cod": "The Code", "nav.dict": "Dictionary", "nav.pm": "For PMs", "nav.cto": "For CTOs", "nav.excuse": "Excuses", "hero.kicker": "A project for Romanian developers, wherever they are", "hero.lead": "Dor (n.) — the Romanian word for missing something you didn't know you needed. Codul — the code. Put together: a love letter to Romanian developers, and a field guide for the PMs who estimate them and the CTOs who hire them.", "hero.cta1": "Read the Code", "hero.cta2": "I'm a CTO, explain", "hero.note": "No forms. No cookies. No recruiters opening with “hi dear”. Promise.", "why.title": "What's with the dor?", "why.p1": "Over the last twenty years Romania has exported more developers than anyone can count. Some went to Zürich, some to Berlin, some only as far as a Slack channel on California time. All of them kept the same reflex: when it works, they say „lasă că merge” (leave it, it works). When it doesn't, they say „se rezolvă” (it'll get sorted).", "why.p2": "Dor de codul românesc is where we recognise each other: the ones here, the ones out there, the managers who learned to read between the lines, and the companies that found out a Romanian developer gets things fixed.", "why.p3": "Not an agency. Not a recruiting platform. We collect nothing, not even feedback. Just the truth, with its sense of humour in plain sight.", "cod.copy": "Copy", "cod.copied": "Copied", "cod.a1": "Every bug manifests exclusively in production, on a Friday, after 5 pm.", "cod.a2": "“Works on my machine” is admissible evidence.", "cod.a3": "„Lasă că merge” (leave it, it works) is not a deployment strategy. (It is.)", "cod.a4": "Comments are written in English, variables in Romanian, and <code>listaClienti2Final</code> is national heritage.", "cod.a5": "Diacritics are optional until they reach the database.", "cod.a6": "Estimates are given in days and read in weeks.", "cod.a7": "Any TODO older than two years becomes documentation.", "cod.a8": "Coffee is not a perk. It is infrastructure.", "cod.a9": "The Romanian developer fixes it. Doesn't know how yet, but it gets fixed.", "cod.a10": "The 15-minute meeting lasts an hour and must legally end with \"let's set up a follow-up next week.\"", "cod.a11": "The production server password is passed down orally, from generation to generation, like grandma's cake recipe.", "cod.a12": "Every project had one guy who knew everything. He left three years ago. His name is still in the crontab.", "cod.a13": "The official project documentation is a four-minute voice note in the team chat, from 2019.", "cod.a14": "The file config_final_GOOD_dont_delete.json is not deleted. Nobody knows why. Nobody asks.", "cod.a15": "\"Who wrote this garbage?\" is a rhetorical question. git blame always answers: you, eight months ago.", "cod.a16": "A \"five-minute task\" is, by definition, any task nobody has opened yet.", "cod.a17": "Tests are written after the incident, in memory of the fallen.", "cod.a18": "The only laptop that can deploy belongs to a colleague currently on a beach holiday, with no signal.", "cod.a19": "The temporary fix from 2016 is now a listed historical monument and cannot be touched without a permit.", "cod.a20": "In the absence of a spec, the principle of \"you know, like those other guys have it\" applies.", "cod.a21": "On the daily standup, cameras stay off. Official reason: \"my internet is bad.\" Actual reason: pyjamas.", "cod.a22": "Refactoring is scheduled for \"when we have time,\" a fixed calendar date that never arrives.", "cod.a23": "Every Christmas, grandma asks if you can fix her printer. You can. That is, in fact, your real job description.", "cod.a24": "This Code enters into force on publication and is amended exclusively by pull request.", "cod.title": "The Romanian Developer's Code", "cod.intro": "Every nation has a code. Ours is not enforced, but it is respected.", "cod.amend": "Have an article to propose?", "cod.amendLink": "Open a pull request", "commit.g0": "fix for yesterday's fix", "commit.g1": "revert the revert, now it actually works, for real", "commit.g2": "removed the console.logs (most of them)", "commit.g3": "don't ask", "commit.g4": "final final2 update, this time actually final", "commit.g5": "moved the bug from backend to frontend, now it's someone else's problem", "commit.g6": "wip, doesn't work, but I'm going home", "commit.g7": "deleted commented-out code from 2018. if anything breaks, it was important", "exc.title": "The official excuse generator", "exc.intro": "For standup, for the retro, for the client. Certified under Art. 2.", "exc.btn": "Give me another one", "exc.meta": "Unlimited use. Credibility drops after the third one per sprint.", "log.title": "git log --oneline, the Iași team", "log.intro": "Real commit messages. Names have been changed, the code has not.", "dict.title": "Romanian-to-corporate dictionary", "dict.intro": "For managers abroad who work with Romanian developers. Contextual translation, from experience, free of charge.", "dict.c1": "They say", "dict.c2": "It means", "dict.more": "Missing an expression?", "dict.moreLink": "Add it with a pull request", "bingo.c0": "\"Same as yesterday.\"", "bingo.c1": "\"Almost there.\"", "bingo.c2": "\"You're on mute, bro.\"", "bingo.c3": "\"Can you see my screen?\"", "bingo.c4": "\"Let's take it offline.\"", "bingo.c5": "\"Had some environment issues.\"", "bingo.c6": "\"No idea, I'm frontend.\"", "bingo.c7": "\"Sorry, was on another call.\"", "bingo.c8": "\"No blockers.\" (Has three.)", "bingo.c9": "\"Did some research.\" (One tutorial.)", "bingo.c10": "\"Pipeline's red. Wasn't me.\"", "bingo.c11": "\"Who pushed to main?\"", "bingo.c12": "\"I'll circle back.\"", "bingo.c13": "Courier rings the doorbell.", "bingo.c14": "\"The one who knew quit.\"", "bingo.c15": "\"Just a tiny quick fix.\"", "bingo.win": "BINGO! Standup may now continue for another 40 minutes.", "pm.title": "For PMs, scrum masters and Jira admins", "pm.intro": "You keep the project alive. We'll tell you what actually happens behind the board.", "jira.title": "Jira, translated", "jira.c1": "The board says", "jira.c2": "In reality", "jira.a0": "In Progress", "jira.b0": "A branch exists. Everything else is a state of mind.", "jira.a1": "Story points: 3", "jira.b1": "We all voted 3 so the planning meeting would finally end.", "jira.a2": "Blocked", "jira.b2": "Waiting on the client since March. Meanwhile, refactoring something nobody asked for.", "jira.a3": "Done", "jira.b3": "Merged. What happens next is between QA and God.", "jira.a4": "Code Review", "jira.b4": "2,000-line PR: \"LGTM\". 3-line PR: 47 comments about one variable name.", "jira.a5": "Won't Fix", "jira.b5": "It's a feature now. It goes in the release notes, with enthusiasm.", "jira.a6": "Reopened", "jira.b6": "The client pressed F5.", "jira.a7": "Priority: Highest", "jira.b7": "The bug was found by the CEO's son. On his tablet.", "jira.a8": "Backlog", "jira.b8": "Grandma's attic: nobody goes up there, and nothing is ever allowed to be thrown away.", "jira.a9": "Assignee: Unassigned", "jira.b9": "Everyone knows about it, nobody touches it. Like the kitchen socket that sparks.", "est.title": "Estimate converter", "est.c1": "The dev says", "est.c2": "You put in the plan", "est.a0": "\"Five minutes\"", "est.b0": "Five minutes to understand the problem. The rest was not estimated.", "est.a1": "\"Two hours\"", "est.b1": "Two hours of code, two days of merge conflicts.", "est.a2": "\"One day\"", "est.b2": "One working day. On the calendar, next Tuesday.", "est.a3": "\"About 80% done\"", "est.b3": "The other 80% starts now.", "est.a4": "\"It depends\"", "est.b4": "No idea whatsoever, but it sounds senior.", "est.a5": "\"Tomorrow morning\"", "est.b5": "Morning in whose time zone? And which tomorrow?", "est.a6": "\"By end of sprint\"", "est.b6": "The end of a sprint. Not necessarily this one.", "bingo.title": "Standup bingo", "bingo.intro": "Tick what you hear. First to complete a line gets to turn their camera off.", "bingo.reset": "New sprint", "spec.a0": "Operating temperature", "spec.b0": "From a 17°C open-plan office to a Romanian July with no AC. Same output.", "spec.a1": "Power supply", "spec.b1": "Coffee (primary), energy drinks (failover), sarmale, i.e. cabbage rolls (holiday UPS).", "spec.a2": "Latency", "spec.b2": "Chat: 30 seconds. Email: by Friday. \"Got a minute?\": timeout.", "spec.a3": "Compatibility", "spec.b3": "Any stack, any language, any framework released last Tuesday. Incompatible with meetings that could have been an email.", "spec.a4": "Warranty", "spec.b4": "Lifetime, provided requirements don't change after code freeze. Average warranty period: 11 days.", "spec.a5": "Known issues", "spec.b5": "Refactors without a ticket. Occasionally rewrites everything \"because it was simpler that way.\"", "spec.a6": "Power-saving mode", "spec.b6": "Kicks in during meetings over an hour: camera off, \"my internet's acting up.\" On some of the fastest broadband in Europe.", "spec.a7": "Firmware", "spec.b7": "Updated from docs, forums and a 3-upvote comment on a 2014 issue thread that actually worked.", "spec.a8": "Load capacity", "spec.b8": "3 projects officially, 5 unofficially, plus the website for their godfather's business (the wedding kind of godfather).", "spec.a9": "Included accessories", "spec.b9": "Laptop with 47 open tabs, a mug from a 2017 meetup, a thermos of Mum's ciorbă (sour soup).", "faq.q0": "How fast does a Romanian developer ramp up on our stack?", "faq.a0": "Week one, they learn it. Week two, they explain why you picked the wrong one.", "faq.q1": "Will they work in our timezone?", "faq.a1": "They work your hours, sleep on theirs, and the night before a demo switch to UTC+espresso.", "faq.q2": "Can I hand them a task with no spec?", "faq.a2": "Yes. You'll get what you asked for, what you should have asked for, and an awkward question at standup.", "faq.q3": "What does it mean when a Romanian developer goes quiet in a meeting?", "faq.a3": "They disagree. And they've already opened a branch with their version.", "faq.q4": "Do they need micromanagement?", "faq.a4": "No. Try it and you'll start getting daily check-ins yourself: \"So, where's the roadmap?\"", "faq.q5": "How do they react to legacy code?", "faq.a5": "A sigh, a \"who wrote this?\", then git blame. Then a long silence. It was them, in 2019.", "faq.q6": "What happens over Christmas and Easter?", "faq.a6": "Deploy freeze. They'll hold the cozonac (sweet bread) up to the camera so you know exactly what you're missing.", "faq.q7": "Do they speak English?", "faq.a7": "Fluently. Plus C2-level sarcasm, left off the CV out of modesty.", "faq.q8": "What's the biggest risk?", "faq.a8": "That they leave. Not for a competitor, but to found a startup on the idea you rejected in Q2.", "rev.q0": "\"Found a bug in our spec before we'd written a single line of code. We're still upset.\"", "rev.by0": "— — CTO, fintech, Berlin", "rev.q1": "\"Asked for an MVP. Got a scalable platform and the question: 'why didn't you say so in the first place?'\"", "rev.by1": "— — Founder, SaaS, Amsterdam", "rev.q2": "\"Standup takes 4 minutes. The other 11 are about why our barbecue is not, technically, a barbecue.\"", "rev.by2": "— — VP Engineering, logistics, Copenhagen", "rev.q3": "\"Cut our cloud bill by 40%. Then asked why we pay licences for a tool nobody ever opens.\"", "rev.by3": "— — Head of Platform, e-commerce, Dublin", "rev.q4": "\"Five stars. They refactored out the sixth, said it was redundant.\"", "rev.by4": "— — Engineering Manager, healthtech, Zurich", "cto.title": "For CTOs: what you actually get", "cto.intro": "You've worked with a Romanian developer and something got fixed that nobody else could fix. Or you haven't, and you've heard. Here's the documentation nobody wrote.", "spec.title": "Romanian Developer — technical specifications", "faq.title": "Frequently asked CTO questions", "rev.title": "What clients say", "about": "Made by Sergiu, a full-stack developer who has worked with enough companies abroad to know that „dor” is hard to explain and „se rezolvă” is understood immediately.", "footer": "© 2026 Dor de codul românesc. The site works. On our machine."}};
+  var EXCUSES = {"ro": ["Nu e bug, e un comportament nedocumentat. Îl documentez și devine feature.", "Întâi a picat netul, apoi curentul, apoi motivația. Doar două au revenit.", "Aștept review de la colegul care a zis „mă uit imediat”. Acum două sprinturi.", "Era gata, dar am actualizat o dependință și acum nu mai e nimic gata. Nici proiectul, nici eu.", "Pe staging merge perfect. Producția are pur și simplu altă personalitate.", "Am lucrat săptămâna asta de la bunica, de la țară. Acolo 4G-ul e mai mult un concept.", "Codul e gata. Doar că nu compilează încă.", "Am găsit exact problema mea pe un forum din 2011. Ultimul răspuns: „rezolvat, mersi”. Fără detalii.", "Cerințele s-au schimbat de trei ori. Eu am implementat-o pe a doua, care era cea bună.", "Estimarea mea a fost corectă. Realitatea e cea care a întârziat.", "Testele trec. Nu le-am rulat, dar au o față de teste care trec.", "A fost minivacanța de 1 Mai, care la noi ține cam de pe 28 aprilie până pe 5 mai.", "Am rezolvat bug-ul, dar fix-ul a stricat altceva, pe care l-am rezolvat, dar… s-a terminat sprintul.", "Pe tichet scria „mică ajustare”. S-a dovedit a fi o migrare de bază de date.", "Era de la cache. Am golit cache-ul. Acum nu merge din alt motiv, dar măcar cu cache-ul curat.", "Nu e întârziere, e livrare în stil românesc: totul în ultima noapte, dar cu pasiune."], "en": ["It's not a bug, it's undocumented behaviour. Once I document it, it's a feature.", "First the internet went down, then the power, then my motivation. Only two came back.", "I'm waiting on a review from the colleague who said \"I'll look right now.\" Two sprints ago.", "It was done, then I updated one dependency and now nothing is done. Not the project, not me.", "It works perfectly on staging. Production just has a different personality.", "I worked from my grandma's village this week. Out there, 4G is more of a concept.", "The code is finished. It just doesn't compile yet.", "Found my exact problem on a forum from 2011. Last reply: \"fixed it, thanks.\" No details.", "The requirements changed three times. I built version two, which was the right one.", "My estimate was correct. Reality is the one running late.", "The tests pass. I haven't run them, but they have the face of tests that pass.", "It was the May Day long weekend, which over here runs roughly from April 28 to May 5.", "I fixed the bug, but the fix broke something else, which I fixed, but… then the sprint ended.", "The ticket said \"small tweak.\" It turned out to be a database migration.", "It was the cache. I cleared the cache. Now it's broken for a different reason, but at least the cache is clean.", "It's not late, it's Romanian-style delivery: everything the night before, but with passion."]};
+  var lang = 'ro';
+  try { var saved = localStorage.getItem('ddc-lang'); if (saved === 'en' || saved === 'ro') lang = saved; } catch(e){}
+
+  function t(key){ var v = T[lang] && T[lang][key]; return v !== undefined ? v : (T.ro[key] || ''); }
+  function applyLang(l){
+    lang = l;
+    document.documentElement.lang = l;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var key = el.getAttribute('data-i18n');
+      if (!(key in T.ro)) return;
+      el.innerHTML = t(key);
+    });
+    document.querySelectorAll('.lang button').forEach(function(b){
+      b.setAttribute('aria-pressed', b.getAttribute('data-lang') === l ? 'true' : 'false');
+    });
+    showExcuse(excuseIdx);
+    checkBingo();
+    try { localStorage.setItem('ddc-lang', l); } catch(e){}
+  }
+  document.querySelectorAll('.lang button').forEach(function(b){
+    b.addEventListener('click', function(){ applyLang(b.getAttribute('data-lang')); });
+  });
+
+  // ---- Copy an article + its link ----
+  document.querySelectorAll('.cod li').forEach(function(li){
+    var btn = li.querySelector('.copy');
+    btn.addEventListener('click', function(){
+      var url = location.origin + location.pathname + '#' + li.id;
+      var text = li.querySelector('.art').textContent + ' ' + li.querySelector('.txt').textContent + '\n' + url;
+      function done(){ btn.textContent = t('cod.copied'); btn.setAttribute('data-done','1');
+        setTimeout(function(){ btn.textContent = t('cod.copy'); btn.removeAttribute('data-done'); }, 1600); }
+      if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(text).then(done, done); }
+      else { var ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select();
+        try { document.execCommand('copy'); } catch(e){} document.body.removeChild(ta); done(); }
+    });
+  });
+
+  // ---- Excuse generator ----
+  var excuseIdx = 0;
+  var excuseEl = document.querySelector('[data-excuse]');
+  function showExcuse(i){ if (excuseEl) excuseEl.innerHTML = EXCUSES[lang][i]; }
+  var excuseBtn = document.querySelector('[data-excuse-btn]');
+  if (excuseBtn) excuseBtn.addEventListener('click', function(){
+    var n = EXCUSES.ro.length, next = excuseIdx;
+    while (n > 1 && next === excuseIdx) next = Math.floor(Math.random() * n);
+    excuseIdx = next; showExcuse(excuseIdx);
+  });
+
+  // ---- Standup bingo (nothing is stored) ----
+  var cells = Array.prototype.slice.call(document.querySelectorAll('.bingo button'));
+  var winEl = document.querySelector('[data-bingo-win]');
+  var LINES = [];
+  for (var r = 0; r < 4; r++) { LINES.push([r*4, r*4+1, r*4+2, r*4+3]); LINES.push([r, r+4, r+8, r+12]); }
+  LINES.push([0, 5, 10, 15]); LINES.push([3, 6, 9, 12]);
+  function checkBingo(){
+    if (!winEl) return;
+    var on = cells.map(function(c){ return c.getAttribute('aria-pressed') === 'true'; });
+    var win = LINES.some(function(l){ return l.every(function(i){ return on[i]; }); });
+    winEl.textContent = win ? t('bingo.win') : '';
+  }
+  cells.forEach(function(c){
+    c.addEventListener('click', function(){
+      c.setAttribute('aria-pressed', c.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');
+      checkBingo();
+    });
+  });
+  var reset = document.querySelector('[data-bingo-reset]');
+  if (reset) reset.addEventListener('click', function(){
+    cells.forEach(function(c){ c.setAttribute('aria-pressed', 'false'); });
+    var grid = document.querySelector('.bingo');
+    for (var i = cells.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var tmp = cells[i]; cells[i] = cells[j]; cells[j] = tmp; }
+    cells.forEach(function(c){ grid.appendChild(c); });
+    checkBingo();
+  });
+
+  if (lang !== 'ro') applyLang(lang);
+})();
+</script>
+</body>
+</html>
