@@ -1,6 +1,6 @@
 ---
 title: "Codul developerului român, dicționar și scuze | Dor de codul românesc"
-canonical_url: https://dordecod.vercel.app/
+canonical_url: https://www.dordecod.ro/
 lang: ro
 author: Sergiu Vlad (https://sergiuvlad.com)
 date_published: 2026-09-18
@@ -32,30 +32,30 @@ Nu e agenție. Nu e platformă de recrutare. Nu colectăm nimic, nici măcar fee
 
 Orice popor are un cod. Al nostru nu se aplică, dar se respectă.
 
-1. **Art. 1.** Orice bug se manifestă exclusiv în producție, vineri, după 17:00. ([#art-1](https://dordecod.vercel.app/#art-1))
-2. **Art. 2.** „La mine merge” constituie probă legală. ([#art-2](https://dordecod.vercel.app/#art-2))
-3. **Art. 3.** „Lasă că merge” nu este strategie de deploy. (Dar este.) ([#art-3](https://dordecod.vercel.app/#art-3))
-4. **Art. 4.** Comentariile se scriu în engleză, variabilele în română, iar `listaClienti2Final` este patrimoniu național. ([#art-4](https://dordecod.vercel.app/#art-4))
-5. **Art. 5.** Diacriticele sunt opționale până când ajung în baza de date. ([#art-5](https://dordecod.vercel.app/#art-5))
-6. **Art. 6.** Estimarea se dă în zile și se citește în săptămâni. ([#art-6](https://dordecod.vercel.app/#art-6))
-7. **Art. 7.** Orice TODO mai vechi de doi ani devine documentație. ([#art-7](https://dordecod.vercel.app/#art-7))
-8. **Art. 8.** Cafeaua nu e beneficiu extra-salarial. E infrastructură. ([#art-8](https://dordecod.vercel.app/#art-8))
-9. **Art. 9.** Developerul român rezolvă. Nu știe încă cum, dar se rezolvă. ([#art-9](https://dordecod.vercel.app/#art-9))
-10. **Art. 10.** Ședința de 15 minute durează o oră și se încheie obligatoriu cu „facem un follow-up săptămâna viitoare”. ([#art-10](https://dordecod.vercel.app/#art-10))
-11. **Art. 11.** Parola de la serverul de producție se transmite oral, din generație în generație, ca rețeta de cozonac. ([#art-11](https://dordecod.vercel.app/#art-11))
-12. **Art. 12.** Fiecare proiect are un Gigel care știa tot. Gigel a plecat acum trei ani. Numele lui e încă în crontab. ([#art-12](https://dordecod.vercel.app/#art-12))
-13. **Art. 13.** Documentația oficială a proiectului este un mesaj vocal de patru minute pe grupul echipei, din 2019. ([#art-13](https://dordecod.vercel.app/#art-13))
-14. **Art. 14.** Fișierul config_final_BUN_nu_sterge.json nu se șterge. Nimeni nu știe de ce. Nimeni nu întreabă. ([#art-14](https://dordecod.vercel.app/#art-14))
-15. **Art. 15.** „Cine a scris porcăria asta?” este o întrebare retorică. git blame răspunde întotdeauna: tu, acum opt luni. ([#art-15](https://dordecod.vercel.app/#art-15))
-16. **Art. 16.** Un task „de cinci minute” este, prin definiție, orice task pe care nu l-a deschis încă nimeni. ([#art-16](https://dordecod.vercel.app/#art-16))
-17. **Art. 17.** Testele se scriu după incident, în memoria victimelor. ([#art-17](https://dordecod.vercel.app/#art-17))
-18. **Art. 18.** Singurul laptop de pe care merge deploy-ul aparține unui coleg aflat acum în concediu la mare, fără semnal. ([#art-18](https://dordecod.vercel.app/#art-18))
-19. **Art. 19.** Soluția temporară din 2016 a primit statut de monument istoric și nu mai poate fi atinsă fără aviz. ([#art-19](https://dordecod.vercel.app/#art-19))
-20. **Art. 20.** În lipsa unei specificații, se aplică principiul „știi tu, ca la ăia”. ([#art-20](https://dordecod.vercel.app/#art-20))
-21. **Art. 21.** La daily, camera rămâne închisă. Motivul oficial: „îmi merge prost netul”. Motivul real: pijamaua. ([#art-21](https://dordecod.vercel.app/#art-21))
-22. **Art. 22.** Refactorizarea se programează „când avem timp”, dată fixă din calendar care nu vine niciodată. ([#art-22](https://dordecod.vercel.app/#art-22))
-23. **Art. 23.** De sărbători, bunica te întreabă dacă poți să-i repari imprimanta. Poți. Asta e, de fapt, fișa postului. ([#art-23](https://dordecod.vercel.app/#art-23))
-24. **Art. 24.** Prezentul Cod intră în vigoare la data publicării și se modifică exclusiv prin pull request. ([#art-24](https://dordecod.vercel.app/#art-24))
+1. **Art. 1.** Orice bug se manifestă exclusiv în producție, vineri, după 17:00. ([#art-1](https://www.dordecod.ro/#art-1))
+2. **Art. 2.** „La mine merge” constituie probă legală. ([#art-2](https://www.dordecod.ro/#art-2))
+3. **Art. 3.** „Lasă că merge” nu este strategie de deploy. (Dar este.) ([#art-3](https://www.dordecod.ro/#art-3))
+4. **Art. 4.** Comentariile se scriu în engleză, variabilele în română, iar `listaClienti2Final` este patrimoniu național. ([#art-4](https://www.dordecod.ro/#art-4))
+5. **Art. 5.** Diacriticele sunt opționale până când ajung în baza de date. ([#art-5](https://www.dordecod.ro/#art-5))
+6. **Art. 6.** Estimarea se dă în zile și se citește în săptămâni. ([#art-6](https://www.dordecod.ro/#art-6))
+7. **Art. 7.** Orice TODO mai vechi de doi ani devine documentație. ([#art-7](https://www.dordecod.ro/#art-7))
+8. **Art. 8.** Cafeaua nu e beneficiu extra-salarial. E infrastructură. ([#art-8](https://www.dordecod.ro/#art-8))
+9. **Art. 9.** Developerul român rezolvă. Nu știe încă cum, dar se rezolvă. ([#art-9](https://www.dordecod.ro/#art-9))
+10. **Art. 10.** Ședința de 15 minute durează o oră și se încheie obligatoriu cu „facem un follow-up săptămâna viitoare”. ([#art-10](https://www.dordecod.ro/#art-10))
+11. **Art. 11.** Parola de la serverul de producție se transmite oral, din generație în generație, ca rețeta de cozonac. ([#art-11](https://www.dordecod.ro/#art-11))
+12. **Art. 12.** Fiecare proiect are un Gigel care știa tot. Gigel a plecat acum trei ani. Numele lui e încă în crontab. ([#art-12](https://www.dordecod.ro/#art-12))
+13. **Art. 13.** Documentația oficială a proiectului este un mesaj vocal de patru minute pe grupul echipei, din 2019. ([#art-13](https://www.dordecod.ro/#art-13))
+14. **Art. 14.** Fișierul config_final_BUN_nu_sterge.json nu se șterge. Nimeni nu știe de ce. Nimeni nu întreabă. ([#art-14](https://www.dordecod.ro/#art-14))
+15. **Art. 15.** „Cine a scris porcăria asta?” este o întrebare retorică. git blame răspunde întotdeauna: tu, acum opt luni. ([#art-15](https://www.dordecod.ro/#art-15))
+16. **Art. 16.** Un task „de cinci minute” este, prin definiție, orice task pe care nu l-a deschis încă nimeni. ([#art-16](https://www.dordecod.ro/#art-16))
+17. **Art. 17.** Testele se scriu după incident, în memoria victimelor. ([#art-17](https://www.dordecod.ro/#art-17))
+18. **Art. 18.** Singurul laptop de pe care merge deploy-ul aparține unui coleg aflat acum în concediu la mare, fără semnal. ([#art-18](https://www.dordecod.ro/#art-18))
+19. **Art. 19.** Soluția temporară din 2016 a primit statut de monument istoric și nu mai poate fi atinsă fără aviz. ([#art-19](https://www.dordecod.ro/#art-19))
+20. **Art. 20.** În lipsa unei specificații, se aplică principiul „știi tu, ca la ăia”. ([#art-20](https://www.dordecod.ro/#art-20))
+21. **Art. 21.** La daily, camera rămâne închisă. Motivul oficial: „îmi merge prost netul”. Motivul real: pijamaua. ([#art-21](https://www.dordecod.ro/#art-21))
+22. **Art. 22.** Refactorizarea se programează „când avem timp”, dată fixă din calendar care nu vine niciodată. ([#art-22](https://www.dordecod.ro/#art-22))
+23. **Art. 23.** De sărbători, bunica te întreabă dacă poți să-i repari imprimanta. Poți. Asta e, de fapt, fișa postului. ([#art-23](https://www.dordecod.ro/#art-23))
+24. **Art. 24.** Prezentul Cod intră în vigoare la data publicării și se modifică exclusiv prin pull request. ([#art-24](https://www.dordecod.ro/#art-24))
 
 ## Generatorul oficial de scuze
 

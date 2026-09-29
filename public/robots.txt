@@ -38,4 +38,4 @@ Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Content-Usage: train-ai=y, ai-use=y, search=y
 Allow: /
 
-Sitemap: https://dordecod.vercel.app/sitemap.xml
+Sitemap: https://www.dordecod.ro/sitemap.xml

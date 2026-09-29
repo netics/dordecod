@@ -13,7 +13,10 @@ import datetime, hashlib, html, json, os, pathlib, shutil, subprocess, sys
 
 ROOT = pathlib.Path(__file__).parent
 OUT = ROOT / 'public'
-SITE_URL = os.environ.get('SITE_URL', 'https://dordecod.vercel.app').rstrip('/')
+SITE_URL = os.environ.get('SITE_URL', 'https://www.dordecod.ro').rstrip('/')
+# Hosts that serve the same deployment and must 308 to SITE_URL (apex -> www is handled in Vercel Domains)
+ALIAS_HOSTS = ['dordecod.vercel.app']
+OG_LABEL = 'dordecod.ro'  # domain printed on the OG images (the short, memorable form)
 PUBLISHED = '2026-09-18'
 MODIFIED = '2026-09-29'  # bump only when content changes (JSON-LD dateModified, sitemap lastmod, footer)
 
@@ -30,7 +33,7 @@ AUTHOR = {
 }
 REPO = 'https://github.com/netics/dordecod'
 
-OG_VERSION = 1  # bump when the OG images change, so social networks refetch them
+OG_VERSION = 2  # bump when the OG images change, so social networks refetch them
 LANGS = {
     'ro': {'path': '/', 'locale': 'ro_RO', 'md': '/index.md', 'og': f'/og/og-ro-v{OG_VERSION}.png'},
     'en': {'path': '/en/', 'locale': 'en_GB', 'md': '/en/index.md', 'og': f'/og/og-en-v{OG_VERSION}.png'},
@@ -774,6 +777,8 @@ def vercel_json():
         'outputDirectory': 'public',
         'cleanUrls': True,
         'trailingSlash': True,
+        'redirects': [{'source': '/:path*', 'has': [{'type': 'host', 'value': h}], 'destination': SITE_URL + '/:path*', 'permanent': True}
+                      for h in ALIAS_HOSTS],
         'headers': [
             {'source': '/(.*)', 'headers': [
                 {'key': 'X-Content-Type-Options', 'value': 'nosniff'},
@@ -852,7 +857,7 @@ def images():
     for L in ('ro', 'en'):
         f = tmp / f'og-{L}.html'
         f.write_text(OG_HTML.format(lang=L, fonts=fonts, fish=fish_paths(), band_defs=BAND_DEFS, kicker=subs[L][1], sub=subs[L][0],
-                                    host=SITE_URL.split('//')[1]))
+                                    host=OG_LABEL))
         png = OUT / LANGS[L]['og'].lstrip('/')
         png.parent.mkdir(exist_ok=True)
         subprocess.run([chrome, '--headless=new', '--disable-gpu', '--hide-scrollbars', '--force-device-scale-factor=1',

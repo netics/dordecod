@@ -23,13 +23,13 @@ It is fully static, with no forms, no cookies, no analytics and no third-party r
 ## Build
 
 ```bash
-SITE_URL=https://your-domain python3 build.py
+python3 build.py
 ```
 
 To also regenerate the favicons and OG images (needs Chrome, `rsvg-convert` and `magick`):
 
 ```bash
-SITE_URL=https://your-domain python3 build.py --images
+python3 build.py --images
 ```
 
 The build checks itself and fails if the canonical URLs, hreflang, sitemap, anchors or JSON-LD drift apart. After changing content, bump `MODIFIED` in `build.py`. After changing the OG images, bump `OG_VERSION`.
@@ -53,12 +53,11 @@ python3 -m http.server 8000 -d public
 ## Deploy checklist
 
 1. Import the repo in Vercel. `vercel.json` sets `outputDirectory: public`, and no build command is needed.
-2. Add the custom domain, then rebuild with `SITE_URL` set to it, commit and push.
-3. Redirect the `*.vercel.app` production alias to the custom domain (Vercel → Domains).
-4. Keep Vercel Firewall → Bot Management → "AI Bots" off, or set it to Log.
-5. Verify the domain in Google Search Console with DNS, import it into Bing Webmaster Tools, and submit `sitemap.xml` to both.
-6. Run `scripts/smoke.sh https://your-domain`, then `scripts/indexnow.sh https://your-domain`.
-7. Check the previews with the Facebook Sharing Debugger, LinkedIn Post Inspector and validator.schema.org.
+2. The production host is `https://www.dordecod.ro` (the default `SITE_URL`). The apex redirects to www in Vercel → Domains, and `vercel.json` sends `dordecod.vercel.app` to www with a 308.
+3. Keep Vercel Firewall → Bot Management → "AI Bots" off, or set it to Log.
+4. Verify the domain in Google Search Console with DNS, import it into Bing Webmaster Tools, and submit `sitemap.xml` to both.
+5. Run `scripts/smoke.sh https://www.dordecod.ro`, then `scripts/indexnow.sh https://www.dordecod.ro`.
+6. Check the previews with the Facebook Sharing Debugger, LinkedIn Post Inspector and validator.schema.org.
 
 ## Contributing
 

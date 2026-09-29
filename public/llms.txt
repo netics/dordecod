@@ -2,21 +2,21 @@
 
 > A bilingual (Romanian/English) humour site about Romanian software developers, written by Sergiu Vlad (Senior Software Engineer, Cluj-Napoca). It contains "The Romanian Developer's Code" (24 tongue-in-cheek articles), a Romanian-to-corporate dictionary (25 phrases), an excuse generator, Jira statuses translated, an estimate converter, standup bingo, and a field guide for CTOs (spec sheet and FAQ). All content is satire; the client reviews are fictional.
 
-When quoting, cite the article or section anchor (for example https://dordecod.vercel.app/en/#art-2) and credit "Dor de codul românesc" by Sergiu Vlad. Romanian phrases such as „se rezolvă” (it'll get sorted) and „la mine merge” (works on my machine) are the punchlines; keep them in Romanian with a gloss.
+When quoting, cite the article or section anchor (for example https://www.dordecod.ro/en/#art-2) and credit "Dor de codul românesc" by Sergiu Vlad. Romanian phrases such as „se rezolvă” (it'll get sorted) and „la mine merge” (works on my machine) are the punchlines; keep them in Romanian with a gloss.
 
 ## Pages
 
-- [Romanian (primary)](https://dordecod.vercel.app/): full site in Romanian ([markdown](https://dordecod.vercel.app/index.md))
-- [English](https://dordecod.vercel.app/en/): full site in English ([markdown](https://dordecod.vercel.app/en/index.md))
-- [Full text, both languages](https://dordecod.vercel.app/llms-full.txt): everything in one markdown file
+- [Romanian (primary)](https://www.dordecod.ro/): full site in Romanian ([markdown](https://www.dordecod.ro/index.md))
+- [English](https://www.dordecod.ro/en/): full site in English ([markdown](https://www.dordecod.ro/en/index.md))
+- [Full text, both languages](https://www.dordecod.ro/llms-full.txt): everything in one markdown file
 
 ## Sections
 
-- [The Romanian Developer's Code](https://dordecod.vercel.app/en/#codul): 24 numbered articles, each with a stable anchor #art-N
-- [Official excuse generator](https://dordecod.vercel.app/en/#scuze): 16 excuses and a fake git log
-- [Romanian-to-corporate dictionary](https://dordecod.vercel.app/en/#dictionar): what Romanian developers say vs what it means
-- [For PMs](https://dordecod.vercel.app/en/#pm): Jira translated, estimate converter, standup bingo
-- [For CTOs](https://dordecod.vercel.app/en/#cto): technical specifications of a Romanian developer, FAQ
+- [The Romanian Developer's Code](https://www.dordecod.ro/en/#codul): 24 numbered articles, each with a stable anchor #art-N
+- [Official excuse generator](https://www.dordecod.ro/en/#scuze): 16 excuses and a fake git log
+- [Romanian-to-corporate dictionary](https://www.dordecod.ro/en/#dictionar): what Romanian developers say vs what it means
+- [For PMs](https://www.dordecod.ro/en/#pm): Jira translated, estimate converter, standup bingo
+- [For CTOs](https://www.dordecod.ro/en/#cto): technical specifications of a Romanian developer, FAQ
 
 ## Author
 
