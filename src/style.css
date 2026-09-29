@@ -6,14 +6,14 @@
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
-      --linen:#12162a; --ink:#ecebe3; --red:#f0506a; --muted:#a3a8c2;
+      --linen:#12162a; --ink:#ecebe3; --red:#f4647b; --muted:#a3a8c2;
       --rule:#2b3252; --field:#1a2038; --code:#1f2542;
       --panel:#ecebe3; --panel-fg:#12162a; --panel-muted:#4a5070; --panel-field:#dcdbd0; --panel-rule:#b9b8ad;
       --on-red:#12162a;
     }
   }
   :root[data-theme="dark"]{
-    --linen:#12162a; --ink:#ecebe3; --red:#f0506a; --muted:#a3a8c2;
+    --linen:#12162a; --ink:#ecebe3; --red:#f4647b; --muted:#a3a8c2;
     --rule:#2b3252; --field:#1a2038; --code:#1f2542;
     --panel:#ecebe3; --panel-fg:#12162a; --panel-muted:#4a5070; --panel-field:#dcdbd0; --panel-rule:#b9b8ad;
     --on-red:#12162a;
@@ -189,3 +189,4 @@
   .faq summary .q{font-size:1rem; line-height:1.45; margin:0; font-weight:600; letter-spacing:0}
   [id]{scroll-margin-top:96px}
   .sprite{position:absolute; width:0; height:0; overflow:hidden}
+  .vh{position:absolute !important; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); clip-path:inset(50%); white-space:nowrap}

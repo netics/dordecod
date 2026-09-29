@@ -22,6 +22,10 @@ AUTHOR = {
     'url': 'https://sergiuvlad.com',
     'jobTitle': 'Senior Software Engineer',
     'locality': 'Cluj-Napoca',
+    'alternateName': 'Sergiu Madalin Vlad',
+    'image': 'https://sergiuvlad.com/sergiu_vlad.jpg',
+    'description': 'Senior Software Engineer with 15+ years of experience across ML/MLOps, cloud infrastructure, security and full-stack product engineering.',
+    'knowsAbout': ['Machine Learning', 'MLOps', 'Cloud Infrastructure', 'Security Engineering', 'Full-Stack Development', 'Python'],
     'sameAs': ['https://www.linkedin.com/in/netics/', 'https://github.com/netics'],
 }
 REPO = 'https://github.com/netics/dordecod'
@@ -202,7 +206,8 @@ def jsonld(L):
              'caption': t('og_alt'), 'inLanguage': L}
     person = {
         '@type': 'Person', '@id': person_id, 'name': AUTHOR['name'], 'url': AUTHOR['url'],
-        'jobTitle': AUTHOR['jobTitle'], 'sameAs': AUTHOR['sameAs'],
+        'alternateName': AUTHOR['alternateName'], 'image': AUTHOR['image'], 'description': AUTHOR['description'],
+        'jobTitle': AUTHOR['jobTitle'], 'knowsAbout': AUTHOR['knowsAbout'], 'sameAs': AUTHOR['sameAs'],
         'address': {'@type': 'PostalAddress', 'addressLocality': AUTHOR['locality'], 'addressCountry': 'RO'},
         'knowsLanguage': ['ro', 'en'],
     }
@@ -231,9 +236,9 @@ def jsonld(L):
     }
     dictionary = {
         '@type': 'DefinedTermSet', '@id': page + '#dictionar', 'name': t('dict.title'), 'description': t('dict.intro'),
-        'url': page + '#dictionar', 'inLanguage': L, 'isPartOf': {'@id': page + '#webpage'},
+        'url': page + '#dictionar', 'inLanguage': ['ro', 'en'], 'isPartOf': {'@id': page + '#webpage'},
         'hasDefinedTerm': [{'@type': 'DefinedTerm', '@id': page + '#' + dict_id(a), 'url': page + '#' + dict_id(a),
-                            'name': strip_tags(a), 'description': strip_tags(b), 'inLanguage': 'ro',
+                            'name': strip_tags(a), 'description': strip_tags(b),
                             'inDefinedTermSet': {'@id': page + '#dictionar'}} for a, b in DICT],
     }
     faq = {
@@ -297,6 +302,7 @@ def head(L, title, desc, canonical, alternates=True, robots='index, follow, max-
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image:alt" content="{attr(strip_tags(C['og_alt'][0 if L == 'ro' else 1]))}">
 <link rel="preload" href="/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high">
+{'<link rel="preload" href="/fonts/fraunces-latin-ext.woff2" as="font" type="font/woff2" crossorigin>' + chr(10) if L == 'ro' else ''}
 <style>
 {FONT_FACES}
 {CSS}
@@ -305,12 +311,12 @@ def head(L, title, desc, canonical, alternates=True, robots='index, follow, max-
 </head>'''
 
 
-def nav(L):
+def nav(L, base='', current=True):
     t = lambda k: C[k][0 if L == 'ro' else 1]
-    links = ''.join(f'<a href="#{i}">{t(k)}</a>' for i, k in
+    links = ''.join(f'<a href="{base}#{i}">{t(k)}</a>' for i, k in
                     [('codul', 'nav.cod'), ('scuze', 'nav.excuse'), ('dictionar', 'nav.dict'), ('pm', 'nav.pm'), ('cto', 'nav.cto')])
     lang_links = ''.join(
-        f'<a href="{LANGS[l]["path"]}" hreflang="{l}" lang="{l}"{" aria-current=\"page\"" if l == L else ""}>{l.upper()}</a>'
+        f'<a href="{LANGS[l]["path"]}" hreflang="{l}" lang="{l}"{" aria-current=\"page\"" if current and l == L else ""}>{l.upper()}</a>'
         for l in ('ro', 'en'))
     return f'''<a class="skip" href="#continut">{t('skip')}</a>
 <nav class="nav" aria-label="{t('nav.label')}">
@@ -330,7 +336,7 @@ def page(L):
 
     arts = '\n'.join(
         f'        <li id="art-{n}"><span class="art">Art. {n}.</span><span class="txt">{a[ix]}</span>'
-        f'<button class="copy" type="button" aria-label="{t("cod.copyLabel")} {n}">{t("cod.copy")}</button></li>'
+        f'<button class="copy" type="button"><span class="lbl">{t("cod.copy")}</span><span class="vh"> Art. {n}</span></button></li>'
         for n, a in enumerate(ARTS, 1))
     log = '\n'.join(
         f'        <div class="ln"><span class="h">{h}</span> {ro}</div>' + (f'<span class="g">{en}</span>' if L == 'en' else '')
@@ -386,6 +392,7 @@ def page(L):
       <ol>
 {arts}
       </ol>
+      <p class="vh" role="status" data-copy-status></p>
       <p class="after">{t('cod.amend')} <a href="{REPO}">{t('cod.amendLink')}</a></p>
     </div>
   </section>
@@ -535,8 +542,9 @@ SCRIPT = r'''(function(){
     var btn = li.querySelector('.copy');
     btn.addEventListener('click', function(){
       var text = li.querySelector('.art').textContent + ' ' + li.querySelector('.txt').textContent + '\n' + location.origin + location.pathname + '#' + li.id;
-      function done(){ btn.textContent = CFG.copied; btn.setAttribute('data-done','1');
-        setTimeout(function(){ btn.textContent = CFG.copy; btn.removeAttribute('data-done'); }, 1600); }
+      var lbl = btn.querySelector('.lbl'), status = document.querySelector('[data-copy-status]');
+      function done(){ lbl.textContent = CFG.copied; btn.setAttribute('data-done','1'); if (status) status.textContent = CFG.copied;
+        setTimeout(function(){ lbl.textContent = CFG.copy; btn.removeAttribute('data-done'); if (status) status.textContent = ''; }, 1600); }
       if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, done);
       else done();
     });
@@ -601,7 +609,7 @@ def page_404():
     body = f'''
 <body>
 {FISH_SYMBOL}
-{nav(L)}
+{nav(L, base='/', current=False)}
 <main id="continut">
   <div class="hero"><div class="wrap"><div>
     <p class="kicker">Art. 2.</p>
@@ -637,9 +645,8 @@ def markdown(L, full_header=True):
               f'genre: satire', f'summary: "{t("desc")}"', '---', '',
               '# Dor de codul românesc', '', f'> {t("desc")}', '',
               f'- {"Autor" if L == "ro" else "Author"}: [{AUTHOR["name"]}]({AUTHOR["url"]}), {AUTHOR["jobTitle"]}, {AUTHOR["locality"]}',
-              f'- {"Satiră. Recenziile sunt fictive." if L == "ro" else "Satire. The reviews are fictional."}',
               f'- {"Dacă citați, puneți link către articol (#art-N) și autor." if L == "ro" else "If you quote it, please link the article (#art-N) and credit the author."}', '']
-    o += [t('hero.lead'), '', f'## {t("why.title")}', '', t('why.p1'), '', t('why.p2'), '', t('why.p3'), '',
+    o += [f'> {t("satire")}', '', t('hero.lead'), '', f'## {t("why.title")}', '', t('why.p1'), '', t('why.p2'), '', t('why.p3'), '',
           f'## {t("cod.title")}', '', t('cod.intro'), '']
     o += [f'{n}. **Art. {n}.** {md(a[ix])} ([#art-{n}]({url(L, f"#art-{n}")}))' for n, a in enumerate(ARTS, 1)]
     o += ['', f'## {t("exc.title")}', '', t('exc.intro'), '']
@@ -697,14 +704,17 @@ When quoting, cite the article or section anchor (for example {url('en', '#art-2
 
 
 def llms_full():
-    return (f'# Dor de codul românesc (full text)\n\n> Romanian and English versions. Author: [{AUTHOR["name"]}]({AUTHOR["url"]}). Updated {MODIFIED}.\n\n'
+    return (f'# Dor de codul românesc (full text)\n\n> Satire and humour: all content is tongue-in-cheek; characters, reviews and commits are fictional. Romanian and English versions. Author: [{AUTHOR["name"]}]({AUTHOR["url"]}). Updated {MODIFIED}.\n\n'
             + '# Română\n\n' + markdown('ro', full_header=False) + '\n\n# English\n\n' + markdown('en', full_header=False))
 
 
 # --------------------------------------------------------------------------
 # robots / sitemap / manifest
 # --------------------------------------------------------------------------
-# Grouped by purpose. Every named group repeats Allow: / because a crawler obeys only its most specific group.
+CONTENT_SIGNAL = 'search=yes, ai-input=yes, ai-train=yes'   # https://contentsignals.org
+CONTENT_USAGE = 'train-ai=y, ai-use=y, search=y'            # IETF aipref vocabulary (draft)
+
+# Grouped by purpose. A crawler obeys only its most specific group, so every named group repeats the signals and Allow: /.
 AI_GROUPS = [
     ('AI search and answer engines', ['OAI-SearchBot', 'Claude-SearchBot', 'PerplexityBot', 'DuckAssistBot', 'Applebot', 'Amazonbot']),
     ('AI assistants fetching a page for a user', ['ChatGPT-User', 'Claude-User', 'Perplexity-User', 'MistralAI-User', 'meta-externalfetcher']),
@@ -713,14 +723,13 @@ AI_GROUPS = [
 
 
 def robots():
-    groups = '\n\n'.join(f'# {title}\n' + '\n'.join(f'User-agent: {a}' for a in agents) + '\nAllow: /' for title, agents in AI_GROUPS)
+    rules = f'Content-Signal: {CONTENT_SIGNAL}\nContent-Usage: {CONTENT_USAGE}\nAllow: /'
+    groups = '\n\n'.join(f'# {title}\n' + '\n'.join(f'User-agent: {a}' for a in agents) + '\n' + rules for title, agents in AI_GROUPS)
     return f"""# Dor de codul românesc: humans, search engines and AI assistants are all welcome.
 # Content Signals (https://contentsignals.org) and IETF AI preferences (aipref draft): search, AI answers and AI training allowed.
 
 User-agent: *
-Content-Signal: search=yes, ai-input=yes, ai-train=yes
-Content-Usage: train-ai=y, search=y
-Allow: /
+{rules}
 
 {groups}
 
@@ -773,11 +782,12 @@ def vercel_json():
                 {'key': 'Permissions-Policy', 'value': 'camera=(), microphone=(), geolocation=(), browsing-topics=()'},
                 {'key': 'Content-Security-Policy', 'value': "default-src 'self'; script-src 'self' 'inline-speculation-rules'; style-src 'self' 'unsafe-inline'; "
                  "img-src 'self' data:; font-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'"},
-                {'key': 'Content-Usage', 'value': 'train-ai=y, search=y'},
+                {'key': 'Content-Usage', 'value': CONTENT_USAGE},
             ]},
+            # later rules override earlier ones for the same header, so the specific immutable rules come last
+            {'source': '/(.*)\\.(png|ico|svg|webmanifest)', 'headers': [{'key': 'Cache-Control', 'value': 'public, max-age=604800'}]},
             {'source': '/og/(.*)', 'headers': [{'key': 'Cache-Control', 'value': 'public, max-age=31536000, immutable'}]},
             {'source': '/fonts/(.*)', 'headers': [{'key': 'Cache-Control', 'value': 'public, max-age=31536000, immutable'}]},
-            {'source': '/(.*)\\.(png|ico|svg|webmanifest)', 'headers': [{'key': 'Cache-Control', 'value': 'public, max-age=604800'}]},
             *md_rules,
             {'source': '/llms(-full)?\\.txt', 'headers': [{'key': 'Content-Type', 'value': 'text/plain; charset=utf-8'}]},
         ],
@@ -799,7 +809,8 @@ def favicon_svg(pad_bg=None, scale=1.0):
     s = 312 * scale
     off = (312 - s) / 2
     bg = f'<rect width="312" height="312" fill="{pad_bg}"/>' if pad_bg else ''
-    return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 312 312" shape-rendering="crispEdges">{bg}'
+    dark = '' if pad_bg else '<style>@media (prefers-color-scheme:dark){path[fill="#1b2340"]{fill:#ecebe3}}</style>'
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 312 312" shape-rendering="crispEdges">{dark}{bg}'
             f'<g transform="translate({off},{78 * scale + off}) scale({scale})">{solid_fish()}</g></svg>\n')
 
 
@@ -899,6 +910,10 @@ def check():
         img = OUT / LANGS[L]['og'].lstrip('/')
         assert img.exists() or '--images' not in sys.argv, f'missing {img}'
     assert sets[0] == sets[1], 'hreflang sets differ between pages'
+    h404 = (OUT / '404.html').read_text()
+    ids404 = set(re.findall(r' id="([^"]+)"', h404))
+    for frag in re.findall(r'href="#([^"]+)"', h404):
+        assert frag in ids404, f'404: broken anchor #{frag}'
 
 
 

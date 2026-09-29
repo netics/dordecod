@@ -6,8 +6,9 @@
     var btn = li.querySelector('.copy');
     btn.addEventListener('click', function(){
       var text = li.querySelector('.art').textContent + ' ' + li.querySelector('.txt').textContent + '\n' + location.origin + location.pathname + '#' + li.id;
-      function done(){ btn.textContent = CFG.copied; btn.setAttribute('data-done','1');
-        setTimeout(function(){ btn.textContent = CFG.copy; btn.removeAttribute('data-done'); }, 1600); }
+      var lbl = btn.querySelector('.lbl'), status = document.querySelector('[data-copy-status]');
+      function done(){ lbl.textContent = CFG.copied; btn.setAttribute('data-done','1'); if (status) status.textContent = CFG.copied;
+        setTimeout(function(){ lbl.textContent = CFG.copy; btn.removeAttribute('data-done'); if (status) status.textContent = ''; }, 1600); }
       if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, done);
       else done();
     });

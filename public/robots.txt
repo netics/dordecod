@@ -3,7 +3,7 @@
 
 User-agent: *
 Content-Signal: search=yes, ai-input=yes, ai-train=yes
-Content-Usage: train-ai=y, search=y
+Content-Usage: train-ai=y, ai-use=y, search=y
 Allow: /
 
 # AI search and answer engines
@@ -13,6 +13,8 @@ User-agent: PerplexityBot
 User-agent: DuckAssistBot
 User-agent: Applebot
 User-agent: Amazonbot
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Content-Usage: train-ai=y, ai-use=y, search=y
 Allow: /
 
 # AI assistants fetching a page for a user
@@ -21,6 +23,8 @@ User-agent: Claude-User
 User-agent: Perplexity-User
 User-agent: MistralAI-User
 User-agent: meta-externalfetcher
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Content-Usage: train-ai=y, ai-use=y, search=y
 Allow: /
 
 # AI training (allowed: we want to be quoted)
@@ -30,6 +34,8 @@ User-agent: Google-Extended
 User-agent: Applebot-Extended
 User-agent: meta-externalagent
 User-agent: CCBot
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Content-Usage: train-ai=y, ai-use=y, search=y
 Allow: /
 
 Sitemap: https://dordecod.vercel.app/sitemap.xml

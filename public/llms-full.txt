@@ -1,8 +1,10 @@
 # Dor de codul românesc (full text)
 
-> Romanian and English versions. Author: [Sergiu Vlad](https://sergiuvlad.com). Updated 2026-09-29.
+> Satire and humour: all content is tongue-in-cheek; characters, reviews and commits are fictional. Romanian and English versions. Author: [Sergiu Vlad](https://sergiuvlad.com). Updated 2026-09-29.
 
 # Română
+
+> Satiră. Personajele, recenziile și commit-urile sunt fictive.
 
 Dor — cuvântul pe care nu-l putem traduce. Codul — cel pe care nu-l putem lăsa în pace. Un loc pentru developerii români din țară și de prin lume, pentru PM-ii care îi estimează și pentru CTO-ii care îi angajează.
 
@@ -241,6 +243,8 @@ Făcut de [Sergiu Vlad](https://sergiuvlad.com), Senior Software Engineer din Cl
 
 
 # English
+
+> Satire. Characters, reviews and commits are fictional.
 
 Dor (n.) — the Romanian word for missing something you didn't know you needed. Codul — the code. Put together: a love letter to Romanian developers, and a field guide for the PMs who estimate them and the CTOs who hire them.
 

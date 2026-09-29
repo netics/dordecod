@@ -14,8 +14,9 @@ summary: "Codul developerului român, dicționarul româno-corporate, generatoru
 > Codul developerului român, dicționarul româno-corporate, generatorul oficial de scuze, Jira tradus și ghidul pentru CTO. Umor pentru developeri, PM-i și CTO-i.
 
 - Autor: [Sergiu Vlad](https://sergiuvlad.com), Senior Software Engineer, Cluj-Napoca
-- Satiră. Recenziile sunt fictive.
 - Dacă citați, puneți link către articol (#art-N) și autor.
+
+> Satiră. Personajele, recenziile și commit-urile sunt fictive.
 
 Dor — cuvântul pe care nu-l putem traduce. Codul — cel pe care nu-l putem lăsa în pace. Un loc pentru developerii români din țară și de prin lume, pentru PM-ii care îi estimează și pentru CTO-ii care îi angajează.
 

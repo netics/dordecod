@@ -14,8 +14,9 @@ summary: "The Romanian Developer's Code, a Romanian-to-corporate dictionary, an 
 > The Romanian Developer's Code, a Romanian-to-corporate dictionary, an official excuse generator, Jira translated and a CTO field guide. Humour for devs, PMs and CTOs.
 
 - Author: [Sergiu Vlad](https://sergiuvlad.com), Senior Software Engineer, Cluj-Napoca
-- Satire. The reviews are fictional.
 - If you quote it, please link the article (#art-N) and credit the author.
+
+> Satire. Characters, reviews and commits are fictional.
 
 Dor (n.) — the Romanian word for missing something you didn't know you needed. Codul — the code. Put together: a love letter to Romanian developers, and a field guide for the PMs who estimate them and the CTOs who hire them.
 
