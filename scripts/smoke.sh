@@ -11,7 +11,7 @@ expect_type() { # path content-type-prefix
   t=$(curl -s -o /dev/null -w '%{content_type}' "$BASE$1"); case "$t" in "$2"*) ok "$1 is $t";; *) bad "$1 is $t (want $2)";; esac; }
 
 echo "Status"
-for p in / /en/ /robots.txt /sitemap.xml /llms.txt /llms-full.txt /index.md /en/index.md /favicon.ico /favicon.svg /site.webmanifest /og/og-ro-v1.png /og/og-en-v1.png; do expect_status "$p" 200; done
+for p in / /en/ /robots.txt /sitemap.xml /llms.txt /llms-full.txt /index.md /en/index.md /favicon.ico /favicon.svg /site.webmanifest /og/og-ro-v2.png /og/og-en-v2.png; do expect_status "$p" 200; done
 expect_status /en 308
 expect_status /nu-exista/ 404
 
@@ -19,7 +19,7 @@ echo "Content types"
 expect_type /index.md text/markdown
 expect_type /llms.txt text/plain
 expect_type /sitemap.xml application/xml
-expect_type /og/og-ro-v1.png image/png
+expect_type /og/og-ro-v2.png image/png
 
 echo "Crawlers get the full static text"
 for ua in Googlebot GPTBot OAI-SearchBot ChatGPT-User ClaudeBot Claude-User Claude-SearchBot PerplexityBot Perplexity-User Applebot; do

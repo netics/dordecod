@@ -1,6 +1,6 @@
 ---
 title: "Romanian Developer's Code and dictionary | Dor de codul românesc"
-canonical_url: https://dordecod.vercel.app/en/
+canonical_url: https://www.dordecod.ro/en/
 lang: en
 author: Sergiu Vlad (https://sergiuvlad.com)
 date_published: 2026-09-18
@@ -32,30 +32,30 @@ Not an agency. Not a recruiting platform. We collect nothing, not even feedback.
 
 Every nation has a code. Ours is not enforced, but it is respected.
 
-1. **Art. 1.** Every bug manifests exclusively in production, on a Friday, after 5 pm. ([#art-1](https://dordecod.vercel.app/en/#art-1))
-2. **Art. 2.** “Works on my machine” is admissible evidence. ([#art-2](https://dordecod.vercel.app/en/#art-2))
-3. **Art. 3.** „Lasă că merge” (leave it, it works) is not a deployment strategy. (It is.) ([#art-3](https://dordecod.vercel.app/en/#art-3))
-4. **Art. 4.** Comments are written in English, variables in Romanian, and `listaClienti2Final` is national heritage. ([#art-4](https://dordecod.vercel.app/en/#art-4))
-5. **Art. 5.** Diacritics are optional until they reach the database. ([#art-5](https://dordecod.vercel.app/en/#art-5))
-6. **Art. 6.** Estimates are given in days and read in weeks. ([#art-6](https://dordecod.vercel.app/en/#art-6))
-7. **Art. 7.** Any TODO older than two years becomes documentation. ([#art-7](https://dordecod.vercel.app/en/#art-7))
-8. **Art. 8.** Coffee is not a perk. It is infrastructure. ([#art-8](https://dordecod.vercel.app/en/#art-8))
-9. **Art. 9.** The Romanian developer fixes it. Doesn't know how yet, but it gets fixed. ([#art-9](https://dordecod.vercel.app/en/#art-9))
-10. **Art. 10.** The 15-minute meeting lasts an hour and must legally end with "let's set up a follow-up next week." ([#art-10](https://dordecod.vercel.app/en/#art-10))
-11. **Art. 11.** The production server password is passed down orally, from generation to generation, like grandma's cake recipe. ([#art-11](https://dordecod.vercel.app/en/#art-11))
-12. **Art. 12.** Every project had one guy who knew everything. He left three years ago. His name is still in the crontab. ([#art-12](https://dordecod.vercel.app/en/#art-12))
-13. **Art. 13.** The official project documentation is a four-minute voice note in the team chat, from 2019. ([#art-13](https://dordecod.vercel.app/en/#art-13))
-14. **Art. 14.** The file config_final_GOOD_dont_delete.json is not deleted. Nobody knows why. Nobody asks. ([#art-14](https://dordecod.vercel.app/en/#art-14))
-15. **Art. 15.** "Who wrote this garbage?" is a rhetorical question. git blame always answers: you, eight months ago. ([#art-15](https://dordecod.vercel.app/en/#art-15))
-16. **Art. 16.** A "five-minute task" is, by definition, any task nobody has opened yet. ([#art-16](https://dordecod.vercel.app/en/#art-16))
-17. **Art. 17.** Tests are written after the incident, in memory of the fallen. ([#art-17](https://dordecod.vercel.app/en/#art-17))
-18. **Art. 18.** The only laptop that can deploy belongs to a colleague currently on a beach holiday, with no signal. ([#art-18](https://dordecod.vercel.app/en/#art-18))
-19. **Art. 19.** The temporary fix from 2016 is now a listed historical monument and cannot be touched without a permit. ([#art-19](https://dordecod.vercel.app/en/#art-19))
-20. **Art. 20.** In the absence of a spec, the principle of "you know, like those other guys have it" applies. ([#art-20](https://dordecod.vercel.app/en/#art-20))
-21. **Art. 21.** On the daily standup, cameras stay off. Official reason: "my internet is bad." Actual reason: pyjamas. ([#art-21](https://dordecod.vercel.app/en/#art-21))
-22. **Art. 22.** Refactoring is scheduled for "when we have time," a fixed calendar date that never arrives. ([#art-22](https://dordecod.vercel.app/en/#art-22))
-23. **Art. 23.** Every Christmas, grandma asks if you can fix her printer. You can. That is, in fact, your real job description. ([#art-23](https://dordecod.vercel.app/en/#art-23))
-24. **Art. 24.** This Code enters into force on publication and is amended exclusively by pull request. ([#art-24](https://dordecod.vercel.app/en/#art-24))
+1. **Art. 1.** Every bug manifests exclusively in production, on a Friday, after 5 pm. ([#art-1](https://www.dordecod.ro/en/#art-1))
+2. **Art. 2.** “Works on my machine” is admissible evidence. ([#art-2](https://www.dordecod.ro/en/#art-2))
+3. **Art. 3.** „Lasă că merge” (leave it, it works) is not a deployment strategy. (It is.) ([#art-3](https://www.dordecod.ro/en/#art-3))
+4. **Art. 4.** Comments are written in English, variables in Romanian, and `listaClienti2Final` is national heritage. ([#art-4](https://www.dordecod.ro/en/#art-4))
+5. **Art. 5.** Diacritics are optional until they reach the database. ([#art-5](https://www.dordecod.ro/en/#art-5))
+6. **Art. 6.** Estimates are given in days and read in weeks. ([#art-6](https://www.dordecod.ro/en/#art-6))
+7. **Art. 7.** Any TODO older than two years becomes documentation. ([#art-7](https://www.dordecod.ro/en/#art-7))
+8. **Art. 8.** Coffee is not a perk. It is infrastructure. ([#art-8](https://www.dordecod.ro/en/#art-8))
+9. **Art. 9.** The Romanian developer fixes it. Doesn't know how yet, but it gets fixed. ([#art-9](https://www.dordecod.ro/en/#art-9))
+10. **Art. 10.** The 15-minute meeting lasts an hour and must legally end with "let's set up a follow-up next week." ([#art-10](https://www.dordecod.ro/en/#art-10))
+11. **Art. 11.** The production server password is passed down orally, from generation to generation, like grandma's cake recipe. ([#art-11](https://www.dordecod.ro/en/#art-11))
+12. **Art. 12.** Every project had one guy who knew everything. He left three years ago. His name is still in the crontab. ([#art-12](https://www.dordecod.ro/en/#art-12))
+13. **Art. 13.** The official project documentation is a four-minute voice note in the team chat, from 2019. ([#art-13](https://www.dordecod.ro/en/#art-13))
+14. **Art. 14.** The file config_final_GOOD_dont_delete.json is not deleted. Nobody knows why. Nobody asks. ([#art-14](https://www.dordecod.ro/en/#art-14))
+15. **Art. 15.** "Who wrote this garbage?" is a rhetorical question. git blame always answers: you, eight months ago. ([#art-15](https://www.dordecod.ro/en/#art-15))
+16. **Art. 16.** A "five-minute task" is, by definition, any task nobody has opened yet. ([#art-16](https://www.dordecod.ro/en/#art-16))
+17. **Art. 17.** Tests are written after the incident, in memory of the fallen. ([#art-17](https://www.dordecod.ro/en/#art-17))
+18. **Art. 18.** The only laptop that can deploy belongs to a colleague currently on a beach holiday, with no signal. ([#art-18](https://www.dordecod.ro/en/#art-18))
+19. **Art. 19.** The temporary fix from 2016 is now a listed historical monument and cannot be touched without a permit. ([#art-19](https://www.dordecod.ro/en/#art-19))
+20. **Art. 20.** In the absence of a spec, the principle of "you know, like those other guys have it" applies. ([#art-20](https://www.dordecod.ro/en/#art-20))
+21. **Art. 21.** On the daily standup, cameras stay off. Official reason: "my internet is bad." Actual reason: pyjamas. ([#art-21](https://www.dordecod.ro/en/#art-21))
+22. **Art. 22.** Refactoring is scheduled for "when we have time," a fixed calendar date that never arrives. ([#art-22](https://www.dordecod.ro/en/#art-22))
+23. **Art. 23.** Every Christmas, grandma asks if you can fix her printer. You can. That is, in fact, your real job description. ([#art-23](https://www.dordecod.ro/en/#art-23))
+24. **Art. 24.** This Code enters into force on publication and is amended exclusively by pull request. ([#art-24](https://www.dordecod.ro/en/#art-24))
 
 ## The official excuse generator
 

@@ -3,6 +3,19 @@
   "outputDirectory": "public",
   "cleanUrls": true,
   "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "dordecod.vercel.app"
+        }
+      ],
+      "destination": "https://www.dordecod.ro/:path*",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -69,7 +82,7 @@
         },
         {
           "key": "Link",
-          "value": "<https://dordecod.vercel.app/>; rel=\"canonical\""
+          "value": "<https://www.dordecod.ro/>; rel=\"canonical\""
         }
       ]
     },
@@ -82,7 +95,7 @@
         },
         {
           "key": "Link",
-          "value": "<https://dordecod.vercel.app/en/>; rel=\"canonical\""
+          "value": "<https://www.dordecod.ro/en/>; rel=\"canonical\""
         }
       ]
     },
