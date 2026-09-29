@@ -76,6 +76,7 @@ C = {
     'hero.note': ('Fără formulare. Fără cookies. Fără recruiteri cu „hi dear”. Promis.', 'No forms. No cookies. No recruiters opening with “hi dear”. Promise.'),
     'fish.alt': ('Un cod (pește) cusut în cruciulițe roșii și bleumarin, mascota Dor de codul românesc',
                  'A cross-stitched cod fish in red and navy, the Dor de codul românesc mascot'),
+    'fish.pet': ('Mângâie codul, mascota cusută în cruciulițe', 'Pet the cod, our cross-stitched mascot'),
     'why.title': ('Ce-i cu dorul ăsta?', "What's with the dor?"),
     'why.p1': ('România a exportat în ultimii 20 de ani mai mulți developeri decât își poate aminti cineva. Unii au plecat la Zürich, alții la Berlin, alții doar pe un Slack cu fus orar din California. Toți au rămas cu același reflex: când merge, zic „lasă că merge”. Când nu merge, zic „se rezolvă”.',
                "Over the last twenty years Romania has exported more developers than anyone can count. Some went to Zürich, some to Berlin, some only as far as a Slack channel on California time. All of them kept the same reflex: when it works, they say „lasă că merge” (leave it, it works). When it doesn't, they say „se rezolvă” (it'll get sorted)."),
@@ -124,6 +125,21 @@ C = {
     '404.p': ('Pagina asta a mers local. Pe producție, se rezolvă.', 'This page worked locally. In production, se rezolvă (it will get sorted).'),
     '404.back': ('Înapoi la Cod', 'Back to the Code'),
 }
+
+FISH_LINES = [
+    ('Blub. Se rezolvă.', 'Blub. „Se rezolvă” (it’ll get sorted).'),
+    ('La mine în acvariu merge.', 'Works on my tank.'),
+    ('Nu-s bug. Sunt feature.', 'I’m not a bug. I’m a feature.'),
+    ('Ai dat push vineri? Blub.', 'Did you push on a Friday? Blub.'),
+    ('Sunt cod, nu code review.', 'I’m a cod, not a code review.'),
+    ('Hai că-i simplu. Blub blub.', 'Easy one. Three sprints. Blub.'),
+    ('Estimez… două ore.', 'Estimate: two hours. Fish hours.'),
+    ('Merge și așa.', '„Merge și așa.” Ship it.'),
+    ('Am dor de cod. Tu?', 'I have dor de cod. You?'),
+    ('Nu mă refactoriza, te rog.', 'Please don’t refactor me.'),
+]
+FISH_10 = ('Zece mângâieri. Mai multă atenție decât a primit PR-ul tău.', 'Ten pets. More attention than your PR got.')
+
 
 ORIG_ARTS = [
     ('Orice bug se manifestă exclusiv în producție, vineri, după 17:00.', 'Every bug manifests exclusively in production, on a Friday, after 5 pm.'),
@@ -180,6 +196,23 @@ def fish_paths(fill=None):
 
 
 FISH_SYMBOL = f'<svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false"><symbol id="fish" viewBox="0 0 312 156">{fish_paths()}</symbol></svg>'
+
+
+def fish_live(label, interactive=True):
+    """Inline hero fish with animatable parts: the tail (x >= 264, pivot 264,78) and the eye."""
+    import re
+    parts = {'body': {'k': [], 'r': [], 'w': []}, 'tail': {'k': [], 'r': [], 'w': []}, 'eye': {'k': [], 'r': [], 'w': []}}
+    for c, x, y in re.findall(r'class="([krw])" x="(\d+)" y="(\d+)"', FISH):
+        part = 'tail' if int(x) >= 264 else 'eye' if (c, x, y) == ('w', '48', '72') else 'body'
+        parts[part][c].append(f'M{x} {y}h12v12h-12z')
+    groups = ''.join(f'<g class="f-{name}">' + ''.join(f'<path class="{c}" d="{"".join(v)}"/>' for c, v in cols.items() if v) + '</g>'
+                     for name, cols in parts.items())
+    svg = f'<svg viewBox="0 0 312 156" width="312" height="156" aria-hidden="true" focusable="false" shape-rendering="crispEdges">{groups}</svg>'
+    bubbles = '<span class="bubble" aria-hidden="true"></span>' * 3
+    if interactive:
+        return (f'<div class="fish fish-wrap"><button class="fishy" type="button" data-fish aria-label="{attr(label)}">{svg}{bubbles}</button>'
+                f'<p class="say" data-fish-say aria-live="polite"></p></div>')
+    return f'<div class="fish fish-wrap"><div class="fishy" role="img" aria-label="{attr(label)}">{svg}{bubbles}</div></div>'
 
 
 def fish_svg(cls, label=None):
@@ -352,7 +385,8 @@ def page(L):
     reviews = '\n'.join(
         f'        <figure class="review" id="review-{n}"><div class="stars" aria-hidden="true">★★★★★</div><blockquote>{q[ix]}</blockquote><figcaption>— {b[ix]}</figcaption></figure>'
         for n, (q, b) in enumerate(REVIEWS, 1))
-    cfg = json.dumps({'copy': t('cod.copy'), 'copied': t('cod.copied'), 'win': t('bingo.win')}, ensure_ascii=False).replace('</', '<\\/')
+    cfg = json.dumps({'copy': t('cod.copy'), 'copied': t('cod.copied'), 'win': t('bingo.win'),
+                      'fish': [f[ix] for f in FISH_LINES], 'fish10': FISH_10[ix]}, ensure_ascii=False).replace('</', '<\\/')
     modified_h = format_date(MODIFIED, L)
 
     return head(L, t('title'), t('desc'), url(L), ld=jsonld(L)) + mark_romanian(L, f'''
@@ -373,7 +407,7 @@ def page(L):
         </div>
         <p class="fine">{t('hero.note')} {t('hero.by')} <a href="{AUTHOR['url']}" rel="author">{AUTHOR['name']}</a>.</p>
       </div>
-      {fish_svg('fish', strip_tags(t('fish.alt')))}
+      {fish_live(strip_tags(t('fish.pet')))}
     </div>
   </div>
 
@@ -533,7 +567,9 @@ def mark_romanian(L, body):
     import re
     if L != 'en':
         return body
-    body = re.sub(r'(?<![\w"])„([^”<]{1,80})”', r'<span lang="ro">„\1”</span>', body)
+    parts = re.split(r'(<script\b.*?</script>)', body, flags=re.S)  # never touch script contents (JSON config)
+    body = ''.join(p if p.startswith('<script') else re.sub(r'(?<![\w"])„([^”<]{1,80})”', r'<span lang="ro">„\1”</span>', p)
+                   for p in parts)
     return body.replace('<div class="ln"><span class="h">', '<div class="ln" lang="ro"><span class="h">')
 
 
@@ -562,6 +598,27 @@ SCRIPT = r'''(function(){
     while (next === idx) next = Math.floor(Math.random() * excuses.length);
     idx = next; excuseEl.innerHTML = excuses[idx];
   });
+
+  // The cod: click for a spin and a line; every 10th pet throws a party
+  var fishBtn = document.querySelector('[data-fish]'), say = document.querySelector('[data-fish-say]');
+  var pets = 0, lastLine = -1, sayTimer;
+  if (fishBtn && say) {
+    fishBtn.addEventListener('click', function(){
+      pets++;
+      var party = pets % 10 === 0, line = lastLine;
+      while (line === lastLine) line = Math.floor(Math.random() * CFG.fish.length);
+      lastLine = line;
+      fishBtn.classList.remove('spin', 'party');
+      void fishBtn.offsetWidth;  // restart the animation on rapid clicks
+      fishBtn.classList.add(party ? 'party' : 'spin');
+      say.textContent = party ? CFG.fish10 : CFG.fish[line];
+      clearTimeout(sayTimer);
+      sayTimer = setTimeout(function(){ say.textContent = ''; }, party ? 4000 : 2600);
+    });
+    fishBtn.addEventListener('animationend', function(e){
+      if (e.animationName === 'fish-spin' || e.animationName === 'fish-party') fishBtn.classList.remove('spin', 'party');
+    });
+  }
 
   // Standup bingo (nothing is stored)
   var grid = document.querySelector('.bingo');
@@ -620,7 +677,7 @@ def page_404():
     <p class="lead" lang="ro">{C['404.p'][0]}</p>
     <p class="lead" lang="en">{C['404.p'][1]}</p>
     <div class="ctas"><a class="btn" href="/#codul">{C['404.back'][0]}</a><a class="btn ghost" href="/en/#codul" lang="en">{C['404.back'][1]}</a></div>
-  </div>{fish_svg('fish', strip_tags(C['fish.alt'][0]))}</div></div>
+  </div>{fish_live(strip_tags(C['fish.alt'][0]), interactive=False)}</div></div>
 </main>
 </body>
 </html>
@@ -897,6 +954,8 @@ def check():
     for L in ('ro', 'en'):
         h = (OUT / LANGS[L]['path'].lstrip('/') / 'index.html').read_text()
         ld = json.loads(re.search(r'<script type="application/ld\+json">(.*?)</script>', h, re.S).group(1))
+        cfg = json.loads(re.search(r'<script type="application/json" id="cfg">(.*?)</script>', h, re.S).group(1))
+        assert cfg['fish'] and cfg['fish10'], f'{L}: fish config missing'
         canon = re.search(r'<link rel="canonical" href="([^"]+)"', h).group(1)
         assert canon == url(L) and f'<loc>{canon}</loc>' in sm, f'{L}: canonical/sitemap mismatch'
         assert re.search(r'<meta property="og:url" content="([^"]+)"', h).group(1) == canon, f'{L}: og:url != canonical'

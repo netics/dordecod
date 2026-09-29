@@ -24,6 +24,27 @@
     idx = next; excuseEl.innerHTML = excuses[idx];
   });
 
+  // The cod: click for a spin and a line; every 10th pet throws a party
+  var fishBtn = document.querySelector('[data-fish]'), say = document.querySelector('[data-fish-say]');
+  var pets = 0, lastLine = -1, sayTimer;
+  if (fishBtn && say) {
+    fishBtn.addEventListener('click', function(){
+      pets++;
+      var party = pets % 10 === 0, line = lastLine;
+      while (line === lastLine) line = Math.floor(Math.random() * CFG.fish.length);
+      lastLine = line;
+      fishBtn.classList.remove('spin', 'party');
+      void fishBtn.offsetWidth;  // restart the animation on rapid clicks
+      fishBtn.classList.add(party ? 'party' : 'spin');
+      say.textContent = party ? CFG.fish10 : CFG.fish[line];
+      clearTimeout(sayTimer);
+      sayTimer = setTimeout(function(){ say.textContent = ''; }, party ? 4000 : 2600);
+    });
+    fishBtn.addEventListener('animationend', function(e){
+      if (e.animationName === 'fish-spin' || e.animationName === 'fish-party') fishBtn.classList.remove('spin', 'party');
+    });
+  }
+
   // Standup bingo (nothing is stored)
   var grid = document.querySelector('.bingo');
   var cells = Array.prototype.slice.call(document.querySelectorAll('.bingo button'));
